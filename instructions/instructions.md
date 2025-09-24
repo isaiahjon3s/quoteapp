@@ -1,0 +1,1 @@
+This app is becoming a quotes app, users will share quotes and view others quotes on a main screen, in addition users will have profiles and can click on other's profiles to see their quotes
