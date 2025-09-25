@@ -14,10 +14,7 @@ struct WorkoutDetailView: View {
     @State private var isEditing = false
     
     var body: some View {
-        ZStack {
-            LiquidGlassBackground()
-                .ignoresSafeArea()
-            
+        LiquidGlassBackground {
             ScrollView {
                 VStack(spacing: 20) {
                     // Workout Header
@@ -48,8 +45,7 @@ struct WorkoutDetailView: View {
                     .padding(.bottom, 100)
                 }
             }
-        }
-        .navigationTitle(workout.name)
+            .navigationTitle(workout.name)
         .navigationBarTitleDisplayMode(.large)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
@@ -104,7 +100,7 @@ struct WorkoutHeaderCard: View {
                     
                     StatItem(
                         title: "Duration",
-                        value: formatDuration(workout.totalDuration),
+                        value: WorkoutDetailView.formatDuration(workout.totalDuration),
                         icon: "clock"
                     )
                     
@@ -263,25 +259,10 @@ struct StatItem: View {
 
 // MARK: - Helper Functions
 
-private func formatDuration(_ duration: TimeInterval) -> String {
+private static func formatDuration(_ duration: TimeInterval) -> String {
     let minutes = Int(duration) / 60
     let seconds = Int(duration) % 60
     return "\(minutes):\(String(format: "%02d", seconds))"
 }
 
-#Preview {
-    NavigationView {
-        WorkoutDetailView(
-            workout: Workout(
-                name: "Morning Strength",
-                exercises: [
-                    Exercise(name: "Push-ups", sets: [
-                        ExerciseSet(reps: 15, weight: 0),
-                        ExerciseSet(reps: 12, weight: 0)
-                    ])
-                ]
-            ),
-            dataManager: WorkoutDataManager()
-        )
-    }
 }

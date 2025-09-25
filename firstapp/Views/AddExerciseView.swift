@@ -19,10 +19,7 @@ struct AddExerciseView: View {
     
     var body: some View {
         NavigationView {
-            ZStack {
-                LiquidGlassBackground()
-                    .ignoresSafeArea()
-                
+            LiquidGlassBackground {
                 ScrollView {
                     VStack(spacing: 20) {
                         // Exercise Details
@@ -57,13 +54,13 @@ struct AddExerciseView: View {
                     .padding(.top, 8)
                 }
             }
-            .navigationTitle("New Exercise")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button("Cancel") {
-                        dismiss()
-                    }
+        }
+        .navigationTitle("New Exercise")
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button("Cancel") {
+                    dismiss()
                 }
             }
         }
@@ -90,7 +87,6 @@ struct AddExerciseView: View {
         onSave(exercise)
         dismiss()
     }
-}
 
 // MARK: - Exercise Details Card
 
@@ -303,6 +299,8 @@ struct SetConfigurationRow: View {
         .padding(.vertical, 8)
         .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 8))
     }
+}
+
 }
 
 #Preview {

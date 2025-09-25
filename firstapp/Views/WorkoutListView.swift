@@ -29,10 +29,7 @@ struct WorkoutListView: View {
     
     var body: some View {
         NavigationView {
-            ZStack {
-                LiquidGlassBackground()
-                    .ignoresSafeArea()
-                
+            LiquidGlassBackground {
                 VStack(spacing: 0) {
                     // Header with Stats
                     WorkoutStatsHeader(stats: dataManager.getWorkoutStats())
@@ -249,7 +246,6 @@ struct WorkoutCard: View {
                 if !workout.exercises.isEmpty {
                     LiquidGlassProgressBar(
                         progress: 0.7, // This would be calculated based on completion
-                        color: workout.category.color,
                         height: 6
                     )
                 }

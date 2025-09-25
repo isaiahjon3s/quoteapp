@@ -12,13 +12,14 @@ struct ContentView: View {
     
     var body: some View {
         LiquidGlassTabView(
+            selectedTab: selectedTab,
+            onTabSelected: { selectedTab = $0 },
             tabs: [
                 LiquidGlassTabView.TabItem(title: "Feed", icon: "quote.bubble.fill"),
                 LiquidGlassTabView.TabItem(title: "Profile", icon: "person.fill")
-            ],
-            selectedTab: $selectedTab
-        ) { tabIndex in
-            switch tabIndex {
+            ]
+        ) {
+            switch selectedTab {
             case 0:
                 QuoteFeedView()
             case 1:
@@ -38,8 +39,7 @@ private struct MyProfileRootView: View {
             if let me = dataManager.currentUser {
                 ProfileQuotesView(profile: me, dataManager: dataManager)
             } else {
-                ZStack {
-                    LiquidGlassBackground().ignoresSafeArea()
+                LiquidGlassBackground {
                     Text("No profile available")
                         .foregroundColor(.secondary)
                 }

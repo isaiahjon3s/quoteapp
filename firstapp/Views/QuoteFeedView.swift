@@ -32,8 +32,7 @@ struct QuoteFeedView: View {
     
     var body: some View {
         NavigationView {
-            ZStack {
-                LiquidGlassBackground().ignoresSafeArea()
+            LiquidGlassBackground {
                 VStack(spacing: 0) {
                     FeedHeader(currentUser: dataManager.currentUser)
                         .padding(.horizontal)
@@ -72,8 +71,8 @@ struct QuoteFeedView: View {
                         .padding(.bottom, 100)
                     }
                 }
+                .navigationTitle("Quotes")
             }
-            .navigationTitle("Quotes")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: { showingAdd = true }) {
