@@ -29,10 +29,7 @@ struct EditWorkoutView: View {
     
     var body: some View {
         NavigationView {
-            ZStack {
-                LiquidGlassBackground()
-                    .ignoresSafeArea()
-                
+            LiquidGlassBackground {
                 ScrollView {
                     VStack(spacing: 20) {
                         // Workout Details
@@ -66,19 +63,19 @@ struct EditWorkoutView: View {
                     .padding(.horizontal)
                     .padding(.top, 8)
                 }
-            }
-            .navigationTitle("Edit Workout")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button("Cancel") {
-                        dismiss()
+                .navigationTitle("Edit Workout")
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button("Cancel") {
+                            dismiss()
+                        }
                     }
                 }
-            }
-            .sheet(isPresented: $showingAddExercise) {
-                AddExerciseView { exercise in
-                    exercises.append(exercise)
+                .sheet(isPresented: $showingAddExercise) {
+                    AddExerciseView { exercise in
+                        exercises.append(exercise)
+                    }
                 }
             }
         }

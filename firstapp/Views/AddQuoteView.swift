@@ -17,8 +17,7 @@ struct AddQuoteView: View {
     
     var body: some View {
         NavigationView {
-            ZStack {
-                LiquidGlassBackground().ignoresSafeArea()
+            LiquidGlassBackground {
                 ScrollView {
                     VStack(spacing: 16) {
                         LiquidGlassCard {
@@ -59,12 +58,12 @@ struct AddQuoteView: View {
                     .padding(.horizontal)
                     .padding(.top, 8)
                 }
-            }
-            .navigationTitle("New Quote")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button("Cancel") { dismiss() }
+                .navigationTitle("New Quote")
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button("Cancel") { dismiss() }
+                    }
                 }
             }
         }

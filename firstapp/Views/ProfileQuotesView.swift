@@ -15,8 +15,7 @@ struct ProfileQuotesView: View {
     private var userQuotes: [Quote] { dataManager.quotesForUser(profile.id) }
     
     var body: some View {
-        ZStack {
-            LiquidGlassBackground().ignoresSafeArea()
+        LiquidGlassBackground {
             ScrollView {
                 VStack(spacing: 16) {
                     ProfileHeader(profile: profile, isCurrentUser: dataManager.currentUser?.id == profile.id) {
@@ -33,8 +32,7 @@ struct ProfileQuotesView: View {
                 }
                 .padding(.bottom, 100)
             }
-        }
-        .navigationTitle(profile.displayName)
+            .navigationTitle(profile.displayName)
         .navigationBarTitleDisplayMode(.inline)
         .sheet(isPresented: $showingEdit) {
             if let current = dataManager.currentUser, current.id == profile.id {
@@ -94,8 +92,7 @@ struct EditProfileView: View {
     
     var body: some View {
         NavigationView {
-            ZStack {
-                LiquidGlassBackground().ignoresSafeArea()
+            LiquidGlassBackground {
                 ScrollView {
                     VStack(spacing: 16) {
                         LiquidGlassCard {
@@ -131,13 +128,13 @@ struct EditProfileView: View {
                     .padding(.horizontal)
                     .padding(.top, 8)
                 }
-            }
-            .navigationTitle("Edit Profile")
+                .navigationTitle("Edit Profile")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button("Cancel") { dismiss() }
                 }
+            }
             }
         }
         .onAppear {
@@ -150,7 +147,4 @@ struct EditProfileView: View {
     }
 }
 
-#Preview {
-    ProfileQuotesView(profile: UserProfile(username: "user", displayName: "User"), dataManager: QuoteDataManager())
 }
-

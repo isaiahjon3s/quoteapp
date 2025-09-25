@@ -43,10 +43,7 @@ struct WorkoutSessionView: View {
     }
     
     var body: some View {
-        ZStack {
-            LiquidGlassBackground()
-                .ignoresSafeArea()
-            
+        LiquidGlassBackground {
             VStack(spacing: 0) {
                 // Header
                 WorkoutSessionHeader(
@@ -204,11 +201,10 @@ struct WorkoutSessionHeader: View {
                         .foregroundColor(.blue)
                 }
                 
-                LiquidGlassProgressBar(
-                    progress: progress,
-                    color: .blue,
-                    height: 8
-                )
+                    LiquidGlassProgressBar(
+                        progress: progress,
+                        height: 8
+                    )
             }
         }
         .padding(.horizontal)
@@ -391,7 +387,6 @@ struct ExerciseProgressCard: View {
                 
                 LiquidGlassProgressBar(
                     progress: progress,
-                    color: .blue,
                     height: 6
                 )
                 
