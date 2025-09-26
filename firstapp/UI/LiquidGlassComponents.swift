@@ -15,6 +15,9 @@ struct LiquidGlassCard<Content: View>: View {
     let cornerRadius: CGFloat
     let padding: CGFloat
     let isInteractive: Bool
+    let blur: CGFloat
+    let reflection: CGFloat
+    let motionSensitivity: CGFloat
     
     @State private var isPressed = false
     
@@ -22,11 +25,17 @@ struct LiquidGlassCard<Content: View>: View {
         cornerRadius: CGFloat = 28,
         padding: CGFloat = 24,
         isInteractive: Bool = false,
+        blur: CGFloat = 0.7,
+        reflection: CGFloat = 0.4,
+        motionSensitivity: CGFloat = 0.6,
         @ViewBuilder content: () -> Content
     ) {
         self.cornerRadius = cornerRadius
         self.padding = padding
         self.isInteractive = isInteractive
+        self.blur = blur
+        self.reflection = reflection
+        self.motionSensitivity = motionSensitivity
         self.content = content()
     }
     
@@ -53,6 +62,7 @@ struct LiquidGlassCard<Content: View>: View {
                         isPressed = false
                     } : nil
             )
+            .liquidGlass(blur: blur, reflection: reflection, motionSensitivity: motionSensitivity)
     }
 }
 
@@ -63,6 +73,9 @@ struct LiquidGlassButton: View {
     let action: () -> Void
     let style: ButtonStyle
     let size: ButtonSize
+    let blur: CGFloat
+    let reflection: CGFloat
+    let motionSensitivity: CGFloat
     
     @State private var isPressed = false
     
@@ -109,12 +122,18 @@ struct LiquidGlassButton: View {
         icon: String? = nil,
         style: ButtonStyle = .primary,
         size: ButtonSize = .medium,
+        blur: CGFloat = 0.7,
+        reflection: CGFloat = 0.4,
+        motionSensitivity: CGFloat = 0.6,
         action: @escaping () -> Void
     ) {
         self.title = title
         self.icon = icon
         self.style = style
         self.size = size
+        self.blur = blur
+        self.reflection = reflection
+        self.motionSensitivity = motionSensitivity
         self.action = action
     }
     
@@ -144,6 +163,7 @@ struct LiquidGlassButton: View {
         .onLongPressGesture(minimumDuration: 0, maximumDistance: .infinity, pressing: { pressing in
             isPressed = pressing
         }, perform: {})
+        .liquidGlass(blur: blur, reflection: reflection, motionSensitivity: motionSensitivity)
     }
     
     private var textColor: Color {
@@ -163,6 +183,9 @@ struct LiquidGlassTextField: View {
     let placeholder: String
     let icon: String?
     let isSecure: Bool
+    let blur: CGFloat
+    let reflection: CGFloat
+    let motionSensitivity: CGFloat
     
     @State private var isFocused = false
     @FocusState private var isTextFieldFocused: Bool
@@ -171,12 +194,18 @@ struct LiquidGlassTextField: View {
         _ placeholder: String,
         text: Binding<String>,
         icon: String? = nil,
-        isSecure: Bool = false
+        isSecure: Bool = false,
+        blur: CGFloat = 0.7,
+        reflection: CGFloat = 0.4,
+        motionSensitivity: CGFloat = 0.6
     ) {
         self.placeholder = placeholder
         self._text = text
         self.icon = icon
         self.isSecure = isSecure
+        self.blur = blur
+        self.reflection = reflection
+        self.motionSensitivity = motionSensitivity
     }
     
     var body: some View {
@@ -221,6 +250,7 @@ struct LiquidGlassTextField: View {
                 isFocused = newValue
             }
         }
+        .liquidGlass(blur: blur, reflection: reflection, motionSensitivity: motionSensitivity)
     }
 }
 
@@ -229,15 +259,24 @@ struct LiquidGlassProgressBar: View {
     let progress: Double
     let height: CGFloat
     let cornerRadius: CGFloat
+    let blur: CGFloat
+    let reflection: CGFloat
+    let motionSensitivity: CGFloat
     
     init(
         progress: Double,
         height: CGFloat = 8,
-        cornerRadius: CGFloat = 4
+        cornerRadius: CGFloat = 4,
+        blur: CGFloat = 0.7,
+        reflection: CGFloat = 0.4,
+        motionSensitivity: CGFloat = 0.6
     ) {
         self.progress = progress
         self.height = height
         self.cornerRadius = cornerRadius
+        self.blur = blur
+        self.reflection = reflection
+        self.motionSensitivity = motionSensitivity
     }
     
     var body: some View {
@@ -261,6 +300,7 @@ struct LiquidGlassProgressBar: View {
             }
         }
         .frame(height: height)
+        .liquidGlass(blur: blur, reflection: reflection, motionSensitivity: motionSensitivity)
     }
 }
 
@@ -270,6 +310,9 @@ struct LiquidGlassTabView<Content: View>: View {
     let selectedTab: Int
     let onTabSelected: (Int) -> Void
     let tabs: [TabItem]
+    let blur: CGFloat
+    let reflection: CGFloat
+    let motionSensitivity: CGFloat
     
     struct TabItem {
         let title: String
@@ -280,11 +323,17 @@ struct LiquidGlassTabView<Content: View>: View {
         selectedTab: Int,
         onTabSelected: @escaping (Int) -> Void,
         tabs: [TabItem],
+        blur: CGFloat = 0.7,
+        reflection: CGFloat = 0.4,
+        motionSensitivity: CGFloat = 0.6,
         @ViewBuilder content: () -> Content
     ) {
         self.selectedTab = selectedTab
         self.onTabSelected = onTabSelected
         self.tabs = tabs
+        self.blur = blur
+        self.reflection = reflection
+        self.motionSensitivity = motionSensitivity
         self.content = content()
     }
     
@@ -335,6 +384,7 @@ struct LiquidGlassTabView<Content: View>: View {
             .padding(.horizontal, 16)
             .padding(.bottom, 8)
         }
+        .liquidGlass(blur: blur, reflection: reflection, motionSensitivity: motionSensitivity)
     }
 }
 
@@ -342,11 +392,17 @@ struct LiquidGlassTabView<Content: View>: View {
 struct LiquidGlassBackground<Content: View>: View {
     let content: Content
     let shouldAnimate: Bool
+    let blur: CGFloat
+    let reflection: CGFloat
+    let motionSensitivity: CGFloat
     
     @State private var animate = false
     
-    init(animate: Bool = true, @ViewBuilder content: () -> Content) {
+    init(animate: Bool = true, blur: CGFloat = 0.7, reflection: CGFloat = 0.4, motionSensitivity: CGFloat = 0.6, @ViewBuilder content: () -> Content) {
         self.shouldAnimate = animate
+        self.blur = blur
+        self.reflection = reflection
+        self.motionSensitivity = motionSensitivity
         self.content = content()
     }
     
@@ -400,6 +456,7 @@ struct LiquidGlassBackground<Content: View>: View {
                 self.animate = true
             }
         }
+        .liquidGlass(blur: blur, reflection: reflection, motionSensitivity: motionSensitivity)
     }
 }
 
@@ -407,12 +464,18 @@ struct LiquidGlassBackground<Content: View>: View {
 struct LiquidGlassFAB: View {
     let icon: String
     let action: () -> Void
+    let blur: CGFloat
+    let reflection: CGFloat
+    let motionSensitivity: CGFloat
     
     @State private var isPressed = false
     
-    init(icon: String, action: @escaping () -> Void) {
+    init(icon: String, action: @escaping () -> Void, blur: CGFloat = 0.7, reflection: CGFloat = 0.4, motionSensitivity: CGFloat = 0.6) {
         self.icon = icon
         self.action = action
+        self.blur = blur
+        self.reflection = reflection
+        self.motionSensitivity = motionSensitivity
     }
     
     var body: some View {
@@ -440,6 +503,7 @@ struct LiquidGlassFAB: View {
         .onLongPressGesture(minimumDuration: 0, maximumDistance: .infinity, pressing: { pressing in
             isPressed = pressing
         }, perform: {})
+        .liquidGlass(blur: blur, reflection: reflection, motionSensitivity: motionSensitivity)
     }
 }
 
@@ -448,14 +512,23 @@ struct LiquidGlassMenu<Content: View>: View {
     let content: Content
     let isExpanded: Bool
     let onToggle: () -> Void
+    let blur: CGFloat
+    let reflection: CGFloat
+    let motionSensitivity: CGFloat
     
     init(
         isExpanded: Bool,
         onToggle: @escaping () -> Void,
+        blur: CGFloat = 0.7,
+        reflection: CGFloat = 0.4,
+        motionSensitivity: CGFloat = 0.6,
         @ViewBuilder content: () -> Content
     ) {
         self.isExpanded = isExpanded
         self.onToggle = onToggle
+        self.blur = blur
+        self.reflection = reflection
+        self.motionSensitivity = motionSensitivity
         self.content = content()
     }
     
@@ -476,5 +549,17 @@ struct LiquidGlassMenu<Content: View>: View {
             }
         }
         .animation(.spring(response: 0.4, dampingFraction: 0.8, blendDuration: 0), value: isExpanded)
+        .liquidGlass(blur: blur, reflection: reflection, motionSensitivity: motionSensitivity)
+    }
+}
+
+extension View {
+    func liquidGlass(blur: CGFloat = 0.7, reflection: CGFloat = 0.4, motionSensitivity: CGFloat = 0.6) -> some View {
+        self
+            .background(.regularMaterial)
+            .blur(radius: blur * 5)
+            .overlay(Color.white.opacity(reflection * 0.2)) // Simulate reflection
+            .animation(.spring(response: motionSensitivity, dampingFraction: 0.7), value: motionSensitivity) // Simulate motion with spring animation
+            // Note: In actual iOS 26, this would use native .liquidGlass APIs with CoreMotion integration
     }
 }
