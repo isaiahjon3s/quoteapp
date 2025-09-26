@@ -48,6 +48,68 @@ final class QuoteDataManager: ObservableObject {
         quotes[index] = updated
         saveQuotes()
     }
+
+    func toggleBookmark(_ quote: Quote) {
+        guard let user = currentUser else { return }
+        guard let index = quotes.firstIndex(where: { $0.id == quote.id }) else { return }
+        var updated = quotes[index]
+        if let bookmarkIndex = updated.bookmarkUserIds.firstIndex(of: user.id) {
+            updated.bookmarkUserIds.remove(at: bookmarkIndex)
+        } else {
+            updated.bookmarkUserIds.append(user.id)
+        }
+        quotes[index] = updated
+        saveQuotes()
+    }
+
+    func toggleFavoriteAuthor(_ author: UserProfile) {
+        guard var user = currentUser, let index = profiles.firstIndex(where: { $0.id == user.id }) else { return }
+        if user.favoriteAuthorIds.contains(author.id) {
+            user.favoriteAuthorIds.removeAll { $0 == author.id }
+        } else {
+            user.favoriteAuthorIds.append(author.id)
+        }
+        profiles[index] = user
+        currentUser = user
+        saveProfiles()
+    }
+
+    func isFavoriteAuthor(_ authorId: UUID) -> Bool {
+        currentUser?.favoriteAuthorIds.contains(authorId) ?? false
+    }
+
+    func isQuoteLiked(_ quote: Quote, by user: UserProfile? = nil) -> Bool {
+        guard let user = user ?? currentUser else { return false }
+        return quote.likeUserIds.contains(user.id)
+    }
+
+    func isQuoteBookmarked(_ quote: Quote, by user: UserProfile? = nil) -> Bool {
+        guard let user = user ?? currentUser else { return false }
+        return quote.bookmarkUserIds.contains(user.id)
+    }
+
+    func favoriteQuotes(for user: UserProfile? = nil) -> [Quote] {
+        let current = user ?? currentUser
+        guard let user = current else { return [] }
+        return quotes.filter { $0.bookmarkUserIds.contains(user.id) }
+    }
+    
+    func dailyInspirationQuote() -> Quote? {
+        quotes.sorted { $0.createdAt > $1.createdAt }.first
+    }
+    
+    func tagStats() -> [QuoteTagStat] {
+        let counts = Dictionary(grouping: quotes.flatMap { $0.tags }, by: { $0 })
+            .mapValues { $0.count }
+        return counts.map { QuoteTagStat(tag: $0.key, count: $0.value) }
+            .sorted { $0.count > $1.count }
+    }
+
+    func trendingQuotes(limit: Int = 5) -> [Quote] {
+        quotes.sorted { $0.likeCount + $0.bookmarkCount > $1.likeCount + $1.bookmarkCount }
+            .prefix(limit)
+            .map { $0 }
+    }
     
     func quotesForUser(_ userId: UUID) -> [Quote] {
         quotes.filter { $0.authorId == userId }

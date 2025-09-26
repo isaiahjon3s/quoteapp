@@ -11,7 +11,7 @@ import SwiftUI
 // MARK: - Workout Data Models
 
 struct Workout: Identifiable, Codable {
-    let id = UUID()
+    var id: UUID
     var name: String
     var exercises: [Exercise]
     var dateCreated: Date
@@ -20,57 +20,100 @@ struct Workout: Identifiable, Codable {
     var difficulty: Difficulty
     var category: WorkoutCategory
     
-    init(name: String, exercises: [Exercise] = [], category: WorkoutCategory = .strength) {
+    init(
+        id: UUID = UUID(),
+        name: String,
+        exercises: [Exercise] = [],
+        category: WorkoutCategory = .strength,
+        difficulty: Difficulty = .beginner,
+        totalDuration: TimeInterval = 0,
+        dateCreated: Date = Date(),
+        lastPerformed: Date? = nil
+    ) {
+        self.id = id
         self.name = name
         self.exercises = exercises
-        self.dateCreated = Date()
-        self.lastPerformed = nil
-        self.totalDuration = 0
-        self.difficulty = .beginner
+        self.dateCreated = dateCreated
+        self.lastPerformed = lastPerformed
+        self.totalDuration = totalDuration
+        self.difficulty = difficulty
         self.category = category
     }
 }
 
 struct Exercise: Identifiable, Codable {
-    let id = UUID()
+    var id: UUID
     var name: String
     var sets: [ExerciseSet]
     var restTime: TimeInterval
     var notes: String
     var category: ExerciseCategory
     
-    init(name: String, sets: [ExerciseSet] = [], restTime: TimeInterval = 60, category: ExerciseCategory = .strength) {
+    init(
+        id: UUID = UUID(),
+        name: String,
+        sets: [ExerciseSet] = [],
+        restTime: TimeInterval = 60,
+        notes: String = "",
+        category: ExerciseCategory = .strength
+    ) {
+        self.id = id
         self.name = name
         self.sets = sets
         self.restTime = restTime
-        self.notes = ""
+        self.notes = notes
         self.category = category
     }
 }
 
 struct ExerciseSet: Identifiable, Codable {
-    let id = UUID()
+    var id: UUID
     var reps: Int
     var weight: Double
     var duration: TimeInterval? // For time-based exercises
     var isCompleted: Bool
     
-    init(reps: Int = 0, weight: Double = 0, duration: TimeInterval? = nil) {
+    init(
+        id: UUID = UUID(),
+        reps: Int = 0,
+        weight: Double = 0,
+        duration: TimeInterval? = nil,
+        isCompleted: Bool = false
+    ) {
+        self.id = id
         self.reps = reps
         self.weight = weight
         self.duration = duration
-        self.isCompleted = false
+        self.isCompleted = isCompleted
     }
 }
 
 struct WorkoutSession: Identifiable, Codable {
-    let id = UUID()
+    var id: UUID
     var workout: Workout
     var startTime: Date
     var endTime: Date?
     var completedExercises: [Exercise]
     var totalCalories: Int
     var notes: String
+
+    init(
+        id: UUID = UUID(),
+        workout: Workout,
+        startTime: Date = Date(),
+        endTime: Date? = nil,
+        completedExercises: [Exercise] = [],
+        totalCalories: Int = 0,
+        notes: String = ""
+    ) {
+        self.id = id
+        self.workout = workout
+        self.startTime = startTime
+        self.endTime = endTime
+        self.completedExercises = completedExercises
+        self.totalCalories = totalCalories
+        self.notes = notes
+    }
     
     var duration: TimeInterval {
         guard let endTime = endTime else { return 0 }

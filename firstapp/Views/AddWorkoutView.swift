@@ -16,6 +16,7 @@ struct AddWorkoutView: View {
     @State private var selectedDifficulty: Difficulty = .beginner
     @State private var exercises: [Exercise] = []
     @State private var showingAddExercise = false
+    @State private var estimatedDuration: Double = 30
     
     var body: some View {
         NavigationView {
@@ -26,7 +27,8 @@ struct AddWorkoutView: View {
                         WorkoutDetailsCard(
                             name: $workoutName,
                             category: $selectedCategory,
-                            difficulty: $selectedDifficulty
+                            difficulty: $selectedDifficulty,
+                            estimatedDuration: $estimatedDuration
                         )
                         
                         // Exercises List
@@ -83,7 +85,9 @@ struct AddWorkoutView: View {
         let workout = Workout(
             name: workoutName,
             exercises: exercises,
-            category: selectedCategory
+            category: selectedCategory,
+            difficulty: selectedDifficulty,
+            totalDuration: estimatedDuration * 60
         )
         
         dataManager.addWorkout(workout)
@@ -97,6 +101,7 @@ struct WorkoutDetailsCard: View {
     @Binding var name: String
     @Binding var category: WorkoutCategory
     @Binding var difficulty: Difficulty
+    @Binding var estimatedDuration: Double
     
     var body: some View {
         LiquidGlassCard {
@@ -130,7 +135,7 @@ struct WorkoutDetailsCard: View {
                         }
                     }
                     
-                    VStack(alignment: .leading, spacing: 8) {
+                    VStack(alignment: .leading, spacing: 12) {
                         Text("Difficulty")
                             .font(.subheadline.weight(.medium))
                             .foregroundColor(.primary)
@@ -146,6 +151,16 @@ struct WorkoutDetailsCard: View {
                         }
                     }
                 }
+                
+                LiquidGlassSlider(
+                    label: "Estimated Duration",
+                    value: $estimatedDuration,
+                    range: 10...180,
+                    step: 5,
+                    leadingIcon: "timer",
+                    unit: " min",
+                    accent: .green
+                )
             }
         }
     }

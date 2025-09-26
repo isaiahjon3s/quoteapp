@@ -12,8 +12,9 @@ struct WorkoutListView: View {
     @State private var selectedCategory: WorkoutCategory? = nil
     @State private var showingAddWorkout = false
     @State private var searchText = ""
+    @State private var minDuration: Double = 0
     
-    var filteredWorkouts: [Workout] {
+    private var filteredWorkouts: [Workout] {
         var workouts = dataManager.workouts
         
         if let category = selectedCategory {
@@ -24,7 +25,22 @@ struct WorkoutListView: View {
             workouts = workouts.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
         }
         
+        if minDuration > 0 {
+            workouts = workouts.filter { ($0.totalDuration / 60) >= minDuration }
+        }
+        
         return workouts.sorted { ($0.lastPerformed ?? $0.dateCreated) > ($1.lastPerformed ?? $1.dateCreated) }
+    }
+    
+    private var categoryTags: [String] {
+        WorkoutCategory.allCases.map { $0.rawValue }
+    }
+    
+    private var searchSuggestions: [String] {
+        var set = Set<String>()
+        dataManager.workouts.forEach { set.insert($0.name) }
+        categoryTags.forEach { set.insert($0) }
+        return Array(set).sorted()
     }
     
     var body: some View {
@@ -36,34 +52,40 @@ struct WorkoutListView: View {
                         .padding(.horizontal)
                         .padding(.top, 8)
                     
-                    // Search and Filter
-                    VStack(spacing: 12) {
-                        LiquidGlassTextField(
-                            "Search workouts...",
-                            text: $searchText,
-                            icon: "magnifyingglass"
-                        )
-                        .padding(.horizontal)
-                        
-                        ScrollView(.horizontal, showsIndicators: false) {
-                            HStack(spacing: 12) {
-                                CategoryFilterButton(
-                                    title: "All",
-                                    isSelected: selectedCategory == nil,
-                                    action: { selectedCategory = nil }
-                                )
-                                
-                                ForEach(WorkoutCategory.allCases, id: \.self) { category in
-                                    CategoryFilterButton(
-                                        title: category.rawValue,
-                                        isSelected: selectedCategory == category,
-                                        action: { selectedCategory = category }
-                                    )
-                                }
+                    // Search and Filter Menu
+                    LiquidGlassMenuBar(
+                        searchText: $searchText,
+                        threshold: $minDuration,
+                        highlightedTags: categoryTags,
+                        activeTag: selectedCategory?.rawValue,
+                        suggestions: searchSuggestions,
+                        sliderRange: 0...240,
+                        sliderStep: 5,
+                        sliderLabel: "Minimum duration",
+                        sliderIcon: "clock.badge.checkmark",
+                        sliderUnit: " min",
+                        sliderAccent: .blue,
+                        actionTitle: "New Workout",
+                        actionIcon: "plus",
+                        actionStyle: .accent,
+                        onSubmitSearch: {},
+                        onClearFilters: {
+                            searchText = ""
+                            minDuration = 0
+                            selectedCategory = nil
+                        },
+                        onCreate: {
+                            showingAddWorkout = true
+                        },
+                        onSelectTag: { tag in
+                            if let tag, let category = WorkoutCategory(rawValue: tag) {
+                                selectedCategory = category
+                            } else {
+                                selectedCategory = nil
                             }
-                            .padding(.horizontal)
                         }
-                    }
+                    )
+                    .padding(.horizontal)
                     .padding(.vertical, 12)
                     
                     // Workouts List
@@ -155,33 +177,6 @@ struct WorkoutStatsHeader: View {
                 }
             }
         }
-    }
-}
-
-// MARK: - Category Filter Button
-
-struct CategoryFilterButton: View {
-    let title: String
-    let isSelected: Bool
-    let action: () -> Void
-    
-    var body: some View {
-        Button(action: action) {
-            Text(title)
-                .font(.caption.weight(.medium))
-                .foregroundColor(isSelected ? .white : .primary)
-                .padding(.horizontal, 16)
-                .padding(.vertical, 8)
-                .background(
-                    RoundedRectangle(cornerRadius: 20)
-                        .fill(isSelected ? .blue : .blue.opacity(0.1))
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 20)
-                                .stroke(.white.opacity(0.2), lineWidth: 1)
-                        )
-                )
-        }
-        .buttonStyle(PlainButtonStyle())
     }
 }
 

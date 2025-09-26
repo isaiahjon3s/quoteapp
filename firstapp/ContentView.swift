@@ -15,8 +15,8 @@ struct ContentView: View {
             selectedTab: selectedTab,
             onTabSelected: { selectedTab = $0 },
             tabs: [
-                LiquidGlassTabView.TabItem(title: "Feed", icon: "quote.bubble.fill"),
-                LiquidGlassTabView.TabItem(title: "Profile", icon: "person.fill")
+                LiquidGlassTabView.TabItem(title: "Feed", icon: "quote.bubble.fill", accent: .cyan),
+                LiquidGlassTabView.TabItem(title: "Profile", icon: "person.fill", accent: .purple)
             ]
         ) {
             switch selectedTab {

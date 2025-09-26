@@ -15,6 +15,7 @@ struct UserProfile: Identifiable, Codable, Hashable {
     var bio: String
     var avatarSystemImageName: String
     var joinedAt: Date
+    var favoriteAuthorIds: [UUID]
     
     init(
         id: UUID = UUID(),
@@ -22,7 +23,8 @@ struct UserProfile: Identifiable, Codable, Hashable {
         displayName: String,
         bio: String = "",
         avatarSystemImageName: String = "person.circle.fill",
-        joinedAt: Date = Date()
+        joinedAt: Date = Date(),
+        favoriteAuthorIds: [UUID] = []
     ) {
         self.id = id
         self.username = username
@@ -30,6 +32,7 @@ struct UserProfile: Identifiable, Codable, Hashable {
         self.bio = bio
         self.avatarSystemImageName = avatarSystemImageName
         self.joinedAt = joinedAt
+        self.favoriteAuthorIds = favoriteAuthorIds
     }
 }
 
@@ -41,6 +44,7 @@ struct Quote: Identifiable, Codable, Hashable {
     var tags: [String]
     var createdAt: Date
     var likeUserIds: [UUID]
+    var bookmarkUserIds: [UUID]
     
     init(
         id: UUID = UUID(),
@@ -49,7 +53,8 @@ struct Quote: Identifiable, Codable, Hashable {
         text: String,
         tags: [String] = [],
         createdAt: Date = Date(),
-        likeUserIds: [UUID] = []
+        likeUserIds: [UUID] = [],
+        bookmarkUserIds: [UUID] = []
     ) {
         self.id = id
         self.authorId = authorId
@@ -58,10 +63,18 @@ struct Quote: Identifiable, Codable, Hashable {
         self.tags = tags
         self.createdAt = createdAt
         self.likeUserIds = likeUserIds
+        self.bookmarkUserIds = bookmarkUserIds
     }
 }
 
 extension Quote {
     var likeCount: Int { likeUserIds.count }
+    var bookmarkCount: Int { bookmarkUserIds.count }
+}
+
+struct QuoteTagStat: Codable, Hashable, Identifiable {
+    var id: String { tag }
+    let tag: String
+    let count: Int
 }
 

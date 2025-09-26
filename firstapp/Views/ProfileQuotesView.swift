@@ -18,15 +18,29 @@ struct ProfileQuotesView: View {
         LiquidGlassBackground {
             ScrollView {
                 VStack(spacing: 16) {
-                    ProfileHeader(profile: profile, isCurrentUser: dataManager.currentUser?.id == profile.id) {
-                        showingEdit = true
-                    }
+                    ProfileHeader(
+                        profile: profile,
+                        isCurrentUser: dataManager.currentUser?.id == profile.id,
+                        isFavorite: dataManager.isFavoriteAuthor(profile.id),
+                        quoteCount: userQuotes.count,
+                        uniqueTagCount: Set(userQuotes.flatMap { $0.tags }).count,
+                        onFavoriteToggle: {
+                            dataManager.toggleFavoriteAuthor(profile)
+                        },
+                        onEdit: {
+                            showingEdit = true
+                        }
+                    )
                     .padding(.horizontal)
                     
-                    ForEach(userQuotes) { q in
-                        QuoteCard(quote: q) {
-                            dataManager.likeQuote(q)
-                        }
+                    ForEach(userQuotes) { quote in
+                        QuoteCard(
+                            quote: quote,
+                            isLiked: dataManager.isQuoteLiked(quote),
+                            isBookmarked: dataManager.isQuoteBookmarked(quote),
+                            onLike: { dataManager.likeQuote(quote) },
+                            onBookmark: { dataManager.toggleBookmark(quote) }
+                        )
                         .padding(.horizontal)
                     }
                 }
@@ -45,40 +59,92 @@ struct ProfileQuotesView: View {
 struct ProfileHeader: View {
     let profile: UserProfile
     let isCurrentUser: Bool
+    let isFavorite: Bool
+    let quoteCount: Int
+    let uniqueTagCount: Int
+    let onFavoriteToggle: () -> Void
     let onEdit: () -> Void
     
     var body: some View {
         LiquidGlassCard {
-            HStack(alignment: .top, spacing: 16) {
-                Image(systemName: profile.avatarSystemImageName)
-                    .font(.system(size: 48))
-                    .foregroundColor(.blue)
-                    .frame(width: 60, height: 60)
-                    .background(.ultraThinMaterial, in: Circle())
-                
-                VStack(alignment: .leading, spacing: 6) {
-                    Text(profile.displayName)
-                        .font(.title3.weight(.bold))
-                    Text("@\(profile.username)")
-                        .font(.caption)
-                        .foregroundColor(.secondary)
-                    if !profile.bio.isEmpty {
-                        Text(profile.bio)
-                            .font(.subheadline)
-                            .foregroundColor(.primary)
+            VStack(alignment: .leading, spacing: 18) {
+                HStack(alignment: .top, spacing: 16) {
+                    Image(systemName: profile.avatarSystemImageName)
+                        .font(.system(size: 48))
+                        .foregroundColor(.blue)
+                        .frame(width: 60, height: 60)
+                        .background(.ultraThinMaterial, in: Circle())
+                    
+                    VStack(alignment: .leading, spacing: 6) {
+                        HStack(spacing: 8) {
+                            Text(profile.displayName)
+                                .font(.title3.weight(.bold))
+                            if !isCurrentUser {
+                                Button(action: onFavoriteToggle) {
+                                    Image(systemName: isFavorite ? "heart.circle.fill" : "heart.circle")
+                                        .symbolRenderingMode(.multicolor)
+                                        .font(.title3)
+                                }
+                                .buttonStyle(.plain)
+                            }
+                        }
+                        Text("@\(profile.username)")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                        if !profile.bio.isEmpty {
+                            Text(profile.bio)
+                                .font(.subheadline)
+                                .foregroundColor(.primary)
+                        }
+                        Text("Joined \(profile.joinedAt, style: .date)")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
                     }
-                    Text("Joined \(profile.joinedAt, style: .date)")
-                        .font(.caption)
-                        .foregroundColor(.secondary)
+                    Spacer()
+                    if isCurrentUser {
+                        LiquidGlassButton("Edit", icon: "pencil") {
+                            onEdit()
+                        }
+                    }
                 }
-                Spacer()
-                if isCurrentUser {
-                    LiquidGlassButton("Edit", icon: "pencil") {
-                        onEdit()
-                    }
+                
+                HStack(spacing: 12) {
+                    ProfileStatChip(icon: "quote.opening", title: "Quotes", value: "\(quoteCount)")
+                    ProfileStatChip(icon: "heart.fill", title: "Favorites", value: "\(profile.favoriteAuthorIds.count)")
+                    ProfileStatChip(icon: "number", title: "Tags", value: "\(uniqueTagCount)")
                 }
             }
         }
+    }
+}
+
+struct ProfileStatChip: View {
+    let icon: String
+    let title: String
+    let value: String
+    
+    var body: some View {
+        VStack(spacing: 4) {
+            Image(systemName: icon)
+                .font(.footnote.weight(.bold))
+                .foregroundColor(.blue)
+            Text(value)
+                .font(.headline.weight(.semibold))
+                .foregroundColor(.primary)
+            Text(title)
+                .font(.caption2)
+                .foregroundColor(.secondary)
+        }
+        .padding(.vertical, 10)
+        .frame(maxWidth: .infinity)
+        .background(
+            RoundedRectangle(cornerRadius: 18, style: .continuous)
+                .fill(.ultraThinMaterial)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 18, style: .continuous)
+                        .stroke(Color.white.opacity(0.18), lineWidth: 1)
+                )
+        )
     }
 }
 

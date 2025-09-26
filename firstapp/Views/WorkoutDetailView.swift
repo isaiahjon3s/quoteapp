@@ -12,6 +12,7 @@ struct WorkoutDetailView: View {
     @ObservedObject var dataManager: WorkoutDataManager
     @State private var showingStartWorkout = false
     @State private var isEditing = false
+    @State private var hydrationGoal: Double = 16
     
     var body: some View {
         LiquidGlassBackground {
@@ -19,6 +20,17 @@ struct WorkoutDetailView: View {
                 VStack(spacing: 20) {
                     // Workout Header
                     WorkoutHeaderCard(workout: workout)
+                    
+                    LiquidGlassSlider(
+                        label: "Hydration Goal",
+                        value: $hydrationGoal,
+                        range: 8...64,
+                        step: 4,
+                        leadingIcon: "drop.fill",
+                        unit: " oz",
+                        accent: .mint
+                    )
+                    .padding(.horizontal)
                     
                     // Exercise List
                     VStack(alignment: .leading, spacing: 16) {

@@ -12,6 +12,8 @@ struct QuoteFeedView: View {
     @State private var showingAdd = false
     @State private var searchText = ""
     @State private var selectedTag: String? = nil
+    @State private var likeThreshold: Double = 0
+    @State private var showFavorites = false
     
     private var filteredQuotes: [Quote] {
         var items = dataManager.quotes
@@ -20,6 +22,9 @@ struct QuoteFeedView: View {
         }
         if !searchText.isEmpty {
             items = items.filter { $0.text.localizedCaseInsensitiveContains(searchText) || $0.authorDisplayName.localizedCaseInsensitiveContains(searchText) }
+        }
+        if likeThreshold > 0 {
+            items = items.filter { Double($0.likeCount) >= likeThreshold }
         }
         return items
     }
@@ -30,39 +35,90 @@ struct QuoteFeedView: View {
         return counts.sorted { $0.value > $1.value }.map { $0.key }.prefix(8).map { $0 }
     }
     
+    private var favorites: [Quote] {
+        dataManager.favoriteQuotes()
+    }
+    
+    private var dailyInspiration: Quote? {
+        dataManager.dailyInspirationQuote()
+    }
+    
+    private var trendingQuotes: [Quote] {
+        dataManager.trendingQuotes(limit: 5)
+    }
+    
+    private var tagStats: [QuoteTagStat] {
+        Array(dataManager.tagStats().prefix(6))
+    }
+    
     var body: some View {
         NavigationView {
             LiquidGlassBackground {
-                VStack(spacing: 0) {
-                    FeedHeader(currentUser: dataManager.currentUser)
-                        .padding(.horizontal)
-                        .padding(.top, 8)
-                    
-                    VStack(spacing: 12) {
-                        LiquidGlassTextField("Search quotes or authors", text: $searchText, icon: "magnifyingglass")
+                ScrollView {
+                    VStack(spacing: 24) {
+                        FeedHeader(currentUser: dataManager.currentUser)
                             .padding(.horizontal)
+                            .padding(.top, 8)
                         
-                        if !trendingTags.isEmpty {
-                            ScrollView(.horizontal, showsIndicators: false) {
-                                HStack(spacing: 8) {
-                                    TagPill(title: "All", isSelected: selectedTag == nil) { selectedTag = nil }
-                                    ForEach(trendingTags, id: \.self) { tag in
-                                        TagPill(title: "#\(tag)", isSelected: selectedTag == tag) { selectedTag = tag }
-                                    }
+                        DiscoverSection(
+                            dailyQuote: dailyInspiration,
+                            favorites: favorites,
+                            trending: trendingQuotes,
+                            tagStats: tagStats,
+                            onSelectQuote: { quote in
+                                if let profile = dataManager.profile(for: quote.authorId) ?? dataManager.currentUser {
+                                    navigateToProfile(profile, quote: quote)
                                 }
-                                .padding(.horizontal)
+                            },
+                            onToggleFavorites: {
+                                showFavorites.toggle()
                             }
-                        }
-                    }
-                    .padding(.vertical, 8)
-                    
-                    ScrollView {
+                        )
+                        .padding(.horizontal)
+                        
+                        LiquidGlassMenuBar(
+                            searchText: $searchText,
+                            threshold: $likeThreshold,
+                            highlightedTags: trendingTags,
+                            activeTag: selectedTag,
+                            suggestions: trendingTags,
+                            sliderRange: 0...100,
+                            sliderStep: 5,
+                            sliderLabel: "Minimum likes",
+                            sliderIcon: "hand.thumbsup.fill",
+                            sliderUnit: nil,
+                            sliderAccent: .pink,
+                            actionTitle: "New Quote",
+                            actionIcon: "sparkles",
+                            actionStyle: .accent,
+                            onSubmitSearch: {
+                                // keep current tag to allow combined filtering
+                            },
+                            onClearFilters: {
+                                searchText = ""
+                                likeThreshold = 0
+                                selectedTag = nil
+                            },
+                            onCreate: {
+                                showingAdd = true
+                            },
+                            onSelectTag: { tag in
+                                selectedTag = tag
+                            }
+                        )
+                        .padding(.horizontal)
+                        .padding(.top, 12)
+                        
                         LazyVStack(spacing: 16) {
                             ForEach(filteredQuotes) { quote in
                                 NavigationLink(destination: ProfileQuotesView(profile: dataManager.profile(for: quote.authorId) ?? dataManager.currentUser!, dataManager: dataManager)) {
-                                    QuoteCard(quote: quote) {
-                                        dataManager.likeQuote(quote)
-                                    }
+                                    QuoteCard(
+                                        quote: quote,
+                                        isLiked: dataManager.isQuoteLiked(quote),
+                                        isBookmarked: dataManager.isQuoteBookmarked(quote),
+                                        onLike: { dataManager.likeQuote(quote) },
+                                        onBookmark: { dataManager.toggleBookmark(quote) }
+                                    )
                                 }
                                 .buttonStyle(PlainButtonStyle())
                             }
@@ -85,6 +141,10 @@ struct QuoteFeedView: View {
                 AddQuoteView(dataManager: dataManager)
             }
         }
+    }
+    
+    private func navigateToProfile(_ profile: UserProfile, quote: Quote) {
+        // Implementation detail handled via navigation links in list
     }
 }
 
@@ -118,33 +178,15 @@ struct FeedHeader: View {
     }
 }
 
-struct TagPill: View {
-    let title: String
-    let isSelected: Bool
-    let action: () -> Void
-    
-    var body: some View {
-        Button(action: action) {
-            Text(title)
-                .font(.caption.weight(.medium))
-                .foregroundColor(isSelected ? .white : .primary)
-                .padding(.horizontal, 12)
-                .padding(.vertical, 6)
-                .background(
-                    RoundedRectangle(cornerRadius: 14)
-                        .fill(isSelected ? .blue : .blue.opacity(0.1))
-                )
-        }
-        .buttonStyle(PlainButtonStyle())
-    }
-}
-
 struct QuoteCard: View {
     let quote: Quote
+    let isLiked: Bool
+    let isBookmarked: Bool
     let onLike: () -> Void
+    let onBookmark: () -> Void
     
-    @State private var isLiked = false
-    @State private var likeAnimation = false
+    @State private var localLiked = false
+    @State private var localBookmarked = false
     
     var body: some View {
         LiquidGlassCard(isInteractive: true) {
@@ -153,7 +195,6 @@ struct QuoteCard: View {
                     .font(.title3.weight(.semibold))
                     .foregroundColor(.primary)
                     .fixedSize(horizontal: false, vertical: true)
-                    .lineLimit(nil)
                 
                 HStack(spacing: 10) {
                     Image(systemName: "person.fill")
@@ -172,33 +213,73 @@ struct QuoteCard: View {
                     Wrap(tags: quote.tags)
                 }
                 
-                HStack {
-                    Button(action: {
-                        withAnimation(.spring(response: 0.3, dampingFraction: 0.6, blendDuration: 0)) {
-                            isLiked.toggle()
-                            likeAnimation = true
+                HStack(spacing: 12) {
+                    QuoteReactionButton(
+                        isActive: localLiked,
+                        systemImageActive: "heart.fill",
+                        systemImageInactive: "heart",
+                        activeColor: .pink,
+                        label: "\(quote.likeCount)",
+                        action: {
+                            localLiked.toggle()
+                            onLike()
                         }
-                        onLike()
-                    }) {
-                        HStack(spacing: 6) {
-                            Image(systemName: isLiked ? "heart.fill" : "heart")
-                                .foregroundColor(isLiked ? .pink : .secondary)
-                                .font(.subheadline.weight(.medium))
-                                .symbolEffect(.bounce, value: likeAnimation)
-                            Text("\(quote.likeCount)")
-                                .font(.subheadline.weight(.medium))
-                                .foregroundColor(isLiked ? .pink : .secondary)
+                    )
+                    
+                    QuoteReactionButton(
+                        isActive: localBookmarked,
+                        systemImageActive: "bookmark.fill",
+                        systemImageInactive: "bookmark",
+                        activeColor: .cyan,
+                        label: "\(quote.bookmarkCount)",
+                        action: {
+                            localBookmarked.toggle()
+                            onBookmark()
                         }
-                    }
-                    .buttonStyle(PlainButtonStyle())
+                    )
                     
                     Spacer()
                 }
             }
         }
         .onAppear {
-            isLiked = quote.likeCount > 0
+            localLiked = isLiked
+            localBookmarked = isBookmarked
         }
+    }
+}
+
+struct QuoteReactionButton: View {
+    let isActive: Bool
+    let systemImageActive: String
+    let systemImageInactive: String
+    let activeColor: Color
+    let label: String
+    let action: () -> Void
+    
+    var body: some View {
+        Button(action: action) {
+            HStack(spacing: 6) {
+                Image(systemName: isActive ? systemImageActive : systemImageInactive)
+                    .foregroundColor(isActive ? activeColor : .secondary)
+                    .font(.subheadline.weight(.medium))
+                Text(label)
+                    .font(.subheadline.weight(.medium))
+                    .foregroundColor(isActive ? activeColor : .secondary)
+            }
+            .padding(.horizontal, 12)
+            .padding(.vertical, 8)
+            .background(
+                RoundedRectangle(cornerRadius: 14, style: .continuous)
+                    .fill(.ultraThinMaterial)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 14, style: .continuous)
+                            .stroke(Color.white.opacity(0.18), lineWidth: 1)
+                    )
+            )
+        }
+        .buttonStyle(.plain)
+        .shadow(color: activeColor.opacity(isActive ? 0.2 : 0), radius: 6, x: 0, y: 4)
     }
 }
 
@@ -218,6 +299,183 @@ struct Wrap: View {
                         RoundedRectangle(cornerRadius: 8)
                             .fill(.blue.opacity(0.1))
                     )
+            }
+        }
+    }
+}
+
+struct DiscoverSection: View {
+    let dailyQuote: Quote?
+    let favorites: [Quote]
+    let trending: [Quote]
+    let tagStats: [QuoteTagStat]
+    let onSelectQuote: (Quote) -> Void
+    let onToggleFavorites: () -> Void
+    
+    var body: some View {
+        VStack(alignment: .leading, spacing: 16) {
+            Text("Discover")
+                .font(.title2.weight(.bold))
+                .foregroundStyle(.primary)
+            
+            if let dailyQuote = dailyQuote {
+                LiquidGlassCard(cornerRadius: 26, padding: 20) {
+                    VStack(alignment: .leading, spacing: 12) {
+                        Label("Daily Inspiration", systemImage: "sun.max.fill")
+                            .font(.headline.weight(.semibold))
+                            .foregroundStyle(.mint)
+                        Text(dailyQuote.text)
+                            .font(.title3.weight(.semibold))
+                            .foregroundStyle(.primary)
+                        HStack {
+                            Text(dailyQuote.authorDisplayName)
+                                .font(.subheadline)
+                                .foregroundStyle(.secondary)
+                            Spacer()
+                            LiquidGlassButton("Read", icon: "arrow.right") {
+                                onSelectQuote(dailyQuote)
+                            }
+                            .buttonStyle(.plain)
+                        }
+                    }
+                }
+            }
+            
+            if !favorites.isEmpty {
+                FavoritesCarousel(quotes: favorites, onSelectQuote: onSelectQuote)
+            }
+            
+            if !trending.isEmpty {
+                TrendingQuotesGrid(quotes: trending, onSelectQuote: onSelectQuote)
+            }
+            
+            if !tagStats.isEmpty {
+                TagInsightsView(stats: tagStats)
+            }
+        }
+    }
+}
+
+struct FavoritesCarousel: View {
+    let quotes: [Quote]
+    let onSelectQuote: (Quote) -> Void
+    
+    var body: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            Label("Bookmarks", systemImage: "bookmark.fill")
+                .font(.headline.weight(.semibold))
+                .foregroundStyle(.pink)
+            
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 16) {
+                    ForEach(quotes) { quote in
+                        LiquidGlassCard(cornerRadius: 24, padding: 20, isInteractive: true) {
+                            VStack(alignment: .leading, spacing: 12) {
+                                Text(quote.text)
+                                    .font(.body.weight(.semibold))
+                                    .foregroundStyle(.primary)
+                                    .lineLimit(3)
+                                Spacer(minLength: 0)
+                                HStack {
+                                    Text(quote.authorDisplayName)
+                                        .font(.caption)
+                                        .foregroundStyle(.secondary)
+                                    Spacer()
+                                    LiquidGlassButton("Open", icon: "arrow.forward.circle") {
+                                        onSelectQuote(quote)
+                                    }
+                                    .buttonStyle(.plain)
+                                }
+                            }
+                            .frame(width: 240, height: 160)
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+struct TrendingQuotesGrid: View {
+    let quotes: [Quote]
+    let onSelectQuote: (Quote) -> Void
+    
+    private let columns = [
+        GridItem(.flexible(minimum: 140), spacing: 16),
+        GridItem(.flexible(minimum: 140), spacing: 16)
+    ]
+    
+    var body: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            Label("Trending", systemImage: "chart.line.uptrend.xyaxis")
+                .font(.headline.weight(.semibold))
+                .foregroundStyle(.orange)
+            LazyVGrid(columns: columns, spacing: 16) {
+                ForEach(quotes) { quote in
+                    LiquidGlassCard(cornerRadius: 22, padding: 18) {
+                        VStack(alignment: .leading, spacing: 10) {
+                            Text(quote.text)
+                                .font(.subheadline.weight(.medium))
+                                .foregroundStyle(.primary)
+                                .lineLimit(4)
+                            Spacer(minLength: 0)
+                            HStack(spacing: 6) {
+                                Image(systemName: "heart.fill")
+                                    .foregroundStyle(.pink)
+                                Text("\(quote.likeCount)")
+                                    .font(.caption.weight(.semibold))
+                                    .foregroundStyle(.secondary)
+                                Spacer()
+                                Button {
+                                    onSelectQuote(quote)
+                                } label: {
+                                    Image(systemName: "ellipsis.circle")
+                                        .font(.caption.weight(.bold))
+                                }
+                                .buttonStyle(.plain)
+                            }
+                        }
+                        .frame(height: 150)
+                    }
+                }
+            }
+        }
+    }
+}
+
+struct TagInsightsView: View {
+    let stats: [QuoteTagStat]
+    
+    var body: some View {
+        LiquidGlassCard(cornerRadius: 26, padding: 20) {
+            VStack(alignment: .leading, spacing: 12) {
+                Label("Tag Insights", systemImage: "number.square")
+                    .font(.headline.weight(.semibold))
+                    .foregroundStyle(.indigo)
+                
+                VStack(alignment: .leading, spacing: 10) {
+                    ForEach(stats) { stat in
+                        HStack {
+                            Text("#\(stat.tag)")
+                                .font(.subheadline.weight(.medium))
+                                .foregroundStyle(.primary)
+                            Spacer()
+                            Text("\(stat.count)")
+                                .font(.caption.weight(.semibold))
+                                .foregroundStyle(.secondary)
+                        }
+                        .padding(.vertical, 6)
+                        .padding(.horizontal, 12)
+                        .background(
+                            RoundedRectangle(cornerRadius: 18, style: .continuous)
+                                .fill(.ultraThinMaterial)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 18, style: .continuous)
+                                        .stroke(Color.white.opacity(0.18), lineWidth: 1)
+                                )
+                        )
+                    }
+                }
             }
         }
     }

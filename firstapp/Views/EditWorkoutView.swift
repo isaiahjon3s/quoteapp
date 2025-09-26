@@ -17,6 +17,7 @@ struct EditWorkoutView: View {
     @State private var selectedDifficulty: Difficulty
     @State private var exercises: [Exercise]
     @State private var showingAddExercise = false
+    @State private var estimatedDuration: Double
     
     init(workout: Workout, dataManager: WorkoutDataManager) {
         self.workout = workout
@@ -25,6 +26,7 @@ struct EditWorkoutView: View {
         self._selectedCategory = State(initialValue: workout.category)
         self._selectedDifficulty = State(initialValue: workout.difficulty)
         self._exercises = State(initialValue: workout.exercises)
+        self._estimatedDuration = State(initialValue: workout.totalDuration / 60)
     }
     
     var body: some View {
@@ -36,7 +38,8 @@ struct EditWorkoutView: View {
                         WorkoutDetailsCard(
                             name: $workoutName,
                             category: $selectedCategory,
-                            difficulty: $selectedDifficulty
+                            difficulty: $selectedDifficulty,
+                            estimatedDuration: $estimatedDuration
                         )
                         
                         // Exercises List
@@ -95,6 +98,7 @@ struct EditWorkoutView: View {
         updatedWorkout.category = selectedCategory
         updatedWorkout.difficulty = selectedDifficulty
         updatedWorkout.exercises = exercises
+        updatedWorkout.totalDuration = estimatedDuration * 60
         
         dataManager.updateWorkout(updatedWorkout)
         dismiss()
