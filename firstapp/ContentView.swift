@@ -9,16 +9,12 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var selectedTab = 0
+    @State private var showSearch = false
     
     var body: some View {
-        LiquidGlassTabView(
-            selectedTab: selectedTab,
-            onTabSelected: { selectedTab = $0 },
-            tabs: [
-                LiquidGlassTabView.TabItem(title: "Feed", icon: "quote.bubble.fill", accent: .cyan),
-                LiquidGlassTabView.TabItem(title: "Profile", icon: "person.fill", accent: .purple)
-            ]
-        ) {
+        LiquidGlassBackground {
+            ZStack(alignment: .bottom) {
+                Group {
             switch selectedTab {
             case 0:
                 QuoteFeedView()
@@ -26,6 +22,34 @@ struct ContentView: View {
                 MyProfileRootView()
             default:
                 QuoteFeedView()
+            }
+                }
+                .padding(.bottom, 100)
+                
+                LiquidGlassMenuBarWithSearch(
+                    tabs: [
+                        LiquidGlassTabItem(title: "Home", icon: "leaf.fill", accent: .mint),
+                        LiquidGlassTabItem(title: "All", icon: "line.3.horizontal", accent: .orange)
+                    ],
+                    selectedIndex: $selectedTab,
+                    searchPlaceholder: "Search",
+                    searchText: Binding(get: { "" }, set: { _ in }),
+                    onSearchTap: {
+                        showSearch = true
+                    }
+                )
+                .padding(EdgeInsets(top: 0, leading: 24, bottom: 32, trailing: 24))
+            }
+        }
+        .sheet(isPresented: $showSearch) {
+            NavigationView {
+                Text("Search coming soon")
+                    .navigationTitle("Search")
+                    .toolbar {
+                        ToolbarItem(placement: .cancellationAction) {
+                            Button("Close") { showSearch = false }
+                        }
+                    }
             }
         }
     }
