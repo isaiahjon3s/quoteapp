@@ -19,8 +19,8 @@ struct LiquidGlassTabItem: Hashable {
     /// - Parameters:
     ///   - title: Text to display on the tab
     ///   - icon: SF Symbol icon name
-    ///   - accent: Accent color for the tab (default: .blue)
-    init(title: String, icon: String, accent: Color = .blue) {
+    ///   - accent: Accent color for the tab (default: .accentColor)
+    init(title: String, icon: String, accent: Color = .accentColor) {
         self.title = title
         self.icon = icon
         self.accent = accent
@@ -114,7 +114,7 @@ struct LiquidGlassTabView<Content: View>: View {
                         Text(tab.title)
                             .font(.caption.weight(.semibold))
                     }
-                    .foregroundStyle(selectedTab == index ? tab.accent : Color.secondary)
+                    .foregroundStyle(selectedTab == index ? .primary : .secondary)
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 12)
                     .background(tabBackground(isSelected: selectedTab == index, accent: tab.accent))
@@ -122,7 +122,7 @@ struct LiquidGlassTabView<Content: View>: View {
                         // Selection indicator
                         if selectedTab == index {
                             Capsule(style: .continuous)
-                                .fill(tab.accent.opacity(0.35))
+                                .fill(.primary)
                                 .frame(width: 36, height: 3)
                                 .matchedGeometryEffect(id: "indicator", in: indicatorNamespace)
                                 .offset(y: -6)
@@ -164,20 +164,14 @@ struct LiquidGlassTabView<Content: View>: View {
     private func tabBackground(isSelected: Bool, accent: Color) -> some View {
         RoundedRectangle(cornerRadius: 24, style: .continuous)
             .fill(
-                LinearGradient(
-                    colors: [
-                        accent.opacity(isSelected ? 0.28 : 0.08),
-                        Color.white.opacity(isSelected ? 0.22 : 0.04)
-                    ],
-                    startPoint: .topLeading,
-                    endPoint: .bottomTrailing
-                )
+                isSelected ? 
+                Color(.systemGray6) :
+                Color.clear
             )
             .overlay(
                 RoundedRectangle(cornerRadius: 24, style: .continuous)
-                    .stroke(Color.white.opacity(isSelected ? 0.45 : 0.12), lineWidth: isSelected ? 1.5 : 1)
+                    .stroke(Color.primary.opacity(isSelected ? 0.2 : 0.0), lineWidth: 1)
             )
-            .shadow(color: accent.opacity(isSelected ? 0.35 : 0.0), radius: isSelected ? 16 : 0, x: 0, y: 10)
     }
     
     // MARK: - Haptic Feedback

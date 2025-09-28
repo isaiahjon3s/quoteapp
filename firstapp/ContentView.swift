@@ -28,8 +28,8 @@ struct ContentView: View {
                 
                 LiquidGlassMenuBarWithSearch(
                     tabs: [
-                        LiquidGlassTabItem(title: "Home", icon: "leaf.fill", accent: .mint),
-                        LiquidGlassTabItem(title: "All", icon: "line.3.horizontal", accent: .orange)
+                        LiquidGlassTabItem(title: "Home", icon: "leaf.fill"),
+                        LiquidGlassTabItem(title: "All", icon: "line.3.horizontal")
                     ],
                     selectedIndex: $selectedTab,
                     searchPlaceholder: "Search",

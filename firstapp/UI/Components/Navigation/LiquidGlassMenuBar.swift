@@ -45,7 +45,7 @@ struct LiquidGlassMenuBar: View {
     ///   - sliderLabel: Label for the slider
     ///   - sliderIcon: Icon for the slider
     ///   - sliderUnit: Unit for the slider value (default: nil)
-    ///   - sliderAccent: Accent color for the slider (default: .purple)
+    ///   - sliderAccent: Accent color for the slider (default: .accentColor)
     ///   - actionTitle: Title for the action button
     ///   - actionIcon: Icon for the action button
     ///   - actionStyle: Style for the action button (default: .accent)
@@ -64,7 +64,7 @@ struct LiquidGlassMenuBar: View {
         sliderLabel: String,
         sliderIcon: String,
         sliderUnit: String? = nil,
-        sliderAccent: Color = .purple,
+        sliderAccent: Color = .accentColor,
         actionTitle: String,
         actionIcon: String,
         actionStyle: LiquidGlassButton.ButtonStyle = .accent,

@@ -28,10 +28,10 @@ struct LiquidGlassButton: View {
     // MARK: - Button Styles
     /// Different visual styles for the button
     enum ButtonStyle {
-        case primary      // Blue color scheme
-        case secondary    // Gray color scheme
-        case accent       // Purple color scheme
-        case destructive  // Red color scheme
+        case primary      // System blue color scheme
+        case secondary    // System gray color scheme
+        case accent       // System accent color scheme
+        case destructive  // System red color scheme
         case ghost        // Transparent with primary text
     }
     
@@ -119,14 +119,14 @@ struct LiquidGlassButton: View {
             .foregroundColor(textColor)  // Color based on button style
             .padding(size.padding)       // Padding based on button size
             .background(
-                // Translucent background
-                .regularMaterial,
+                // Use solid colors for primary, accent, and destructive
+                backgroundColor,
                 in: RoundedRectangle(cornerRadius: size.cornerRadius)
             )
             .overlay(
-                // White border for glass effect
+                // Subtle border for definition
                 RoundedRectangle(cornerRadius: size.cornerRadius)
-                    .stroke(.white.opacity(0.3), lineWidth: 1)
+                    .stroke(style == .ghost ? Color.clear : Color.white.opacity(0.2), lineWidth: style == .ghost ? 0 : 0.5)
             )
             .clipShape(RoundedRectangle(cornerRadius: size.cornerRadius))
         }
@@ -144,11 +144,22 @@ struct LiquidGlassButton: View {
     /// Returns the appropriate text color based on button style
     private var textColor: Color {
         switch style {
-        case .primary: return .blue
-        case .secondary: return .gray
-        case .accent: return .purple
-        case .destructive: return .red
+        case .primary: return .white
+        case .secondary: return .primary
+        case .accent: return .white
+        case .destructive: return .white
         case .ghost: return .primary
+        }
+    }
+    
+    /// Returns the appropriate background color based on button style
+    private var backgroundColor: Color {
+        switch style {
+        case .primary: return .blue
+        case .secondary: return Color(.systemGray5)
+        case .accent: return .accentColor
+        case .destructive: return .red
+        case .ghost: return .clear
         }
     }
 }

@@ -28,7 +28,7 @@ struct WorkoutDetailView: View {
                         step: 4,
                         leadingIcon: "drop.fill",
                         unit: " oz",
-                        accent: .mint
+                        accent: .accentColor
                     )
                     .padding(.horizontal)
                     

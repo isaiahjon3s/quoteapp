@@ -53,7 +53,7 @@ struct LiquidGlassSearchField: View {
             // Search icon
             Image(systemName: icon)
                 .font(.body.weight(.semibold))
-                .foregroundColor(isFocused ? .blue : .secondary)
+                .foregroundColor(isFocused ? .accentColor : .secondary)
                 .padding(.leading, 4)
             
             // Text field
@@ -148,9 +148,9 @@ struct LiquidGlassKeyboardToolbar: View {
                                 .padding(.vertical, 8)
                                 .background(
                                     RoundedRectangle(cornerRadius: 18, style: .continuous)
-                                        .fill(Color.blue.opacity(0.18))
+                                        .fill(Color.accentColor.opacity(0.18))
                                 )
-                                .foregroundColor(.blue)
+                                .foregroundColor(.accentColor)
                         }
                         .buttonStyle(PlainButtonStyle())
                     }

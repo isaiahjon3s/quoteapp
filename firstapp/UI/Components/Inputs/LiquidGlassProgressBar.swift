@@ -57,7 +57,7 @@ struct LiquidGlassProgressBar: View {
                 RoundedRectangle(cornerRadius: cornerRadius)
                     .fill(
                         LinearGradient(
-                            colors: [.blue, .purple],  // Blue to purple gradient
+                            colors: [.accentColor, .accentColor.opacity(0.8)],  // Accent color gradient
                             startPoint: .leading,
                             endPoint: .trailing
                         )

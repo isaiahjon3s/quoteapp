@@ -159,7 +159,7 @@ struct WorkoutDetailsCard: View {
                     step: 5,
                     leadingIcon: "timer",
                     unit: " min",
-                    accent: .green
+                    accent: .accentColor
                 )
             }
         }
@@ -300,7 +300,7 @@ struct ExerciseRow: View {
                 Button(action: onEdit) {
                     Image(systemName: "pencil")
                         .font(.caption)
-                        .foregroundColor(.blue)
+                        .foregroundColor(.accentColor)
                 }
                 
                 Button(action: onDelete) {

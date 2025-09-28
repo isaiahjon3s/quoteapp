@@ -72,9 +72,8 @@ struct LiquidGlassBackground<Content: View>: View {
     private var baseGradient: some View {
         LinearGradient(
             colors: [
-                .blue.opacity(0.1),      // Subtle blue tint
-                .purple.opacity(0.1),    // Subtle purple tint
-                .pink.opacity(0.1)       // Subtle pink tint
+                Color(.systemBackground),     // System background color
+                Color(.secondarySystemBackground)  // Secondary system background
             ],
             startPoint: .topLeading,     // Starts from top-left
             endPoint: .bottomTrailing    // Ends at bottom-right
@@ -85,30 +84,30 @@ struct LiquidGlassBackground<Content: View>: View {
     // MARK: - Floating Orbs
     /// Creates the animated floating orbs
     private var floatingOrbs: some View {
-        ForEach(0..<3, id: \.self) { index in
+        ForEach(0..<2, id: \.self) { index in
             Circle()
                 .fill(
                     RadialGradient(
                         colors: [
-                            .white.opacity(0.1),  // Bright center
+                            Color.primary.opacity(0.03),  // Subtle primary color
                             .clear                // Transparent edges
                         ],
                         center: .center,
                         startRadius: 0,
-                        endRadius: 100
+                        endRadius: 80
                     )
                 )
-                .frame(width: 200, height: 200)
-                .blur(radius: 1)  // Soft blur for ethereal effect
+                .frame(width: 120, height: 120)
+                .blur(radius: 2)  // Soft blur for subtle effect
                 .offset(
-                    x: animate ? CGFloat.random(in: -50...50) : 0,
-                    y: animate ? CGFloat.random(in: -50...50) : 0
+                    x: animate ? CGFloat.random(in: -30...30) : 0,
+                    y: animate ? CGFloat.random(in: -30...30) : 0
                 )
-                .scaleEffect(animate ? CGFloat.random(in: 0.8...1.2) : 1.0)
+                .scaleEffect(animate ? CGFloat.random(in: 0.9...1.1) : 1.0)
                 .animation(
-                    .spring(response: 4, dampingFraction: 0.6, blendDuration: 0)
+                    .spring(response: 6, dampingFraction: 0.8, blendDuration: 0)
                     .repeatForever(autoreverses: true)
-                    .delay(Double(index) * 1.0),  // Stagger the animations
+                    .delay(Double(index) * 2.0),  // Stagger the animations
                     value: animate
                 )
         }

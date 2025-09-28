@@ -136,8 +136,8 @@ enum Difficulty: String, CaseIterable, Codable {
     var color: Color {
         switch self {
         case .beginner: return .green
-        case .intermediate: return .yellow
-        case .advanced: return .orange
+        case .intermediate: return .accentColor
+        case .advanced: return .secondary
         case .expert: return .red
         }
     }
@@ -170,12 +170,12 @@ enum WorkoutCategory: String, CaseIterable, Codable {
         switch self {
         case .strength: return .blue
         case .cardio: return .red
-        case .flexibility: return .purple
+        case .flexibility: return .accentColor
         case .sports: return .green
-        case .functional: return .orange
-        case .hiit: return .pink
-        case .yoga: return .mint
-        case .pilates: return .indigo
+        case .functional: return .secondary
+        case .hiit: return .red
+        case .yoga: return .accentColor
+        case .pilates: return .secondary
         }
     }
 }

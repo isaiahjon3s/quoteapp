@@ -64,7 +64,7 @@ struct WorkoutListView: View {
                         sliderLabel: "Minimum duration",
                         sliderIcon: "clock.badge.checkmark",
                         sliderUnit: " min",
-                        sliderAccent: .blue,
+                        sliderAccent: .accentColor,
                         actionTitle: "New Workout",
                         actionIcon: "plus",
                         actionStyle: .accent,
@@ -113,7 +113,7 @@ struct WorkoutListView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: { showingAddWorkout = true }) {
                         Image(systemName: "plus")
-                            .foregroundColor(.blue)
+                            .foregroundColor(.accentColor)
                     }
                 }
             }
@@ -150,7 +150,7 @@ struct WorkoutStatsHeader: View {
                             .foregroundColor(.secondary)
                         Text("\(stats.thisWeekWorkouts)")
                             .font(.title2.weight(.bold))
-                            .foregroundColor(.blue)
+                            .foregroundColor(.accentColor)
                     }
                 }
                 
@@ -172,7 +172,7 @@ struct WorkoutStatsHeader: View {
                             .foregroundColor(.secondary)
                         Text(stats.formattedAverageDuration)
                             .font(.subheadline.weight(.semibold))
-                            .foregroundColor(.green)
+                            .foregroundColor(.secondary)
                     }
                 }
             }

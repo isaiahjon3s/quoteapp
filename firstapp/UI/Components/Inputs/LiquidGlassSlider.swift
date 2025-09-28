@@ -30,7 +30,7 @@ struct LiquidGlassSlider: View {
     ///   - step: Step size for value changes (default: 1)
     ///   - leadingIcon: SF Symbol icon name (default: "slider.horizontal.3")
     ///   - unit: Optional unit to display with the value (default: nil)
-    ///   - accent: Accent color for the slider (default: .purple)
+    ///   - accent: Accent color for the slider (default: .accentColor)
     init(
         label: String,
         value: Binding<Double>,
@@ -38,7 +38,7 @@ struct LiquidGlassSlider: View {
         step: Double = 1,
         leadingIcon: String = "slider.horizontal.3",
         unit: String? = nil,
-        accent: Color = .purple
+        accent: Color = .accentColor
     ) {
         self.label = label
         self._value = value

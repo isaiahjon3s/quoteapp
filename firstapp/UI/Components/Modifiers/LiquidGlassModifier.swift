@@ -59,17 +59,17 @@ private struct LiquidGlassOverlayModifier: ViewModifier {
                 .blendMode(.screen)              // Screen blend for bright effect
                 .allowsHitTesting(false)         // Don't interfere with touch
             )
-            // Second overlay: Creates the colored blur effect
+            // Second overlay: Creates the subtle system color tint
             .overlay(
                 LinearGradient(
                     colors: [
-                        Color.blue.opacity(0.15 * blur),    // Blue tint
-                        Color.purple.opacity(0.1 * blur)    // Purple tint
+                        Color.primary.opacity(0.05 * blur),    // Subtle primary tint
+                        Color.secondary.opacity(0.03 * blur)   // Subtle secondary tint
                     ],
                     startPoint: .bottomLeading,  // Starts from bottom-left
                     endPoint: .topTrailing      // Ends at top-right
                 )
-                .blur(radius: blur * 12)        // Blur the gradient
+                .blur(radius: blur * 8)        // Reduced blur for subtlety
                 .allowsHitTesting(false)        // Don't interfere with touch
             )
             // Shadow: Adds depth and floating effect
