@@ -1,6 +1,6 @@
 //
 //  ContentView.swift
-//  firstapp
+//  giftem
 //
 //  Created by Isaiah Jones on 9/21/25.
 //
@@ -8,68 +8,57 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject private var userManager = UserDataManager()
+    @StateObject private var productManager = ProductDataManager()
     @State private var selectedTab = 0
-    @State private var showSearch = false
     
-    var body: some View {
-        LiquidGlassBackground {
-            ZStack(alignment: .bottom) {
-                Group {
-            switch selectedTab {
-            case 0:
-                QuoteFeedView()
-            case 1:
-                MyProfileRootView()
-            default:
-                QuoteFeedView()
-            }
-                }
-                .padding(.bottom, 100)
-                
-                LiquidGlassMenuBarWithSearch(
-                    tabs: [
-                        LiquidGlassTabItem(title: "Home", icon: "leaf.fill"),
-                        LiquidGlassTabItem(title: "All", icon: "line.3.horizontal")
-                    ],
-                    selectedIndex: $selectedTab,
-                    searchPlaceholder: "Search",
-                    searchText: Binding(get: { "" }, set: { _ in }),
-                    onSearchTap: {
-                        showSearch = true
-                    }
-                )
-                .padding(EdgeInsets(top: 0, leading: 24, bottom: 32, trailing: 24))
-            }
-        }
-        .sheet(isPresented: $showSearch) {
-            NavigationView {
-                Text("Search coming soon")
-                    .navigationTitle("Search")
-                    .toolbar {
-                        ToolbarItem(placement: .cancellationAction) {
-                            Button("Close") { showSearch = false }
-                        }
-                    }
-            }
-        }
-    }
-}
-
-private struct MyProfileRootView: View {
-    @StateObject private var dataManager = QuoteDataManager()
+    let tabs = [
+        LiquidGlassTabItem(title: "Feed", icon: "house.fill", accent: .blue),
+        LiquidGlassTabItem(title: "Search", icon: "magnifyingglass", accent: .green),
+        LiquidGlassTabItem(title: "Cart", icon: "cart.fill", accent: .orange),
+        LiquidGlassTabItem(title: "Profile", icon: "person.fill", accent: .purple)
+    ]
     
     var body: some View {
         NavigationView {
-            if let me = dataManager.currentUser {
-                ProfileQuotesView(profile: me, dataManager: dataManager)
-            } else {
-                LiquidGlassBackground {
-                    Text("No profile available")
-                        .foregroundColor(.secondary)
+            LiquidGlassTabView(
+                selectedTab: selectedTab,
+                onTabSelected: { selectedTab = $0 },
+                tabs: tabs
+            ) {
+                Group {
+                    switch selectedTab {
+                    case 0:
+                        FeedView()
+                            .environmentObject(userManager)
+                            .environmentObject(productManager)
+                    case 1:
+                        SearchView()
+                            .environmentObject(userManager)
+                            .environmentObject(productManager)
+                    case 2:
+                        CartView()
+                            .environmentObject(productManager)
+                    case 3:
+                        if let currentUser = userManager.currentUser {
+                            ProfileView(
+                                user: currentUser,
+                                userManager: userManager,
+                                productManager: productManager
+                            )
+                        } else {
+                            Text("No user found")
+                                .foregroundColor(.secondary)
+                        }
+                    default:
+                        FeedView()
+                            .environmentObject(userManager)
+                            .environmentObject(productManager)
+                    }
                 }
-                .navigationTitle("Profile")
             }
         }
+        .navigationViewStyle(.stack)
     }
 }
 
