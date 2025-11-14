@@ -37,113 +37,135 @@ struct SearchView: View {
     }
     
     var body: some View {
-        LiquidGlassBackground {
-            VStack(spacing: 0) {
-                // Search Bar
-                LiquidGlassTextField(
-                    "Search products or users...",
-                    text: $searchText,
-                    icon: "magnifyingglass"
-                )
-                .padding(.horizontal, 24)
-                .padding(.top, 16)
-                .padding(.bottom, 12)
+        VStack(spacing: 0) {
+            // Search Bar
+            HStack(spacing: 12) {
+                HStack(spacing: 8) {
+                    Image(systemName: "magnifyingglass")
+                        .foregroundColor(.secondary)
+                        .font(.system(size: 16))
+                    
+                    TextField("Search", text: $searchText)
+                        .font(.system(size: 16))
+                }
+                .padding(.horizontal, 12)
+                .padding(.vertical, 10)
+                .background(Color(.systemGray6))
+                .cornerRadius(10)
                 
-                // Category Toggle
-                Picker("Search Category", selection: $searchCategory) {
-                    ForEach(SearchCategory.allCases, id: \.self) { category in
-                        Text(category.rawValue).tag(category)
+                if !searchText.isEmpty {
+                    Button(action: {
+                        searchText = ""
+                    }) {
+                        Text("Cancel")
+                            .font(.system(size: 16))
+                            .foregroundColor(.blue)
                     }
                 }
-                .pickerStyle(.segmented)
-                .padding(.horizontal, 24)
-                .padding(.bottom, 16)
-                
-                // Search Results
-                if searchText.isEmpty {
-                    // Trending/Suggestions
-                    ScrollView {
-                        VStack(alignment: .leading, spacing: 24) {
-                            // Trending Products
-                            VStack(alignment: .leading, spacing: 12) {
-                                Text("Trending Products")
-                                    .font(.headline)
-                                    .padding(.horizontal, 24)
-                                
-                                ScrollView(.horizontal, showsIndicators: false) {
-                                    HStack(spacing: 16) {
+            }
+            .padding(.horizontal, 16)
+            .padding(.top, 12)
+            .padding(.bottom, 8)
+            .background(Color(.systemBackground))
+            
+            // Category Toggle
+            Picker("Search Category", selection: $searchCategory) {
+                ForEach(SearchCategory.allCases, id: \.self) { category in
+                    Text(category.rawValue).tag(category)
+                }
+            }
+            .pickerStyle(.segmented)
+            .padding(.horizontal, 16)
+            .padding(.bottom, 12)
+            .background(Color(.systemBackground))
+            
+            Divider()
+            
+            // Search Results
+            if searchText.isEmpty {
+                // Trending/Suggestions
+                ScrollView {
+                    VStack(alignment: .leading, spacing: 24) {
+                        // Trending Products
+                        VStack(alignment: .leading, spacing: 12) {
+                            Text("Trending Products")
+                                .font(.system(size: 20, weight: .bold))
+                                .padding(.horizontal, 16)
+                            
+                            ScrollView(.horizontal, showsIndicators: false) {
+                                HStack(spacing: 12) {
                                     ForEach(productManager.products.prefix(5)) { product in
                                         TrendingProductCard(product: product, cartManager: currentCartManager)
-                                        }
-                                    }
-                                    .padding(.horizontal, 24)
-                                }
-                            }
-                            
-                            // Categories
-                            VStack(alignment: .leading, spacing: 12) {
-                                Text("Browse Categories")
-                                    .font(.headline)
-                                    .padding(.horizontal, 24)
-                                
-                                LazyVGrid(columns: [
-                                    GridItem(.flexible()),
-                                    GridItem(.flexible())
-                                ], spacing: 12) {
-                                    ForEach(ProductCategory.allCases, id: \.self) { category in
-                                        CategoryCard(category: category)
                                     }
                                 }
-                                .padding(.horizontal, 24)
+                                .padding(.horizontal, 16)
                             }
                         }
-                        .padding(.vertical)
+                        
+                        // Categories
+                        VStack(alignment: .leading, spacing: 12) {
+                            Text("Browse Categories")
+                                .font(.system(size: 20, weight: .bold))
+                                .padding(.horizontal, 16)
+                            
+                            LazyVGrid(columns: [
+                                GridItem(.flexible()),
+                                GridItem(.flexible())
+                            ], spacing: 12) {
+                                ForEach(ProductCategory.allCases, id: \.self) { category in
+                                    CategoryCard(category: category)
+                                }
+                            }
+                            .padding(.horizontal, 16)
+                        }
                     }
-                } else {
-                    ScrollView {
-                        if searchCategory == .products {
-                            if filteredProducts.isEmpty {
-                                EmptyStateView(
-                                    icon: "magnifyingglass",
-                                    title: "No products found",
-                                    message: "Try a different search term"
-                                )
-                            } else {
-                                LazyVStack(spacing: 16) {
-                                    ForEach(filteredProducts) { product in
-                                        ProductSearchCard(
-                                            product: product,
-                                            productManager: productManager,
-                                            userManager: userManager,
-                                            cartManager: currentCartManager
-                                        )
-                                    }
-                                }
-                                .padding(24)
-                            }
+                    .padding(.vertical, 16)
+                }
+            } else {
+                ScrollView {
+                    if searchCategory == .products {
+                        if filteredProducts.isEmpty {
+                            EmptyStateView(
+                                icon: "magnifyingglass",
+                                title: "No products found",
+                                message: "Try a different search term"
+                            )
                         } else {
-                            if filteredUsers.isEmpty {
-                                EmptyStateView(
-                                    icon: "person",
-                                    title: "No users found",
-                                    message: "Try a different search term"
-                                )
-                            } else {
-                                LazyVStack(spacing: 16) {
-                                    ForEach(filteredUsers) { user in
-                                        UserSearchCard(
-                                            user: user,
-                                            userManager: userManager
-                                        )
-                                    }
+                            LazyVStack(spacing: 12) {
+                                ForEach(filteredProducts) { product in
+                                    ProductSearchCard(
+                                        product: product,
+                                        productManager: productManager,
+                                        userManager: userManager,
+                                        cartManager: currentCartManager
+                                    )
                                 }
-                                .padding(24)
                             }
+                            .padding(16)
+                        }
+                    } else {
+                        if filteredUsers.isEmpty {
+                            EmptyStateView(
+                                icon: "person",
+                                title: "No users found",
+                                message: "Try a different search term"
+                            )
+                        } else {
+                            LazyVStack(spacing: 12) {
+                                ForEach(filteredUsers) { user in
+                                    UserSearchCard(
+                                        user: user,
+                                        userManager: userManager
+                                    )
+                                }
+                            }
+                            .padding(16)
                         }
                     }
                 }
             }
         }
+        .background(Color(.systemBackground))
         .navigationTitle("Search")
         .onAppear {
             if cartManager == nil {
@@ -166,40 +188,60 @@ struct TrendingProductCard: View {
     @State private var showDetail = false
     
     var body: some View {
-        LiquidGlassCard(cornerRadius: 20, padding: 0, isInteractive: true) {
-            VStack(alignment: .leading, spacing: 0) {
-                ZStack {
-                    RoundedRectangle(cornerRadius: 20)
-                        .fill(
-                            LinearGradient(
-                                colors: [.blue.opacity(0.2), .purple.opacity(0.2)],
-                                startPoint: .topLeading,
-                                endPoint: .bottomTrailing
-                            )
-                        )
-                        .frame(width: 200, height: 150)
-                    
-                    Image(systemName: product.category.icon)
-                        .font(.system(size: 40))
-                        .foregroundColor(.white.opacity(0.5))
-                }
+        VStack(alignment: .leading, spacing: 0) {
+            ZStack {
+                RoundedRectangle(cornerRadius: 12)
+                    .fill(categoryColor(for: product.category))
+                    .frame(width: 160, height: 160)
                 
-                VStack(alignment: .leading, spacing: 8) {
-                    Text(product.name)
-                        .font(.headline)
-                        .lineLimit(2)
-                    
-                    Text("$\(product.formattedPrice)")
-                        .font(.title3)
-                        .fontWeight(.bold)
-                        .foregroundColor(.blue)
-                }
-                .padding(12)
+                Image(systemName: categorySymbol(for: product.category))
+                    .font(.system(size: 60, weight: .thin))
+                    .foregroundColor(.white.opacity(0.8))
             }
-            .frame(width: 200)
+            
+            VStack(alignment: .leading, spacing: 4) {
+                Text(product.name)
+                    .font(.system(size: 14, weight: .medium))
+                    .foregroundColor(.primary)
+                    .lineLimit(2)
+                
+                Text("$\(product.formattedPrice)")
+                    .font(.system(size: 15, weight: .semibold))
+                    .foregroundColor(.primary)
+            }
+            .padding(.top, 8)
+            .frame(width: 160, alignment: .leading)
         }
         .onTapGesture {
             showDetail = true
+        }
+    }
+    
+    func categoryColor(for category: ProductCategory) -> Color {
+        switch category {
+        case .electronics: return Color(red: 0.2, green: 0.4, blue: 0.8)
+        case .fashion: return Color(red: 0.9, green: 0.4, blue: 0.5)
+        case .home: return Color(red: 0.4, green: 0.7, blue: 0.5)
+        case .beauty: return Color(red: 0.9, green: 0.6, blue: 0.7)
+        case .sports: return Color(red: 0.3, green: 0.7, blue: 0.9)
+        case .books: return Color(red: 0.6, green: 0.4, blue: 0.3)
+        case .toys: return Color(red: 0.9, green: 0.7, blue: 0.3)
+        case .food: return Color(red: 0.8, green: 0.5, blue: 0.3)
+        case .other: return Color(red: 0.5, green: 0.5, blue: 0.5)
+        }
+    }
+    
+    func categorySymbol(for category: ProductCategory) -> String {
+        switch category {
+        case .electronics: return "airpodspro"
+        case .fashion: return "tshirt"
+        case .home: return "lamp.floor"
+        case .beauty: return "sparkles"
+        case .sports: return "figure.run"
+        case .books: return "book"
+        case .toys: return "gamecontroller"
+        case .food: return "cup.and.saucer"
+        case .other: return "square.grid.2x2"
         }
     }
 }
@@ -209,16 +251,36 @@ struct CategoryCard: View {
     let category: ProductCategory
     
     var body: some View {
-        LiquidGlassCard(cornerRadius: 16, padding: 20, isInteractive: true) {
-            HStack(spacing: 12) {
-                Image(systemName: category.icon)
-                    .font(.title2)
-                    .foregroundColor(.blue)
-                    .frame(width: 40)
-                
-                Text(category.rawValue)
-                    .font(.headline)
-            }
+        HStack(spacing: 12) {
+            Image(systemName: category.icon)
+                .font(.system(size: 22, weight: .medium))
+                .foregroundColor(.white)
+                .frame(width: 50, height: 50)
+                .background(categoryColor(for: category))
+                .cornerRadius(10)
+            
+            Text(category.rawValue)
+                .font(.system(size: 16, weight: .semibold))
+                .foregroundColor(.primary)
+            
+            Spacer()
+        }
+        .padding(12)
+        .background(Color(.systemGray6))
+        .cornerRadius(12)
+    }
+    
+    func categoryColor(for category: ProductCategory) -> Color {
+        switch category {
+        case .electronics: return Color(red: 0.2, green: 0.4, blue: 0.8)
+        case .fashion: return Color(red: 0.9, green: 0.4, blue: 0.5)
+        case .home: return Color(red: 0.4, green: 0.7, blue: 0.5)
+        case .beauty: return Color(red: 0.9, green: 0.6, blue: 0.7)
+        case .sports: return Color(red: 0.3, green: 0.7, blue: 0.9)
+        case .books: return Color(red: 0.6, green: 0.4, blue: 0.3)
+        case .toys: return Color(red: 0.9, green: 0.7, blue: 0.3)
+        case .food: return Color(red: 0.8, green: 0.5, blue: 0.3)
+        case .other: return Color(red: 0.5, green: 0.5, blue: 0.5)
         }
     }
 }
@@ -237,59 +299,86 @@ struct ProductSearchCard: View {
             userManager: userManager,
             cartManager: cartManager
         )) {
-            LiquidGlassCard(padding: 0, isInteractive: true) {
-                HStack(spacing: 16) {
-                    // Image
-                    RoundedRectangle(cornerRadius: 12)
-                        .fill(
-                            LinearGradient(
-                                colors: [.blue.opacity(0.2), .purple.opacity(0.2)],
-                                startPoint: .topLeading,
-                                endPoint: .bottomTrailing
-                            )
-                        )
-                        .frame(width: 100, height: 100)
-                        .overlay(
-                            Image(systemName: product.category.icon)
-                                .font(.title)
-                                .foregroundColor(.white.opacity(0.5))
-                        )
+            HStack(spacing: 12) {
+                // Image
+                RoundedRectangle(cornerRadius: 12)
+                    .fill(categoryColor(for: product.category))
+                    .frame(width: 80, height: 80)
+                    .overlay(
+                        Image(systemName: categorySymbol(for: product.category))
+                            .font(.system(size: 32, weight: .thin))
+                            .foregroundColor(.white.opacity(0.8))
+                    )
+                
+                // Info
+                VStack(alignment: .leading, spacing: 6) {
+                    Text(product.name)
+                        .font(.system(size: 15, weight: .semibold))
+                        .foregroundColor(.primary)
+                        .lineLimit(2)
                     
-                    // Info
-                    VStack(alignment: .leading, spacing: 8) {
-                        Text(product.name)
-                            .font(.headline)
-                            .lineLimit(2)
+                    Text(product.description)
+                        .font(.system(size: 13))
+                        .foregroundColor(.secondary)
+                        .lineLimit(2)
+                    
+                    HStack(spacing: 6) {
+                        Text("$\(product.formattedPrice)")
+                            .font(.system(size: 16, weight: .semibold))
+                            .foregroundColor(.primary)
                         
-                        Text(product.description)
-                            .font(.caption)
-                            .foregroundColor(.secondary)
-                            .lineLimit(2)
-                        
-                        HStack {
-                            Text("$\(product.formattedPrice)")
-                                .font(.title3)
-                                .fontWeight(.bold)
-                                .foregroundColor(.blue)
-                            
-                            if let originalPrice = product.originalPrice {
-                                Text("$\(String(format: "%.2f", originalPrice))")
-                                    .font(.caption)
-                                    .strikethrough()
-                                    .foregroundColor(.secondary)
-                            }
+                        if let originalPrice = product.originalPrice {
+                            Text("$\(String(format: "%.2f", originalPrice))")
+                                .font(.system(size: 13))
+                                .strikethrough()
+                                .foregroundColor(.secondary)
                         }
                     }
-                    
-                    Spacer()
-                    
-                    Image(systemName: "chevron.right")
-                        .foregroundColor(.secondary)
                 }
-                .padding(16)
+                
+                Spacer()
+                
+                Image(systemName: "chevron.right")
+                    .font(.system(size: 14, weight: .semibold))
+                    .foregroundColor(.secondary)
             }
+            .padding(12)
+            .background(Color(.systemBackground))
+            .cornerRadius(12)
+            .overlay(
+                RoundedRectangle(cornerRadius: 12)
+                    .stroke(Color(.separator).opacity(0.3), lineWidth: 0.5)
+            )
         }
         .buttonStyle(PlainButtonStyle())
+    }
+    
+    func categoryColor(for category: ProductCategory) -> Color {
+        switch category {
+        case .electronics: return Color(red: 0.2, green: 0.4, blue: 0.8)
+        case .fashion: return Color(red: 0.9, green: 0.4, blue: 0.5)
+        case .home: return Color(red: 0.4, green: 0.7, blue: 0.5)
+        case .beauty: return Color(red: 0.9, green: 0.6, blue: 0.7)
+        case .sports: return Color(red: 0.3, green: 0.7, blue: 0.9)
+        case .books: return Color(red: 0.6, green: 0.4, blue: 0.3)
+        case .toys: return Color(red: 0.9, green: 0.7, blue: 0.3)
+        case .food: return Color(red: 0.8, green: 0.5, blue: 0.3)
+        case .other: return Color(red: 0.5, green: 0.5, blue: 0.5)
+        }
+    }
+    
+    func categorySymbol(for category: ProductCategory) -> String {
+        switch category {
+        case .electronics: return "airpodspro"
+        case .fashion: return "tshirt"
+        case .home: return "lamp.floor"
+        case .beauty: return "sparkles"
+        case .sports: return "figure.run"
+        case .books: return "book"
+        case .toys: return "gamecontroller"
+        case .food: return "cup.and.saucer"
+        case .other: return "square.grid.2x2"
+        }
     }
 }
 
@@ -304,51 +393,59 @@ struct UserSearchCard: View {
             userManager: userManager,
             productManager: ProductDataManager()
         )) {
-            LiquidGlassCard(padding: 16, isInteractive: true) {
-                HStack(spacing: 16) {
-                    Circle()
-                        .fill(
-                            LinearGradient(
-                                colors: [.blue.opacity(0.3), .purple.opacity(0.3)],
-                                startPoint: .topLeading,
-                                endPoint: .bottomTrailing
-                            )
+            HStack(spacing: 12) {
+                Circle()
+                    .fill(
+                        LinearGradient(
+                            colors: [Color(red: 0.26, green: 0.46, blue: 0.78), Color(red: 0.49, green: 0.36, blue: 0.89)],
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing
                         )
-                        .frame(width: 60, height: 60)
-                        .overlay(
-                            Image(systemName: "person.fill")
-                                .foregroundColor(.white.opacity(0.8))
-                        )
-                    
-                    VStack(alignment: .leading, spacing: 4) {
-                        HStack(spacing: 4) {
-                            Text(user.displayName)
-                                .font(.headline)
-                            if user.isVerified {
-                                Image(systemName: "checkmark.seal.fill")
-                                    .foregroundColor(.blue)
-                                    .font(.caption)
-                            }
-                        }
-                        
-                        Text("@\(user.username)")
-                            .font(.subheadline)
-                            .foregroundColor(.secondary)
-                        
-                        if let bio = user.bio {
-                            Text(bio)
-                                .font(.caption)
-                                .foregroundColor(.secondary)
-                                .lineLimit(1)
+                    )
+                    .frame(width: 50, height: 50)
+                    .overlay(
+                        Image(systemName: "person.fill")
+                            .foregroundColor(.white)
+                            .font(.system(size: 22, weight: .medium))
+                    )
+                
+                VStack(alignment: .leading, spacing: 4) {
+                    HStack(spacing: 4) {
+                        Text(user.displayName)
+                            .font(.system(size: 15, weight: .semibold))
+                            .foregroundColor(.primary)
+                        if user.isVerified {
+                            Image(systemName: "checkmark.seal.fill")
+                                .foregroundColor(.blue)
+                                .font(.system(size: 12))
                         }
                     }
                     
-                    Spacer()
-                    
-                    Image(systemName: "chevron.right")
+                    Text("@\(user.username)")
+                        .font(.system(size: 14))
                         .foregroundColor(.secondary)
+                    
+                    if let bio = user.bio {
+                        Text(bio)
+                            .font(.system(size: 13))
+                            .foregroundColor(.secondary)
+                            .lineLimit(1)
+                    }
                 }
+                
+                Spacer()
+                
+                Image(systemName: "chevron.right")
+                    .font(.system(size: 14, weight: .semibold))
+                    .foregroundColor(.secondary)
             }
+            .padding(12)
+            .background(Color(.systemBackground))
+            .cornerRadius(12)
+            .overlay(
+                RoundedRectangle(cornerRadius: 12)
+                    .stroke(Color(.separator).opacity(0.3), lineWidth: 0.5)
+            )
         }
         .buttonStyle(PlainButtonStyle())
     }

@@ -9,11 +9,13 @@ import SwiftUI
 
 struct ProductDetailView: View {
     let product: Product
+    let postId: String? // Optional post ID if we're coming from a post
     @ObservedObject var productManager: ProductDataManager
     @ObservedObject var userManager: UserDataManager
     @ObservedObject var cartManager: CartDataManager
     
     @StateObject private var commentManager: CommentDataManager
+    @StateObject private var feedManager: FeedDataManager
     @State private var showComments = false
     @State private var selectedImageIndex = 0
     @State private var quantity = 1
@@ -22,47 +24,52 @@ struct ProductDetailView: View {
         userManager.getUser(by: product.sellerId)
     }
     
-    init(product: Product, productManager: ProductDataManager, userManager: UserDataManager, cartManager: CartDataManager) {
+    var associatedPost: Post? {
+        if let postId = postId {
+            return feedManager.getPost(by: postId)
+        }
+        // Try to find a post for this product
+        return feedManager.posts.first { $0.productId == product.id }
+    }
+    
+    init(product: Product, postId: String? = nil, productManager: ProductDataManager, userManager: UserDataManager, cartManager: CartDataManager) {
         self.product = product
+        self.postId = postId
         self.productManager = productManager
         self.userManager = userManager
         self.cartManager = cartManager
         
         let commentManager = CommentDataManager(userManager: userManager)
         _commentManager = StateObject(wrappedValue: commentManager)
+        
+        let feedManager = FeedDataManager(productManager: productManager, userManager: userManager)
+        _feedManager = StateObject(wrappedValue: feedManager)
     }
     
     var body: some View {
-        LiquidGlassBackground {
-            ScrollView {
-                VStack(alignment: .leading, spacing: 0) {
-                    // Product Images
-                    TabView(selection: $selectedImageIndex) {
-                        ForEach(0..<max(1, product.imageURLs.count), id: \.self) { index in
-                            ZStack {
-                                RoundedRectangle(cornerRadius: 0)
-                                    .fill(
-                                        LinearGradient(
-                                            colors: [.blue.opacity(0.2), .purple.opacity(0.2)],
-                                            startPoint: .topLeading,
-                                            endPoint: .bottomTrailing
-                                        )
-                                    )
-                                    .frame(height: 400)
-                                
-                                Image(systemName: "photo.fill")
-                                    .font(.system(size: 80))
-                                    .foregroundColor(.white.opacity(0.3))
-                            }
+        ScrollView {
+            VStack(alignment: .leading, spacing: 0) {
+                // Product Images
+                TabView(selection: $selectedImageIndex) {
+                    ForEach(0..<max(1, product.imageURLs.count), id: \.self) { index in
+                        ZStack {
+                            Rectangle()
+                                .fill(categoryColor(for: product.category))
+                                .frame(height: 400)
+                            
+                            Image(systemName: categorySymbol(for: product.category))
+                                .font(.system(size: 120, weight: .thin))
+                                .foregroundColor(.white.opacity(0.8))
                         }
                     }
-                    .frame(height: 400)
-                    .tabViewStyle(.page)
-                    .indexViewStyle(.page(backgroundDisplayMode: .always))
-                    
-                    VStack(alignment: .leading, spacing: 20) {
-                        // Product Info
-                        VStack(alignment: .leading, spacing: 12) {
+                }
+                .frame(height: 400)
+                .tabViewStyle(.page)
+                .indexViewStyle(.page(backgroundDisplayMode: .always))
+                
+                VStack(alignment: .leading, spacing: 20) {
+                    // Product Info
+                    VStack(alignment: .leading, spacing: 12) {
                             // Category Badge
                             HStack {
                                 Image(systemName: product.category.icon)
@@ -286,25 +293,77 @@ struct ProductDetailView: View {
                             }
                         }
                         .padding(.top, 8)
-                    }
-                    .padding(24)
+                }
+                .padding(24)
+            }
+        }
+        .background(Color(.systemBackground))
+        .navigationTitle(product.name)
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button(action: {
+                    showComments = true
+                }) {
+                    Image(systemName: "message")
+                        .foregroundColor(.blue)
                 }
             }
-            .navigationTitle(product.name)
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {
-                        showComments = true
-                    }) {
-                        Image(systemName: "message")
-                            .foregroundColor(.blue)
-                    }
-                }
-            }
-            .sheet(isPresented: $showComments) {
+        }
+        .sheet(isPresented: $showComments) {
+            if let post = associatedPost {
+                CommentsView(postId: post.id, commentManager: commentManager, userManager: userManager)
+            } else {
+                // If no associated post, create a temporary ID for this product
                 CommentsView(postId: product.id, commentManager: commentManager, userManager: userManager)
             }
+        }
+    }
+    
+    // Helper functions for product image colors
+    func categoryColor(for category: ProductCategory) -> Color {
+        switch category {
+        case .electronics:
+            return Color(red: 0.2, green: 0.4, blue: 0.8)
+        case .fashion:
+            return Color(red: 0.9, green: 0.4, blue: 0.5)
+        case .home:
+            return Color(red: 0.4, green: 0.7, blue: 0.5)
+        case .beauty:
+            return Color(red: 0.9, green: 0.6, blue: 0.7)
+        case .sports:
+            return Color(red: 0.3, green: 0.7, blue: 0.9)
+        case .books:
+            return Color(red: 0.6, green: 0.4, blue: 0.3)
+        case .toys:
+            return Color(red: 0.9, green: 0.7, blue: 0.3)
+        case .food:
+            return Color(red: 0.8, green: 0.5, blue: 0.3)
+        case .other:
+            return Color(red: 0.5, green: 0.5, blue: 0.5)
+        }
+    }
+    
+    func categorySymbol(for category: ProductCategory) -> String {
+        switch category {
+        case .electronics:
+            return "airpodspro"
+        case .fashion:
+            return "tshirt"
+        case .home:
+            return "lamp.floor"
+        case .beauty:
+            return "sparkles"
+        case .sports:
+            return "figure.run"
+        case .books:
+            return "book"
+        case .toys:
+            return "gamecontroller"
+        case .food:
+            return "cup.and.saucer"
+        case .other:
+            return "square.grid.2x2"
         }
     }
 }
@@ -380,4 +439,9 @@ struct FlowLayout: Layout {
         )
     }
 }
+
+
+
+
+
 

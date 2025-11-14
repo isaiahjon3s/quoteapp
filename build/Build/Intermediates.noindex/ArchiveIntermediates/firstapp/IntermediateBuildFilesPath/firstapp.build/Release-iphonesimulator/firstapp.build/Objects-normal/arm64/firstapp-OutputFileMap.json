@@ -1,0 +1,251 @@
+{
+  "" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/firstapp-primary.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/firstapp-primary.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/firstapp-primary.dia",
+    "emit-module-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/firstapp-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/firstapp-primary-emit-module.dia",
+    "pch" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/firstapp-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/firstapp-primary.swiftdeps"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/DerivedSources/GeneratedAssetSymbols.swift" : {
+    "index-unit-output-path" : "/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/GeneratedAssetSymbols.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/GeneratedAssetSymbols.o"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/CameraManager.swift" : {
+    "index-unit-output-path" : "/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/CameraManager.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/CameraManager.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/CameraManager.o"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/ContentView.swift" : {
+    "index-unit-output-path" : "/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/ContentView.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/ContentView.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/ContentView.o"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/ImagePicker.swift" : {
+    "index-unit-output-path" : "/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/ImagePicker.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/ImagePicker.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/ImagePicker.o"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Managers/CartDataManager.swift" : {
+    "index-unit-output-path" : "/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/CartDataManager.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/CartDataManager.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/CartDataManager.o"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Managers/CommentDataManager.swift" : {
+    "index-unit-output-path" : "/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/CommentDataManager.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/CommentDataManager.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/CommentDataManager.o"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Managers/FeedDataManager.swift" : {
+    "index-unit-output-path" : "/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/FeedDataManager.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/FeedDataManager.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/FeedDataManager.o"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Managers/ProductDataManager.swift" : {
+    "index-unit-output-path" : "/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/ProductDataManager.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/ProductDataManager.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/ProductDataManager.o"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Managers/QuoteDataManager.swift" : {
+    "index-unit-output-path" : "/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/QuoteDataManager.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/QuoteDataManager.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/QuoteDataManager.o"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Managers/UserDataManager.swift" : {
+    "index-unit-output-path" : "/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/UserDataManager.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/UserDataManager.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/UserDataManager.o"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Managers/WorkoutDataManager.swift" : {
+    "index-unit-output-path" : "/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/WorkoutDataManager.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/WorkoutDataManager.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/WorkoutDataManager.o"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Models/CartModel.swift" : {
+    "index-unit-output-path" : "/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/CartModel.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/CartModel.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/CartModel.o"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Models/CommentModel.swift" : {
+    "index-unit-output-path" : "/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/CommentModel.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/CommentModel.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/CommentModel.o"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Models/PostModel.swift" : {
+    "index-unit-output-path" : "/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/PostModel.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/PostModel.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/PostModel.o"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Models/ProductModel.swift" : {
+    "index-unit-output-path" : "/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/ProductModel.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/ProductModel.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/ProductModel.o"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Models/QuoteModels.swift" : {
+    "index-unit-output-path" : "/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/QuoteModels.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/QuoteModels.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/QuoteModels.o"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Models/UserModel.swift" : {
+    "index-unit-output-path" : "/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/UserModel.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/UserModel.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/UserModel.o"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Models/WorkoutModels.swift" : {
+    "index-unit-output-path" : "/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/WorkoutModels.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/WorkoutModels.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/WorkoutModels.o"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/UI/Components/Backgrounds/LiquidGlassBackground.swift" : {
+    "index-unit-output-path" : "/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassBackground.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassBackground.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassBackground.o"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/UI/Components/Buttons/LiquidGlassButton.swift" : {
+    "index-unit-output-path" : "/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassButton.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassButton.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassButton.o"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/UI/Components/Buttons/LiquidGlassFAB.swift" : {
+    "index-unit-output-path" : "/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassFAB.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassFAB.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassFAB.o"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/UI/Components/Buttons/LiquidGlassMenu.swift" : {
+    "index-unit-output-path" : "/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassMenu.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassMenu.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassMenu.o"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/UI/Components/Cards/LiquidGlassCard.swift" : {
+    "index-unit-output-path" : "/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassCard.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassCard.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassCard.o"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/UI/Components/Inputs/LiquidGlassProgressBar.swift" : {
+    "index-unit-output-path" : "/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassProgressBar.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassProgressBar.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassProgressBar.o"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/UI/Components/Inputs/LiquidGlassSearchField.swift" : {
+    "index-unit-output-path" : "/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassSearchField.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassSearchField.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassSearchField.o"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/UI/Components/Inputs/LiquidGlassSlider.swift" : {
+    "index-unit-output-path" : "/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassSlider.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassSlider.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassSlider.o"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/UI/Components/Inputs/LiquidGlassTextField.swift" : {
+    "index-unit-output-path" : "/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassTextField.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassTextField.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassTextField.o"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/UI/Components/Modifiers/LiquidGlassModifier.swift" : {
+    "index-unit-output-path" : "/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassModifier.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassModifier.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassModifier.o"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/UI/Components/Navigation/LiquidGlassMenuBar.swift" : {
+    "index-unit-output-path" : "/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassMenuBar.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassMenuBar.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassMenuBar.o"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/UI/Components/Navigation/LiquidGlassMenuBarWithSearch.swift" : {
+    "index-unit-output-path" : "/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassMenuBarWithSearch.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassMenuBarWithSearch.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassMenuBarWithSearch.o"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/UI/Components/Navigation/LiquidGlassTabView.swift" : {
+    "index-unit-output-path" : "/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassTabView.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassTabView.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassTabView.o"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/UI/LiquidGlassComponents.swift" : {
+    "index-unit-output-path" : "/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassComponents.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassComponents.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassComponents.o"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Views/AddExerciseView.swift" : {
+    "index-unit-output-path" : "/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/AddExerciseView.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/AddExerciseView.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/AddExerciseView.o"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Views/AddQuoteView.swift" : {
+    "index-unit-output-path" : "/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/AddQuoteView.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/AddQuoteView.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/AddQuoteView.o"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Views/AddWorkoutView.swift" : {
+    "index-unit-output-path" : "/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/AddWorkoutView.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/AddWorkoutView.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/AddWorkoutView.o"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Views/CartView.swift" : {
+    "index-unit-output-path" : "/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/CartView.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/CartView.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/CartView.o"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Views/CommentsView.swift" : {
+    "index-unit-output-path" : "/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/CommentsView.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/CommentsView.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/CommentsView.o"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Views/EditWorkoutView.swift" : {
+    "index-unit-output-path" : "/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/EditWorkoutView.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/EditWorkoutView.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/EditWorkoutView.o"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Views/FeedView.swift" : {
+    "index-unit-output-path" : "/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/FeedView.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/FeedView.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/FeedView.o"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Views/ProductDetailView.swift" : {
+    "index-unit-output-path" : "/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/ProductDetailView.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/ProductDetailView.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/ProductDetailView.o"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Views/ProfileQuotesView.swift" : {
+    "index-unit-output-path" : "/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/ProfileQuotesView.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/ProfileQuotesView.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/ProfileQuotesView.o"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Views/ProfileView.swift" : {
+    "index-unit-output-path" : "/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/ProfileView.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/ProfileView.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/ProfileView.o"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Views/QuoteFeedView.swift" : {
+    "index-unit-output-path" : "/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/QuoteFeedView.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/QuoteFeedView.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/QuoteFeedView.o"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Views/SearchView.swift" : {
+    "index-unit-output-path" : "/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/SearchView.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/SearchView.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/SearchView.o"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Views/WorkoutDetailView.swift" : {
+    "index-unit-output-path" : "/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/WorkoutDetailView.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/WorkoutDetailView.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/WorkoutDetailView.o"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Views/WorkoutListView.swift" : {
+    "index-unit-output-path" : "/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/WorkoutListView.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/WorkoutListView.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/WorkoutListView.o"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Views/WorkoutSessionView.swift" : {
+    "index-unit-output-path" : "/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/WorkoutSessionView.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/WorkoutSessionView.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/WorkoutSessionView.o"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/firstappApp.swift" : {
+    "index-unit-output-path" : "/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/firstappApp.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/firstappApp.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/firstappApp.o"
+  }
+}

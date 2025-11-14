@@ -1,0 +1,96 @@
+{
+  "source": "/Users/isaiahjones/Desktop/firstapp/firstapp/Views/WorkoutListView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Workouts",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 110
+        }
+      },
+      {
+        "comment": "",
+        "key": "Total Workouts",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 137
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 140
+        }
+      },
+      {
+        "comment": "",
+        "key": "This Week",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 148
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 151
+        }
+      },
+      {
+        "comment": "",
+        "key": "Total Time",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 159
+        }
+      },
+      {
+        "comment": "",
+        "key": "Avg Duration",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 170
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld Exercises",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 217
+        }
+      },
+      {
+        "comment": "",
+        "key": "Last Workout",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 230
+        }
+      },
+      {
+        "comment": "",
+        "key": "No Workouts Found",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 262
+        }
+      },
+      {
+        "comment": "",
+        "key": "Create your first workout to get started",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 266
+        }
+      }
+    ]
+  },
+  "version": 1
+}

@@ -1,0 +1,152 @@
+{
+  "source": "/Users/isaiahjones/Desktop/firstapp/firstapp/Views/WorkoutSessionView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Workout Session",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 90
+        }
+      },
+      {
+        "comment": "",
+        "key": "End Workout",
+        "location": {
+          "startingColumn": 16,
+          "startingLine": 100
+        }
+      },
+      {
+        "comment": "",
+        "key": "End",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 94
+        }
+      },
+      {
+        "comment": "",
+        "key": "Cancel",
+        "location": {
+          "startingColumn": 20,
+          "startingLine": 101
+        }
+      },
+      {
+        "comment": "",
+        "key": "End Workout",
+        "location": {
+          "startingColumn": 20,
+          "startingLine": 102
+        }
+      },
+      {
+        "comment": "",
+        "key": "Are you sure you want to end this workout? Your progress will be saved.",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 106
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld%%",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 199
+        }
+      },
+      {
+        "comment": "",
+        "key": "Exercise %lld of %lld",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 192
+        }
+      },
+      {
+        "comment": "",
+        "key": "Set %lld",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 240
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld reps",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 251
+        }
+      },
+      {
+        "comment": "",
+        "key": "%llds",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 247
+        }
+      },
+      {
+        "comment": "",
+        "key": "• %lld lbs",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 256
+        }
+      },
+      {
+        "comment": "",
+        "key": "Rest Time",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 295
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 299
+        }
+      },
+      {
+        "comment": "",
+        "key": "seconds",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 303
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld of %lld sets completed",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 393
+        }
+      },
+      {
+        "comment": "",
+        "key": "Progress",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 377
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld%%",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 383
+        }
+      }
+    ]
+  },
+  "version": 1
+}

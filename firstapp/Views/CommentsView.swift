@@ -20,81 +20,82 @@ struct CommentsView: View {
     }
     
     var body: some View {
-        LiquidGlassBackground {
-            VStack(spacing: 0) {
-                // Comments List
-                ScrollView {
-                    LazyVStack(alignment: .leading, spacing: 16) {
-                        if comments.isEmpty {
-                            VStack(spacing: 16) {
-                                Image(systemName: "message")
-                                    .font(.system(size: 50))
-                                    .foregroundColor(.secondary.opacity(0.5))
-                                Text("No comments yet")
-                                    .font(.headline)
-                                    .foregroundColor(.secondary)
-                                Text("Be the first to comment!")
-                                    .font(.subheadline)
-                                    .foregroundColor(.secondary.opacity(0.7))
-                            }
-                            .frame(maxWidth: .infinity)
-                            .padding(.top, 100)
-                        } else {
-                            ForEach(comments) { comment in
-                                CommentRow(
-                                    comment: comment,
-                                    commentManager: commentManager,
-                                    userManager: userManager
-                                )
-                            }
+        VStack(spacing: 0) {
+            // Comments List
+            ScrollView {
+                LazyVStack(alignment: .leading, spacing: 16) {
+                    if comments.isEmpty {
+                        VStack(spacing: 16) {
+                            Image(systemName: "message")
+                                .font(.system(size: 50, weight: .light))
+                                .foregroundColor(.secondary.opacity(0.5))
+                            Text("No comments yet")
+                                .font(.system(size: 17, weight: .semibold))
+                                .foregroundColor(.secondary)
+                            Text("Be the first to comment!")
+                                .font(.system(size: 14))
+                                .foregroundColor(.secondary.opacity(0.7))
+                        }
+                        .frame(maxWidth: .infinity)
+                        .padding(.top, 100)
+                    } else {
+                        ForEach(comments) { comment in
+                            CommentRow(
+                                comment: comment,
+                                commentManager: commentManager,
+                                userManager: userManager
+                            )
                         }
                     }
-                    .padding(20)
                 }
-                
-                // Comment Input
-                VStack(spacing: 0) {
-                    Divider()
-                    HStack(spacing: 12) {
-                        if let currentUser = userManager.currentUser {
-                            Circle()
-                                .fill(
-                                    LinearGradient(
-                                        colors: [.blue.opacity(0.3), .purple.opacity(0.3)],
-                                        startPoint: .topLeading,
-                                        endPoint: .bottomTrailing
-                                    )
-                                )
-                                .frame(width: 36, height: 36)
-                                .overlay(
-                                    Image(systemName: "person.fill")
-                                        .foregroundColor(.white.opacity(0.8))
-                                        .font(.caption)
-                                )
-                        }
-                        
-                        LiquidGlassTextField(
-                            "Add a comment...",
-                            text: $newCommentText
-                        )
-                        .frame(height: 40)
-                        
-                        Button(action: {
-                            addComment()
-                        }) {
-                            Image(systemName: "arrow.up.circle.fill")
-                                .font(.title2)
-                                .foregroundColor(newCommentText.isEmpty ? .secondary : .blue)
-                        }
-                        .disabled(newCommentText.isEmpty)
-                    }
-                    .padding(16)
-                    .background(.regularMaterial)
-                }
+                .padding(16)
             }
-            .navigationTitle("Comments")
-            .navigationBarTitleDisplayMode(.inline)
+            .background(Color(.systemBackground))
+            
+            // Comment Input
+            VStack(spacing: 0) {
+                Divider()
+                HStack(spacing: 12) {
+                    if let currentUser = userManager.currentUser {
+                        Circle()
+                            .fill(
+                                LinearGradient(
+                                    colors: [Color(red: 0.26, green: 0.46, blue: 0.78), Color(red: 0.49, green: 0.36, blue: 0.89)],
+                                    startPoint: .topLeading,
+                                    endPoint: .bottomTrailing
+                                )
+                            )
+                            .frame(width: 32, height: 32)
+                            .overlay(
+                                Image(systemName: "person.fill")
+                                    .foregroundColor(.white)
+                                    .font(.system(size: 14, weight: .medium))
+                            )
+                    }
+                    
+                    TextField("Add a comment...", text: $newCommentText)
+                        .font(.system(size: 15))
+                        .padding(.horizontal, 12)
+                        .padding(.vertical, 10)
+                        .background(Color(.systemGray6))
+                        .cornerRadius(20)
+                    
+                    Button(action: {
+                        addComment()
+                    }) {
+                        Image(systemName: "arrow.up.circle.fill")
+                            .font(.system(size: 28))
+                            .foregroundColor(newCommentText.isEmpty ? .secondary : .blue)
+                    }
+                    .disabled(newCommentText.isEmpty)
+                }
+                .padding(12)
+                .background(Color(.systemBackground))
+            }
         }
+        .background(Color(.systemBackground))
+        .navigationTitle("Comments")
+        .navigationBarTitleDisplayMode(.inline)
     }
     
     private func addComment() {
@@ -127,39 +128,40 @@ struct CommentRow: View {
             Circle()
                 .fill(
                     LinearGradient(
-                        colors: [.blue.opacity(0.3), .purple.opacity(0.3)],
+                        colors: [Color(red: 0.26, green: 0.46, blue: 0.78), Color(red: 0.49, green: 0.36, blue: 0.89)],
                         startPoint: .topLeading,
                         endPoint: .bottomTrailing
                     )
                 )
-                .frame(width: 40, height: 40)
+                .frame(width: 36, height: 36)
                 .overlay(
                     Image(systemName: "person.fill")
-                        .foregroundColor(.white.opacity(0.8))
-                        .font(.caption)
+                        .foregroundColor(.white)
+                        .font(.system(size: 16, weight: .medium))
                 )
             
-            VStack(alignment: .leading, spacing: 4) {
+            VStack(alignment: .leading, spacing: 6) {
                 // User Info
                 HStack(spacing: 6) {
                     Text(user?.displayName ?? "Unknown")
-                        .font(.subheadline)
-                        .fontWeight(.semibold)
+                        .font(.system(size: 14, weight: .semibold))
+                        .foregroundColor(.primary)
                     
                     if user?.isVerified == true {
                         Image(systemName: "checkmark.seal.fill")
                             .foregroundColor(.blue)
-                            .font(.caption2)
+                            .font(.system(size: 10))
                     }
                     
                     Text(timeAgo)
-                        .font(.caption)
+                        .font(.system(size: 12))
                         .foregroundColor(.secondary)
                 }
                 
                 // Comment Text
                 Text(comment.text)
-                    .font(.body)
+                    .font(.system(size: 14))
+                    .foregroundColor(.primary)
                 
                 // Actions
                 HStack(spacing: 16) {
@@ -168,11 +170,11 @@ struct CommentRow: View {
                     }) {
                         HStack(spacing: 4) {
                             Image(systemName: comment.isLiked ? "heart.fill" : "heart")
-                                .font(.caption)
+                                .font(.system(size: 12))
                                 .foregroundColor(comment.isLiked ? .red : .secondary)
                             if comment.likeCount > 0 {
                                 Text("\(comment.likeCount)")
-                                    .font(.caption)
+                                    .font(.system(size: 12, weight: .medium))
                                     .foregroundColor(.secondary)
                             }
                         }
@@ -180,7 +182,7 @@ struct CommentRow: View {
                     
                     Button(action: {}) {
                         Text("Reply")
-                            .font(.caption)
+                            .font(.system(size: 12, weight: .medium))
                             .foregroundColor(.secondary)
                     }
                 }

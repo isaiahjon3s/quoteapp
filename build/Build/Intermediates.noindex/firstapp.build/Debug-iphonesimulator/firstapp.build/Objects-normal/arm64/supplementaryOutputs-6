@@ -1,0 +1,44 @@
+{
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Views/AddWorkoutView.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/AddWorkoutView.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/AddWorkoutView.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/AddWorkoutView.dia",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/AddWorkoutView.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/AddWorkoutView.swiftdeps"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Views/CartView.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CartView.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CartView.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CartView.dia",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CartView.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CartView.swiftdeps"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Views/CommentsView.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CommentsView.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CommentsView.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CommentsView.dia",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CommentsView.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CommentsView.swiftdeps"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Views/EditWorkoutView.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/EditWorkoutView.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/EditWorkoutView.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/EditWorkoutView.dia",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/EditWorkoutView.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/EditWorkoutView.swiftdeps"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Views/FeedView.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/FeedView.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/FeedView.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/FeedView.dia",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/FeedView.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/FeedView.swiftdeps"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Views/ProductDetailView.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ProductDetailView.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ProductDetailView.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ProductDetailView.dia",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ProductDetailView.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ProductDetailView.swiftdeps"
+  }
+}

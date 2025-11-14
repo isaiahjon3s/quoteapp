@@ -1,0 +1,24 @@
+{
+  "source": "/Users/isaiahjones/Desktop/firstapp/firstapp/Views/EditWorkoutView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Edit Workout",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 69
+        }
+      },
+      {
+        "comment": "",
+        "key": "Cancel",
+        "location": {
+          "startingColumn": 32,
+          "startingLine": 73
+        }
+      }
+    ]
+  },
+  "version": 1
+}

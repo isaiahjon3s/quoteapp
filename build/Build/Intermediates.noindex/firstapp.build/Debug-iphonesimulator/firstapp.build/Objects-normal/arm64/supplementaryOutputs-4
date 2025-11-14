@@ -1,0 +1,44 @@
+{
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/UI/Components/Cards/LiquidGlassCard.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassCard.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassCard.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassCard.dia",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassCard.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassCard.swiftdeps"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/UI/Components/Inputs/LiquidGlassProgressBar.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassProgressBar.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassProgressBar.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassProgressBar.dia",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassProgressBar.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassProgressBar.swiftdeps"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/UI/Components/Inputs/LiquidGlassSearchField.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassSearchField.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassSearchField.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassSearchField.dia",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassSearchField.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassSearchField.swiftdeps"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/UI/Components/Inputs/LiquidGlassSlider.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassSlider.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassSlider.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassSlider.dia",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassSlider.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassSlider.swiftdeps"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/UI/Components/Inputs/LiquidGlassTextField.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassTextField.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassTextField.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassTextField.dia",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassTextField.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassTextField.swiftdeps"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/UI/Components/Modifiers/LiquidGlassModifier.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassModifier.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassModifier.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassModifier.dia",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassModifier.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassModifier.swiftdeps"
+  }
+}

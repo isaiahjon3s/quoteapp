@@ -1,0 +1,56 @@
+{
+  "source": "/Users/isaiahjones/Desktop/firstapp/firstapp/Views/WorkoutDetailView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Exercises",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 37
+        }
+      },
+      {
+        "comment": "",
+        "key": "Last performed %@",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 130
+        }
+      },
+      {
+        "comment": "",
+        "key": "Set %lld",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 170
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld reps",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 181
+        }
+      },
+      {
+        "comment": "",
+        "key": "%llds",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 177
+        }
+      },
+      {
+        "comment": "",
+        "key": "• %lld lbs",
+        "location": {
+          "startingColumn": 46,
+          "startingLine": 186
+        }
+      }
+    ]
+  },
+  "version": 1
+}

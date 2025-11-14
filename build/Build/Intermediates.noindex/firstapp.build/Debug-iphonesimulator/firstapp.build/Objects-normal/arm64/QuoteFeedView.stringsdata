@@ -1,0 +1,104 @@
+{
+  "source": "/Users/isaiahjones/Desktop/firstapp/firstapp/Views/QuoteFeedView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Quotes",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 130
+        }
+      },
+      {
+        "comment": "",
+        "key": "Welcome",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 172
+        }
+      },
+      {
+        "comment": "",
+        "key": "Welcome back",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 165
+        }
+      },
+      {
+        "comment": "",
+        "key": "\"%@\"",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 194
+        }
+      },
+      {
+        "comment": "",
+        "key": "#%@",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 293
+        }
+      },
+      {
+        "comment": "",
+        "key": "Discover",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 317
+        }
+      },
+      {
+        "comment": "",
+        "key": "Daily Inspiration",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 324
+        }
+      },
+      {
+        "comment": "",
+        "key": "Bookmarks",
+        "location": {
+          "startingColumn": 19,
+          "startingLine": 365
+        }
+      },
+      {
+        "comment": "",
+        "key": "Trending",
+        "location": {
+          "startingColumn": 19,
+          "startingLine": 410
+        }
+      },
+      {
+        "comment": "",
+        "key": "Tag Insights",
+        "location": {
+          "startingColumn": 23,
+          "startingLine": 453
+        }
+      },
+      {
+        "comment": "",
+        "key": "#%@",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 460
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 464
+        }
+      }
+    ]
+  },
+  "version": 1
+}

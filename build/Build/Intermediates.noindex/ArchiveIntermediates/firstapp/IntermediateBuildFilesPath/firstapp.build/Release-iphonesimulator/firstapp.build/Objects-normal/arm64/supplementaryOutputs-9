@@ -1,0 +1,12 @@
+{
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Managers/CartDataManager.swift" : {
+    "abi-baseline-json" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/firstapp.abi.json",
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/firstapp-primary.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/firstapp-primary.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/firstapp-primary.dia",
+    "objc-header" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/firstapp-Swift.h",
+    "swiftdoc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/firstapp.swiftdoc",
+    "swiftmodule" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/firstapp.swiftmodule",
+    "swiftsourceinfo" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/ArchiveIntermediates/firstapp/IntermediateBuildFilesPath/firstapp.build/Release-iphonesimulator/firstapp.build/Objects-normal/arm64/firstapp.swiftsourceinfo"
+  }
+}

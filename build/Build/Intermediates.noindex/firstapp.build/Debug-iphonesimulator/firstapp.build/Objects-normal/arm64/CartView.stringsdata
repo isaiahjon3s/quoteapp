@@ -1,0 +1,120 @@
+{
+  "source": "/Users/isaiahjones/Desktop/firstapp/firstapp/Views/CartView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "My Shopping",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 45
+        }
+      },
+      {
+        "comment": "",
+        "key": "Cart Tab",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 28
+        }
+      },
+      {
+        "comment": "",
+        "key": "Cart",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 29
+        }
+      },
+      {
+        "comment": "",
+        "key": "Wishlist",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 30
+        }
+      },
+      {
+        "comment": "",
+        "key": "Total",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 76
+        }
+      },
+      {
+        "comment": "",
+        "key": "$%@",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 80
+        }
+      },
+      {
+        "comment": "",
+        "key": "$%@",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 168
+        }
+      },
+      {
+        "comment": "",
+        "key": "Gift",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 178
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 193
+        }
+      },
+      {
+        "comment": "",
+        "key": "$%@",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 267
+        }
+      },
+      {
+        "comment": "",
+        "key": "Your cart is empty",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 307
+        }
+      },
+      {
+        "comment": "",
+        "key": "Start shopping to add items to your cart",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 310
+        }
+      },
+      {
+        "comment": "",
+        "key": "Your wishlist is empty",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 327
+        }
+      },
+      {
+        "comment": "",
+        "key": "Save products you love for later",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 330
+        }
+      }
+    ]
+  },
+  "version": 1
+}

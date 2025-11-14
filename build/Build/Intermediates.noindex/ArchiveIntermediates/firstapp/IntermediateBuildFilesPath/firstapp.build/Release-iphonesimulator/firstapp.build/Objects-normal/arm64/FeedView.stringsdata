@@ -1,0 +1,64 @@
+{
+  "source": "/Users/isaiahjones/Desktop/firstapp/firstapp/Views/FeedView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "@%@",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 134
+        }
+      },
+      {
+        "comment": "",
+        "key": "$%@",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 179
+        }
+      },
+      {
+        "comment": "",
+        "key": "$%@",
+        "location": {
+          "startingColumn": 46,
+          "startingLine": 185
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld%% OFF",
+        "location": {
+          "startingColumn": 46,
+          "startingLine": 192
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld reviews",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 216
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 237
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 247
+        }
+      }
+    ]
+  },
+  "version": 1
+}

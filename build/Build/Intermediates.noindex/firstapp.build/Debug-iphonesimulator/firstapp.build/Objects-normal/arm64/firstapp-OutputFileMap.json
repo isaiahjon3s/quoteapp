@@ -1,0 +1,489 @@
+{
+  "" : {
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/firstapp-primary.dia",
+    "emit-module-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/firstapp-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/firstapp-primary-emit-module.dia",
+    "pch" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/firstapp-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/firstapp-primary.swiftdeps"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/DerivedSources/GeneratedAssetSymbols.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/GeneratedAssetSymbols.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/GeneratedAssetSymbols.dia",
+    "index-unit-output-path" : "/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/GeneratedAssetSymbols.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftdeps",
+    "swiftmodule" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/GeneratedAssetSymbols~partial.swiftmodule"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/CameraManager.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CameraManager.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CameraManager.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CameraManager.dia",
+    "index-unit-output-path" : "/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CameraManager.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CameraManager.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CameraManager.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CameraManager.swiftdeps",
+    "swiftmodule" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CameraManager~partial.swiftmodule"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/ContentView.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ContentView.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ContentView.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ContentView.dia",
+    "index-unit-output-path" : "/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ContentView.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ContentView.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ContentView.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ContentView.swiftdeps",
+    "swiftmodule" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ContentView~partial.swiftmodule"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/ImagePicker.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ImagePicker.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ImagePicker.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ImagePicker.dia",
+    "index-unit-output-path" : "/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ImagePicker.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ImagePicker.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ImagePicker.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ImagePicker.swiftdeps",
+    "swiftmodule" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ImagePicker~partial.swiftmodule"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Managers/CartDataManager.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CartDataManager.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CartDataManager.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CartDataManager.dia",
+    "index-unit-output-path" : "/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CartDataManager.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CartDataManager.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CartDataManager.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CartDataManager.swiftdeps",
+    "swiftmodule" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CartDataManager~partial.swiftmodule"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Managers/CommentDataManager.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CommentDataManager.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CommentDataManager.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CommentDataManager.dia",
+    "index-unit-output-path" : "/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CommentDataManager.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CommentDataManager.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CommentDataManager.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CommentDataManager.swiftdeps",
+    "swiftmodule" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CommentDataManager~partial.swiftmodule"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Managers/FeedDataManager.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/FeedDataManager.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/FeedDataManager.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/FeedDataManager.dia",
+    "index-unit-output-path" : "/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/FeedDataManager.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/FeedDataManager.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/FeedDataManager.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/FeedDataManager.swiftdeps",
+    "swiftmodule" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/FeedDataManager~partial.swiftmodule"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Managers/ProductDataManager.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ProductDataManager.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ProductDataManager.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ProductDataManager.dia",
+    "index-unit-output-path" : "/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ProductDataManager.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ProductDataManager.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ProductDataManager.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ProductDataManager.swiftdeps",
+    "swiftmodule" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ProductDataManager~partial.swiftmodule"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Managers/QuoteDataManager.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/QuoteDataManager.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/QuoteDataManager.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/QuoteDataManager.dia",
+    "index-unit-output-path" : "/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/QuoteDataManager.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/QuoteDataManager.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/QuoteDataManager.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/QuoteDataManager.swiftdeps",
+    "swiftmodule" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/QuoteDataManager~partial.swiftmodule"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Managers/UserDataManager.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/UserDataManager.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/UserDataManager.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/UserDataManager.dia",
+    "index-unit-output-path" : "/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/UserDataManager.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/UserDataManager.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/UserDataManager.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/UserDataManager.swiftdeps",
+    "swiftmodule" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/UserDataManager~partial.swiftmodule"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Managers/WorkoutDataManager.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/WorkoutDataManager.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/WorkoutDataManager.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/WorkoutDataManager.dia",
+    "index-unit-output-path" : "/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/WorkoutDataManager.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/WorkoutDataManager.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/WorkoutDataManager.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/WorkoutDataManager.swiftdeps",
+    "swiftmodule" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/WorkoutDataManager~partial.swiftmodule"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Models/CartModel.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CartModel.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CartModel.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CartModel.dia",
+    "index-unit-output-path" : "/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CartModel.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CartModel.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CartModel.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CartModel.swiftdeps",
+    "swiftmodule" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CartModel~partial.swiftmodule"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Models/CommentModel.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CommentModel.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CommentModel.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CommentModel.dia",
+    "index-unit-output-path" : "/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CommentModel.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CommentModel.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CommentModel.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CommentModel.swiftdeps",
+    "swiftmodule" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CommentModel~partial.swiftmodule"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Models/PostModel.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/PostModel.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/PostModel.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/PostModel.dia",
+    "index-unit-output-path" : "/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/PostModel.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/PostModel.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/PostModel.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/PostModel.swiftdeps",
+    "swiftmodule" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/PostModel~partial.swiftmodule"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Models/ProductModel.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ProductModel.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ProductModel.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ProductModel.dia",
+    "index-unit-output-path" : "/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ProductModel.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ProductModel.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ProductModel.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ProductModel.swiftdeps",
+    "swiftmodule" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ProductModel~partial.swiftmodule"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Models/QuoteModels.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/QuoteModels.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/QuoteModels.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/QuoteModels.dia",
+    "index-unit-output-path" : "/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/QuoteModels.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/QuoteModels.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/QuoteModels.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/QuoteModels.swiftdeps",
+    "swiftmodule" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/QuoteModels~partial.swiftmodule"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Models/UserModel.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/UserModel.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/UserModel.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/UserModel.dia",
+    "index-unit-output-path" : "/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/UserModel.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/UserModel.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/UserModel.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/UserModel.swiftdeps",
+    "swiftmodule" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/UserModel~partial.swiftmodule"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Models/WorkoutModels.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/WorkoutModels.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/WorkoutModels.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/WorkoutModels.dia",
+    "index-unit-output-path" : "/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/WorkoutModels.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/WorkoutModels.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/WorkoutModels.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/WorkoutModels.swiftdeps",
+    "swiftmodule" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/WorkoutModels~partial.swiftmodule"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/UI/Components/Backgrounds/LiquidGlassBackground.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassBackground.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassBackground.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassBackground.dia",
+    "index-unit-output-path" : "/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassBackground.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassBackground.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassBackground.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassBackground.swiftdeps",
+    "swiftmodule" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassBackground~partial.swiftmodule"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/UI/Components/Buttons/LiquidGlassButton.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassButton.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassButton.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassButton.dia",
+    "index-unit-output-path" : "/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassButton.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassButton.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassButton.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassButton.swiftdeps",
+    "swiftmodule" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassButton~partial.swiftmodule"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/UI/Components/Buttons/LiquidGlassFAB.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassFAB.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassFAB.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassFAB.dia",
+    "index-unit-output-path" : "/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassFAB.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassFAB.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassFAB.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassFAB.swiftdeps",
+    "swiftmodule" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassFAB~partial.swiftmodule"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/UI/Components/Buttons/LiquidGlassMenu.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassMenu.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassMenu.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassMenu.dia",
+    "index-unit-output-path" : "/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassMenu.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassMenu.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassMenu.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassMenu.swiftdeps",
+    "swiftmodule" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassMenu~partial.swiftmodule"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/UI/Components/Cards/LiquidGlassCard.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassCard.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassCard.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassCard.dia",
+    "index-unit-output-path" : "/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassCard.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassCard.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassCard.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassCard.swiftdeps",
+    "swiftmodule" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassCard~partial.swiftmodule"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/UI/Components/Inputs/LiquidGlassProgressBar.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassProgressBar.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassProgressBar.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassProgressBar.dia",
+    "index-unit-output-path" : "/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassProgressBar.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassProgressBar.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassProgressBar.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassProgressBar.swiftdeps",
+    "swiftmodule" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassProgressBar~partial.swiftmodule"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/UI/Components/Inputs/LiquidGlassSearchField.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassSearchField.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassSearchField.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassSearchField.dia",
+    "index-unit-output-path" : "/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassSearchField.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassSearchField.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassSearchField.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassSearchField.swiftdeps",
+    "swiftmodule" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassSearchField~partial.swiftmodule"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/UI/Components/Inputs/LiquidGlassSlider.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassSlider.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassSlider.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassSlider.dia",
+    "index-unit-output-path" : "/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassSlider.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassSlider.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassSlider.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassSlider.swiftdeps",
+    "swiftmodule" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassSlider~partial.swiftmodule"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/UI/Components/Inputs/LiquidGlassTextField.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassTextField.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassTextField.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassTextField.dia",
+    "index-unit-output-path" : "/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassTextField.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassTextField.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassTextField.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassTextField.swiftdeps",
+    "swiftmodule" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassTextField~partial.swiftmodule"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/UI/Components/Modifiers/LiquidGlassModifier.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassModifier.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassModifier.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassModifier.dia",
+    "index-unit-output-path" : "/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassModifier.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassModifier.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassModifier.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassModifier.swiftdeps",
+    "swiftmodule" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassModifier~partial.swiftmodule"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/UI/Components/Navigation/LiquidGlassMenuBar.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassMenuBar.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassMenuBar.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassMenuBar.dia",
+    "index-unit-output-path" : "/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassMenuBar.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassMenuBar.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassMenuBar.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassMenuBar.swiftdeps",
+    "swiftmodule" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassMenuBar~partial.swiftmodule"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/UI/Components/Navigation/LiquidGlassMenuBarWithSearch.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassMenuBarWithSearch.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassMenuBarWithSearch.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassMenuBarWithSearch.dia",
+    "index-unit-output-path" : "/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassMenuBarWithSearch.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassMenuBarWithSearch.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassMenuBarWithSearch.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassMenuBarWithSearch.swiftdeps",
+    "swiftmodule" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassMenuBarWithSearch~partial.swiftmodule"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/UI/Components/Navigation/LiquidGlassTabView.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassTabView.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassTabView.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassTabView.dia",
+    "index-unit-output-path" : "/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassTabView.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassTabView.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassTabView.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassTabView.swiftdeps",
+    "swiftmodule" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassTabView~partial.swiftmodule"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/UI/LiquidGlassComponents.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassComponents.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassComponents.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassComponents.dia",
+    "index-unit-output-path" : "/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassComponents.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassComponents.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassComponents.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassComponents.swiftdeps",
+    "swiftmodule" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/LiquidGlassComponents~partial.swiftmodule"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Views/AddExerciseView.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/AddExerciseView.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/AddExerciseView.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/AddExerciseView.dia",
+    "index-unit-output-path" : "/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/AddExerciseView.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/AddExerciseView.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/AddExerciseView.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/AddExerciseView.swiftdeps",
+    "swiftmodule" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/AddExerciseView~partial.swiftmodule"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Views/AddQuoteView.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/AddQuoteView.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/AddQuoteView.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/AddQuoteView.dia",
+    "index-unit-output-path" : "/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/AddQuoteView.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/AddQuoteView.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/AddQuoteView.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/AddQuoteView.swiftdeps",
+    "swiftmodule" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/AddQuoteView~partial.swiftmodule"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Views/AddWorkoutView.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/AddWorkoutView.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/AddWorkoutView.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/AddWorkoutView.dia",
+    "index-unit-output-path" : "/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/AddWorkoutView.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/AddWorkoutView.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/AddWorkoutView.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/AddWorkoutView.swiftdeps",
+    "swiftmodule" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/AddWorkoutView~partial.swiftmodule"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Views/CartView.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CartView.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CartView.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CartView.dia",
+    "index-unit-output-path" : "/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CartView.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CartView.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CartView.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CartView.swiftdeps",
+    "swiftmodule" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CartView~partial.swiftmodule"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Views/CommentsView.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CommentsView.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CommentsView.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CommentsView.dia",
+    "index-unit-output-path" : "/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CommentsView.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CommentsView.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CommentsView.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CommentsView.swiftdeps",
+    "swiftmodule" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CommentsView~partial.swiftmodule"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Views/EditWorkoutView.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/EditWorkoutView.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/EditWorkoutView.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/EditWorkoutView.dia",
+    "index-unit-output-path" : "/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/EditWorkoutView.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/EditWorkoutView.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/EditWorkoutView.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/EditWorkoutView.swiftdeps",
+    "swiftmodule" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/EditWorkoutView~partial.swiftmodule"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Views/FeedView.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/FeedView.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/FeedView.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/FeedView.dia",
+    "index-unit-output-path" : "/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/FeedView.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/FeedView.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/FeedView.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/FeedView.swiftdeps",
+    "swiftmodule" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/FeedView~partial.swiftmodule"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Views/ProductDetailView.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ProductDetailView.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ProductDetailView.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ProductDetailView.dia",
+    "index-unit-output-path" : "/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ProductDetailView.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ProductDetailView.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ProductDetailView.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ProductDetailView.swiftdeps",
+    "swiftmodule" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ProductDetailView~partial.swiftmodule"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Views/ProfileQuotesView.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ProfileQuotesView.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ProfileQuotesView.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ProfileQuotesView.dia",
+    "index-unit-output-path" : "/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ProfileQuotesView.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ProfileQuotesView.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ProfileQuotesView.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ProfileQuotesView.swiftdeps",
+    "swiftmodule" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ProfileQuotesView~partial.swiftmodule"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Views/ProfileView.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ProfileView.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ProfileView.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ProfileView.dia",
+    "index-unit-output-path" : "/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ProfileView.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ProfileView.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ProfileView.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ProfileView.swiftdeps",
+    "swiftmodule" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ProfileView~partial.swiftmodule"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Views/QuoteFeedView.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/QuoteFeedView.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/QuoteFeedView.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/QuoteFeedView.dia",
+    "index-unit-output-path" : "/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/QuoteFeedView.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/QuoteFeedView.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/QuoteFeedView.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/QuoteFeedView.swiftdeps",
+    "swiftmodule" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/QuoteFeedView~partial.swiftmodule"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Views/SearchView.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/SearchView.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/SearchView.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/SearchView.dia",
+    "index-unit-output-path" : "/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/SearchView.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/SearchView.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/SearchView.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/SearchView.swiftdeps",
+    "swiftmodule" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/SearchView~partial.swiftmodule"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Views/WorkoutDetailView.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/WorkoutDetailView.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/WorkoutDetailView.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/WorkoutDetailView.dia",
+    "index-unit-output-path" : "/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/WorkoutDetailView.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/WorkoutDetailView.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/WorkoutDetailView.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/WorkoutDetailView.swiftdeps",
+    "swiftmodule" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/WorkoutDetailView~partial.swiftmodule"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Views/WorkoutListView.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/WorkoutListView.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/WorkoutListView.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/WorkoutListView.dia",
+    "index-unit-output-path" : "/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/WorkoutListView.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/WorkoutListView.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/WorkoutListView.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/WorkoutListView.swiftdeps",
+    "swiftmodule" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/WorkoutListView~partial.swiftmodule"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Views/WorkoutSessionView.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/WorkoutSessionView.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/WorkoutSessionView.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/WorkoutSessionView.dia",
+    "index-unit-output-path" : "/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/WorkoutSessionView.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/WorkoutSessionView.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/WorkoutSessionView.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/WorkoutSessionView.swiftdeps",
+    "swiftmodule" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/WorkoutSessionView~partial.swiftmodule"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/firstappApp.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/firstappApp.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/firstappApp.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/firstappApp.dia",
+    "index-unit-output-path" : "/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/firstappApp.o",
+    "llvm-bc" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/firstappApp.bc",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/firstappApp.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/firstappApp.swiftdeps",
+    "swiftmodule" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/firstappApp~partial.swiftmodule"
+  }
+}

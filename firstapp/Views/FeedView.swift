@@ -25,38 +25,41 @@ struct FeedView: View {
     }
     
     var body: some View {
-        LiquidGlassBackground {
-            ScrollView {
-                LazyVStack(spacing: 20) {
-                    // Category Filter
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack(spacing: 12) {
-                            // All category
+        ScrollView {
+            VStack(spacing: 0) {
+                // Category Filter
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 8) {
+                        // All category
+                        CategoryChip(
+                            title: "All",
+                            icon: "square.grid.2x2",
+                            isSelected: selectedCategory == nil
+                        ) {
+                            selectedCategory = nil
+                        }
+                        
+                        // Category chips
+                        ForEach(ProductCategory.allCases, id: \.self) { category in
                             CategoryChip(
-                                title: "All",
-                                icon: "square.grid.2x2",
-                                isSelected: selectedCategory == nil
+                                title: category.rawValue,
+                                icon: category.icon,
+                                isSelected: selectedCategory == category
                             ) {
-                                selectedCategory = nil
-                            }
-                            
-                            // Category chips
-                            ForEach(ProductCategory.allCases, id: \.self) { category in
-                                CategoryChip(
-                                    title: category.rawValue,
-                                    icon: category.icon,
-                                    isSelected: selectedCategory == category
-                                ) {
-                                    selectedCategory = category
-                                }
+                                selectedCategory = category
                             }
                         }
-                        .padding(.horizontal, 24)
                     }
-                    .padding(.vertical, 12)
-                    
-                    // Posts Feed
-                    if let feedManager = feedManager, let cartManager = cartManager {
+                    .padding(.horizontal, 16)
+                }
+                .padding(.vertical, 12)
+                .background(Color(.systemBackground))
+                
+                Divider()
+                
+                // Posts Feed
+                if let feedManager = feedManager, let cartManager = cartManager {
+                    LazyVStack(spacing: 0) {
                         ForEach(filteredPosts) { post in
                             PostCard(
                                 post: post,
@@ -68,9 +71,9 @@ struct FeedView: View {
                         }
                     }
                 }
-                .padding(.vertical)
             }
         }
+        .background(Color(.systemBackground))
         .onAppear {
             if feedManager == nil {
                 feedManager = FeedDataManager(productManager: productManager, userManager: userManager)
@@ -101,187 +104,236 @@ struct PostCard: View {
     }
     
     var body: some View {
-        LiquidGlassCard(padding: 0, isInteractive: true) {
-            VStack(alignment: .leading, spacing: 0) {
-                // User Header
-                HStack(spacing: 12) {
-                    // Profile Image
-                    Circle()
-                        .fill(
-                            LinearGradient(
-                                colors: [.blue.opacity(0.3), .purple.opacity(0.3)],
-                                startPoint: .topLeading,
-                                endPoint: .bottomTrailing
-                            )
+        VStack(alignment: .leading, spacing: 0) {
+            // User Header
+            HStack(spacing: 12) {
+                // Profile Image - solid gradient circle
+                Circle()
+                    .fill(
+                        LinearGradient(
+                            colors: [Color(red: 0.26, green: 0.46, blue: 0.78), Color(red: 0.49, green: 0.36, blue: 0.89)],
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing
                         )
-                        .frame(width: 44, height: 44)
-                        .overlay(
-                            Image(systemName: "person.fill")
-                                .foregroundColor(.white.opacity(0.8))
-                                .font(.system(size: 20))
-                        )
-                    
-                    VStack(alignment: .leading, spacing: 2) {
-                        HStack(spacing: 4) {
-                            Text(user?.displayName ?? "Unknown")
-                                .font(.headline)
-                            if user?.isVerified == true {
-                                Image(systemName: "checkmark.seal.fill")
-                                    .foregroundColor(.blue)
-                                    .font(.caption)
-                            }
+                    )
+                    .frame(width: 40, height: 40)
+                    .overlay(
+                        Image(systemName: "person.fill")
+                            .foregroundColor(.white)
+                            .font(.system(size: 18, weight: .medium))
+                    )
+                
+                VStack(alignment: .leading, spacing: 2) {
+                    HStack(spacing: 4) {
+                        Text(user?.displayName ?? "Unknown")
+                            .font(.system(size: 15, weight: .semibold))
+                            .foregroundColor(.primary)
+                        if user?.isVerified == true {
+                            Image(systemName: "checkmark.seal.fill")
+                                .foregroundColor(.blue)
+                                .font(.system(size: 12))
                         }
-                        Text("@\(user?.username ?? "unknown")")
-                            .font(.caption)
-                            .foregroundColor(.secondary)
+                    }
+                    Text("@\(user?.username ?? "unknown")")
+                        .font(.system(size: 13))
+                        .foregroundColor(.secondary)
+                }
+                
+                Spacer()
+                
+                Button(action: {}) {
+                    Image(systemName: "ellipsis")
+                        .foregroundColor(.primary)
+                        .font(.system(size: 16, weight: .semibold))
+                        .padding(8)
+                }
+            }
+            .padding(.horizontal, 16)
+            .padding(.vertical, 12)
+            .background(Color(.systemBackground))
+            
+            // Product Image - Cleaner solid background
+            if let product = product {
+                ZStack {
+                    // Solid color background based on category
+                    Rectangle()
+                        .fill(categoryColor(for: product.category))
+                        .frame(height: 400)
+                    
+                    // Large SF Symbol for product
+                    Image(systemName: categorySymbol(for: product.category))
+                        .font(.system(size: 120, weight: .thin))
+                        .foregroundColor(.white.opacity(0.8))
+                }
+                .onTapGesture {
+                    showProductDetail = true
+                }
+                
+                // Actions Bar (Instagram-style)
+                HStack(spacing: 16) {
+                    Button(action: {
+                        feedManager.toggleLike(for: post.id)
+                    }) {
+                        Image(systemName: post.isLiked ? "heart.fill" : "heart")
+                            .font(.system(size: 24, weight: .regular))
+                            .foregroundColor(post.isLiked ? .red : .primary)
+                    }
+                    
+                    NavigationLink(destination: ProductDetailView(product: product, postId: post.id, productManager: productManager, userManager: userManager, cartManager: cartManager)) {
+                        Image(systemName: "message")
+                            .font(.system(size: 24, weight: .regular))
+                            .foregroundColor(.primary)
+                    }
+                    
+                    Button(action: {
+                        showProductDetail = true
+                    }) {
+                        Image(systemName: "cart")
+                            .font(.system(size: 24, weight: .regular))
+                            .foregroundColor(.primary)
                     }
                     
                     Spacer()
                     
-                    Button(action: {}) {
-                        Image(systemName: "ellipsis")
-                            .foregroundColor(.secondary)
-                            .padding(8)
+                    Button(action: {
+                        cartManager.addToCart(productId: product.id, isForGift: true)
+                    }) {
+                        Image(systemName: "gift")
+                            .font(.system(size: 24, weight: .regular))
+                            .foregroundColor(.primary)
                     }
                 }
-                .padding(16)
+                .padding(.horizontal, 16)
+                .padding(.vertical, 12)
+                .background(Color(.systemBackground))
                 
-                // Product Image
-                if let product = product {
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 0)
-                            .fill(
-                                LinearGradient(
-                                    colors: [.blue.opacity(0.2), .purple.opacity(0.2)],
-                                    startPoint: .topLeading,
-                                    endPoint: .bottomTrailing
-                                )
-                            )
-                            .frame(height: 300)
-                        
-                        Image(systemName: "photo.fill")
-                            .font(.system(size: 60))
-                            .foregroundColor(.white.opacity(0.3))
-                    }
-                    .onTapGesture {
-                        showProductDetail = true
+                // Product Info
+                VStack(alignment: .leading, spacing: 8) {
+                    // Likes count
+                    if post.likeCount > 0 {
+                        Text("\(post.likeCount) likes")
+                            .font(.system(size: 14, weight: .semibold))
+                            .foregroundColor(.primary)
                     }
                     
-                    // Product Info
-                    VStack(alignment: .leading, spacing: 12) {
-                        HStack {
-                            VStack(alignment: .leading, spacing: 4) {
-                                Text(product.name)
-                                    .font(.title3)
-                                    .fontWeight(.bold)
+                    // Product name and price
+                    HStack(alignment: .top, spacing: 8) {
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text(product.name)
+                                .font(.system(size: 15, weight: .semibold))
+                                .foregroundColor(.primary)
+                            
+                            HStack(spacing: 6) {
+                                Text("$\(product.formattedPrice)")
+                                    .font(.system(size: 15, weight: .semibold))
+                                    .foregroundColor(.primary)
                                 
-                                HStack(spacing: 8) {
-                                    Text("$\(product.formattedPrice)")
-                                        .font(.title2)
-                                        .fontWeight(.bold)
-                                        .foregroundColor(.blue)
-                                    
-                                    if let originalPrice = product.originalPrice {
-                                        Text("$\(String(format: "%.2f", originalPrice))")
-                                            .font(.body)
-                                            .strikethrough()
-                                            .foregroundColor(.secondary)
-                                    }
-                                    
-                                    if let discount = product.discountPercentage {
-                                        Text("\(discount)% OFF")
-                                            .font(.caption)
-                                            .fontWeight(.bold)
-                                            .foregroundColor(.red)
-                                            .padding(.horizontal, 8)
-                                            .padding(.vertical, 4)
-                                            .background(.red.opacity(0.1))
-                                            .cornerRadius(8)
-                                    }
+                                if let originalPrice = product.originalPrice {
+                                    Text("$\(String(format: "%.2f", originalPrice))")
+                                        .font(.system(size: 13))
+                                        .strikethrough()
+                                        .foregroundColor(.secondary)
                                 }
-                            }
-                            
-                            Spacer()
-                            
-                            // Rating
-                            VStack(alignment: .trailing, spacing: 4) {
-                                HStack(spacing: 4) {
-                                    Image(systemName: "star.fill")
-                                        .foregroundColor(.yellow)
-                                        .font(.caption)
-                                    Text(String(format: "%.1f", product.rating))
-                                        .font(.subheadline)
-                                        .fontWeight(.semibold)
+                                
+                                if let discount = product.discountPercentage {
+                                    Text("\(discount)% OFF")
+                                        .font(.system(size: 11, weight: .semibold))
+                                        .foregroundColor(.red)
                                 }
-                                Text("\(product.reviewCount) reviews")
-                                    .font(.caption2)
-                                    .foregroundColor(.secondary)
-                            }
-                        }
-                        
-                        // Caption
-                        Text(post.caption)
-                            .font(.body)
-                            .lineLimit(3)
-                    }
-                    .padding(16)
-                    
-                    // Actions
-                    HStack(spacing: 24) {
-                        Button(action: {
-                            feedManager.toggleLike(for: post.id)
-                        }) {
-                            HStack(spacing: 6) {
-                                Image(systemName: post.isLiked ? "heart.fill" : "heart")
-                                    .foregroundColor(post.isLiked ? .red : .secondary)
-                                Text("\(post.likeCount)")
-                                    .font(.subheadline)
-                                    .foregroundColor(.secondary)
-                            }
-                        }
-                        
-                        NavigationLink(destination: ProductDetailView(product: product, productManager: productManager, userManager: userManager, cartManager: cartManager)) {
-                            HStack(spacing: 6) {
-                                Image(systemName: "message")
-                                    .foregroundColor(.secondary)
-                                Text("\(post.commentCount)")
-                                    .font(.subheadline)
-                                    .foregroundColor(.secondary)
                             }
                         }
                         
                         Spacer()
                         
-                        // Buy Button
-                        LiquidGlassButton(
-                            "Buy Now",
-                            icon: "cart.fill",
-                            style: .primary,
-                            size: .small
-                        ) {
-                            showProductDetail = true
-                        }
-                        
-                        // Gift Button
-                        LiquidGlassButton(
-                            "Gift",
-                            icon: "gift.fill",
-                            style: .accent,
-                            size: .small
-                        ) {
-                            cartManager.addToCart(productId: product.id, isForGift: true)
+                        // Rating
+                        HStack(spacing: 3) {
+                            Image(systemName: "star.fill")
+                                .foregroundColor(.orange)
+                                .font(.system(size: 12))
+                            Text(String(format: "%.1f", product.rating))
+                                .font(.system(size: 13, weight: .medium))
+                                .foregroundColor(.secondary)
                         }
                     }
-                    .padding(.horizontal, 16)
-                    .padding(.bottom, 16)
+                    
+                    // Caption
+                    Text(post.caption)
+                        .font(.system(size: 14))
+                        .foregroundColor(.primary)
+                        .lineLimit(2)
+                    
+                    // View comments
+                    if post.commentCount > 0 {
+                        NavigationLink(destination: ProductDetailView(product: product, postId: post.id, productManager: productManager, userManager: userManager, cartManager: cartManager)) {
+                            Text("View all \(post.commentCount) comments")
+                                .font(.system(size: 13))
+                                .foregroundColor(.secondary)
+                        }
+                    }
                 }
+                .padding(.horizontal, 16)
+                .padding(.bottom, 12)
+                .background(Color(.systemBackground))
             }
         }
-        .padding(.horizontal, 24)
+        .background(Color(.systemBackground))
+        .cornerRadius(0)
+        .overlay(
+            Rectangle()
+                .stroke(Color(.separator).opacity(0.3), lineWidth: 0.5)
+        )
+        .padding(.bottom, 8)
         .sheet(isPresented: $showProductDetail) {
             if let product = product {
-                ProductDetailView(product: product, productManager: productManager, userManager: userManager, cartManager: cartManager)
+                ProductDetailView(product: product, postId: post.id, productManager: productManager, userManager: userManager, cartManager: cartManager)
             }
+        }
+    }
+    
+    // Helper functions for product image colors
+    func categoryColor(for category: ProductCategory) -> Color {
+        switch category {
+        case .electronics:
+            return Color(red: 0.2, green: 0.4, blue: 0.8)
+        case .fashion:
+            return Color(red: 0.9, green: 0.4, blue: 0.5)
+        case .home:
+            return Color(red: 0.4, green: 0.7, blue: 0.5)
+        case .beauty:
+            return Color(red: 0.9, green: 0.6, blue: 0.7)
+        case .sports:
+            return Color(red: 0.3, green: 0.7, blue: 0.9)
+        case .books:
+            return Color(red: 0.6, green: 0.4, blue: 0.3)
+        case .toys:
+            return Color(red: 0.9, green: 0.7, blue: 0.3)
+        case .food:
+            return Color(red: 0.8, green: 0.5, blue: 0.3)
+        case .other:
+            return Color(red: 0.5, green: 0.5, blue: 0.5)
+        }
+    }
+    
+    func categorySymbol(for category: ProductCategory) -> String {
+        switch category {
+        case .electronics:
+            return "airpodspro"
+        case .fashion:
+            return "tshirt"
+        case .home:
+            return "lamp.floor"
+        case .beauty:
+            return "sparkles"
+        case .sports:
+            return "figure.run"
+        case .books:
+            return "book"
+        case .toys:
+            return "gamecontroller"
+        case .food:
+            return "cup.and.saucer"
+        case .other:
+            return "square.grid.2x2"
         }
     }
 }
@@ -297,34 +349,18 @@ struct CategoryChip: View {
         Button(action: action) {
             HStack(spacing: 6) {
                 Image(systemName: icon)
-                    .font(.caption)
+                    .font(.system(size: 13, weight: .semibold))
                 Text(title)
-                    .font(.subheadline)
-                    .fontWeight(.medium)
+                    .font(.system(size: 14, weight: .semibold))
             }
             .foregroundColor(isSelected ? .white : .primary)
             .padding(.horizontal, 16)
-            .padding(.vertical, 10)
+            .padding(.vertical, 8)
             .background(
-                Group {
-                    if isSelected {
-                        LinearGradient(
-                            colors: [.blue, .purple],
-                            startPoint: .leading,
-                            endPoint: .trailing
-                        )
-                    } else {
-                        Color.clear
-                    }
-                }
+                isSelected ? Color.black : Color(.systemGray6)
             )
-            .overlay(
-                RoundedRectangle(cornerRadius: 20)
-                    .stroke(isSelected ? Color.clear : Color.secondary.opacity(0.3), lineWidth: 1)
-            )
-            .cornerRadius(20)
+            .cornerRadius(8)
         }
-        .liquidGlass(blur: isSelected ? 0.5 : 0.3, reflection: isSelected ? 0.3 : 0.1)
     }
 }
 

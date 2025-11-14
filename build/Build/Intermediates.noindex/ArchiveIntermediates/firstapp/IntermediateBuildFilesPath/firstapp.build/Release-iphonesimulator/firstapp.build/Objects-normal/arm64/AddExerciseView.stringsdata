@@ -1,0 +1,136 @@
+{
+  "source": "/Users/isaiahjones/Desktop/firstapp/firstapp/Views/AddExerciseView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "New Exercise",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 58
+        }
+      },
+      {
+        "comment": "",
+        "key": "Cancel",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 62
+        }
+      },
+      {
+        "comment": "",
+        "key": "Exercise Details",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 102
+        }
+      },
+      {
+        "comment": "",
+        "key": "Category",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 114
+        }
+      },
+      {
+        "comment": "",
+        "key": "Rest Time",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 132
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld seconds",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 137
+        }
+      },
+      {
+        "comment": "",
+        "key": "Sets",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 170
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 176
+        }
+      },
+      {
+        "comment": "",
+        "key": "Time-based exercise",
+        "location": {
+          "startingColumn": 20,
+          "startingLine": 286
+        }
+      },
+      {
+        "comment": "",
+        "key": "Set %lld",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 240
+        }
+      },
+      {
+        "comment": "",
+        "key": "Duration (seconds)",
+        "location": {
+          "startingColumn": 40,
+          "startingLine": 257
+        }
+      },
+      {
+        "comment": "",
+        "key": "Reps",
+        "location": {
+          "startingColumn": 63,
+          "startingLine": 257
+        }
+      },
+      {
+        "comment": "",
+        "key": "Duration",
+        "location": {
+          "startingColumn": 35,
+          "startingLine": 262
+        }
+      },
+      {
+        "comment": "",
+        "key": "Reps",
+        "location": {
+          "startingColumn": 35,
+          "startingLine": 269
+        }
+      },
+      {
+        "comment": "",
+        "key": "Weight (lbs)",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 276
+        }
+      },
+      {
+        "comment": "",
+        "key": "Weight",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 280
+        }
+      }
+    ]
+  },
+  "version": 1
+}

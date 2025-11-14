@@ -1,0 +1,44 @@
+{
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Views/ProfileQuotesView.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ProfileQuotesView.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ProfileQuotesView.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ProfileQuotesView.dia",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ProfileQuotesView.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ProfileQuotesView.swiftdeps"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Views/ProfileView.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ProfileView.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ProfileView.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ProfileView.dia",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ProfileView.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ProfileView.swiftdeps"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Views/QuoteFeedView.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/QuoteFeedView.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/QuoteFeedView.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/QuoteFeedView.dia",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/QuoteFeedView.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/QuoteFeedView.swiftdeps"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Views/SearchView.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/SearchView.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/SearchView.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/SearchView.dia",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/SearchView.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/SearchView.swiftdeps"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Views/WorkoutDetailView.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/WorkoutDetailView.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/WorkoutDetailView.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/WorkoutDetailView.dia",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/WorkoutDetailView.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/WorkoutDetailView.swiftdeps"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Views/WorkoutListView.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/WorkoutListView.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/WorkoutListView.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/WorkoutListView.dia",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/WorkoutListView.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/WorkoutListView.swiftdeps"
+  }
+}

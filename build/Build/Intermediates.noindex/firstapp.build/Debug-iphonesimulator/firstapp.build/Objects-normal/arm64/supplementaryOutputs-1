@@ -1,0 +1,44 @@
+{
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Managers/CartDataManager.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CartDataManager.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CartDataManager.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CartDataManager.dia",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CartDataManager.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CartDataManager.swiftdeps"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Managers/CommentDataManager.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CommentDataManager.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CommentDataManager.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CommentDataManager.dia",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CommentDataManager.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/CommentDataManager.swiftdeps"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Managers/FeedDataManager.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/FeedDataManager.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/FeedDataManager.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/FeedDataManager.dia",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/FeedDataManager.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/FeedDataManager.swiftdeps"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Managers/ProductDataManager.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ProductDataManager.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ProductDataManager.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ProductDataManager.dia",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ProductDataManager.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/ProductDataManager.swiftdeps"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Managers/QuoteDataManager.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/QuoteDataManager.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/QuoteDataManager.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/QuoteDataManager.dia",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/QuoteDataManager.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/QuoteDataManager.swiftdeps"
+  },
+  "/Users/isaiahjones/Desktop/firstapp/firstapp/Managers/UserDataManager.swift" : {
+    "const-values" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/UserDataManager.swiftconstvalues",
+    "dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/UserDataManager.d",
+    "diagnostics" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/UserDataManager.dia",
+    "object" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/UserDataManager.o",
+    "swift-dependencies" : "/Users/isaiahjones/Desktop/firstapp/build/Build/Intermediates.noindex/firstapp.build/Debug-iphonesimulator/firstapp.build/Objects-normal/arm64/UserDataManager.swiftdeps"
+  }
+}

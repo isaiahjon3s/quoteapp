@@ -1,0 +1,16 @@
+{
+  "source": "/Users/isaiahjones/Desktop/firstapp/firstapp/ContentView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "No user found",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 50
+        }
+      }
+    ]
+  },
+  "version": 1
+}

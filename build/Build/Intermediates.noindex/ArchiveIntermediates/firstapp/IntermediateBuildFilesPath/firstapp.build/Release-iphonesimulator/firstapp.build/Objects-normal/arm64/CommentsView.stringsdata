@@ -1,0 +1,48 @@
+{
+  "source": "/Users/isaiahjones/Desktop/firstapp/firstapp/Views/CommentsView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Comments",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 95
+        }
+      },
+      {
+        "comment": "",
+        "key": "No comments yet",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 33
+        }
+      },
+      {
+        "comment": "",
+        "key": "Be the first to comment!",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 36
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 174
+        }
+      },
+      {
+        "comment": "",
+        "key": "Reply",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 182
+        }
+      }
+    ]
+  },
+  "version": 1
+}

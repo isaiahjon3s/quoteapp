@@ -1,0 +1,104 @@
+{
+  "source": "/Users/isaiahjones/Desktop/firstapp/firstapp/Views/ProductDetailView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "$%@",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 89
+        }
+      },
+      {
+        "comment": "",
+        "key": "$%@",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 94
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld%% OFF",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 101
+        }
+      },
+      {
+        "comment": "",
+        "key": "(%lld reviews)",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 125
+        }
+      },
+      {
+        "comment": "",
+        "key": "Description",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 135
+        }
+      },
+      {
+        "comment": "",
+        "key": "@%@",
+        "location": {
+          "startingColumn": 46,
+          "startingLine": 172
+        }
+      },
+      {
+        "comment": "",
+        "key": "Quantity",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 190
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 203
+        }
+      },
+      {
+        "comment": "",
+        "key": "Tags",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 223
+        }
+      },
+      {
+        "comment": "",
+        "key": "#%@",
+        "location": {
+          "startingColumn": 46,
+          "startingLine": 227
+        }
+      },
+      {
+        "comment": "",
+        "key": "Remove from Wishlist",
+        "location": {
+          "startingColumn": 92,
+          "startingLine": 281
+        }
+      },
+      {
+        "comment": "",
+        "key": "Add to Wishlist",
+        "location": {
+          "startingColumn": 117,
+          "startingLine": 281
+        }
+      }
+    ]
+  },
+  "version": 1
+}

@@ -1,0 +1,32 @@
+{
+  "source": "/Users/isaiahjones/Desktop/firstapp/firstapp/Views/AddQuoteView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "New Quote",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 61
+        }
+      },
+      {
+        "comment": "",
+        "key": "Share a Quote",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 25
+        }
+      },
+      {
+        "comment": "",
+        "key": "Cancel",
+        "location": {
+          "startingColumn": 32,
+          "startingLine": 65
+        }
+      }
+    ]
+  },
+  "version": 1
+}
