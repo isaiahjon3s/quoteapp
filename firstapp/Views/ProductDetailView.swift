@@ -49,17 +49,40 @@ struct ProductDetailView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 0) {
-                // Product Images
+                // Enhanced Product Images with gradient
                 TabView(selection: $selectedImageIndex) {
                     ForEach(0..<max(1, product.imageURLs.count), id: \.self) { index in
                         ZStack {
                             Rectangle()
-                                .fill(categoryColor(for: product.category))
+                                .fill(
+                                    LinearGradient(
+                                        colors: [
+                                            categoryColor(for: product.category),
+                                            categoryColor(for: product.category).opacity(0.8),
+                                            categoryColor(for: product.category).opacity(0.9)
+                                        ],
+                                        startPoint: .topLeading,
+                                        endPoint: .bottomTrailing
+                                    )
+                                )
+                                .frame(height: 400)
+                            
+                            // Subtle overlay
+                            Rectangle()
+                                .fill(
+                                    RadialGradient(
+                                        colors: [Color.white.opacity(0.1), Color.clear],
+                                        center: .topLeading,
+                                        startRadius: 50,
+                                        endRadius: 400
+                                    )
+                                )
                                 .frame(height: 400)
                             
                             Image(systemName: categorySymbol(for: product.category))
                                 .font(.system(size: 120, weight: .thin))
-                                .foregroundColor(.white.opacity(0.8))
+                                .foregroundColor(.white.opacity(0.9))
+                                .shadow(color: Color.black.opacity(0.1), radius: 10, x: 0, y: 5)
                         }
                     }
                 }

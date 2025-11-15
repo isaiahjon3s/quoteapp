@@ -77,15 +77,25 @@ struct CommentsView: View {
                         .font(.system(size: 15))
                         .padding(.horizontal, 12)
                         .padding(.vertical, 10)
-                        .background(Color(.systemGray6))
-                        .cornerRadius(20)
+                        .background(
+                            RoundedRectangle(cornerRadius: 20)
+                                .fill(.ultraThinMaterial)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 20)
+                                        .stroke(Color(.separator).opacity(0.2), lineWidth: 0.5)
+                                )
+                        )
+                        .focused($isTextFieldFocused)
                     
                     Button(action: {
-                        addComment()
+                        withAnimation(.spring(response: 0.3, dampingFraction: 0.6)) {
+                            addComment()
+                        }
                     }) {
                         Image(systemName: "arrow.up.circle.fill")
                             .font(.system(size: 28))
                             .foregroundColor(newCommentText.isEmpty ? .secondary : .blue)
+                            .symbolEffect(.bounce, value: !newCommentText.isEmpty)
                     }
                     .disabled(newCommentText.isEmpty)
                 }

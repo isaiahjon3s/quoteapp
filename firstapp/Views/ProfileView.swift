@@ -11,18 +11,21 @@ struct ProfileView: View {
     let user: User
     @ObservedObject var userManager: UserDataManager
     @ObservedObject var productManager: ProductDataManager
+    var messageManager: MessageDataManager?
     
     @StateObject private var feedManager: FeedDataManager
     @State private var showFollowers = false
+    @State private var showMessageComposer = false
     
     var userPosts: [Post] {
         feedManager.getPostsForUser(user.id)
     }
     
-    init(user: User, userManager: UserDataManager, productManager: ProductDataManager) {
+    init(user: User, userManager: UserDataManager, productManager: ProductDataManager, messageManager: MessageDataManager? = nil) {
         self.user = user
         self.userManager = userManager
         self.productManager = productManager
+        self.messageManager = messageManager
         
         let feedManager = FeedDataManager(productManager: productManager, userManager: userManager)
         _feedManager = StateObject(wrappedValue: feedManager)
@@ -37,7 +40,7 @@ struct ProfileView: View {
             VStack(spacing: 24) {
                 // Profile Header
                 VStack(spacing: 16) {
-                    // Profile Image
+                    // Enhanced Profile Image
                     Circle()
                         .fill(
                             LinearGradient(
@@ -46,11 +49,23 @@ struct ProfileView: View {
                                 endPoint: .bottomTrailing
                             )
                         )
-                        .frame(width: 90, height: 90)
+                        .frame(width: 100, height: 100)
+                        .shadow(color: Color.blue.opacity(0.3), radius: 12, x: 0, y: 6)
+                        .overlay(
+                            Circle()
+                                .stroke(
+                                    LinearGradient(
+                                        colors: [Color.white.opacity(0.3), Color.clear],
+                                        startPoint: .topLeading,
+                                        endPoint: .bottomTrailing
+                                    ),
+                                    lineWidth: 2
+                                )
+                        )
                         .overlay(
                             Image(systemName: "person.fill")
                                 .foregroundColor(.white)
-                                .font(.system(size: 45, weight: .medium))
+                                .font(.system(size: 48, weight: .medium))
                         )
                     
                     // User Info
@@ -127,22 +142,59 @@ struct ProfileView: View {
                     }
                     .padding(.top, 12)
                     
-                    // Action Button
+                    // Enhanced Action Buttons
                     if !isCurrentUser {
-                        Button(action: {
-                            userManager.followUser(user.id)
-                        }) {
-                            HStack {
-                                Image(systemName: "person.badge.plus")
-                                    .font(.system(size: 14, weight: .semibold))
-                                Text("Follow")
-                                    .font(.system(size: 15, weight: .semibold))
+                        HStack(spacing: 12) {
+                            Button(action: {
+                                withAnimation(.spring(response: 0.3, dampingFraction: 0.6)) {
+                                    userManager.followUser(user.id)
+                                }
+                            }) {
+                                HStack {
+                                    Image(systemName: "person.badge.plus")
+                                        .font(.system(size: 14, weight: .semibold))
+                                    Text("Follow")
+                                        .font(.system(size: 15, weight: .semibold))
+                                }
+                                .foregroundColor(.white)
+                                .frame(maxWidth: .infinity)
+                                .padding(.vertical, 14)
+                                .background(
+                                    LinearGradient(
+                                        colors: [Color.blue, Color.blue.opacity(0.8)],
+                                        startPoint: .topLeading,
+                                        endPoint: .bottomTrailing
+                                    )
+                                )
+                                .cornerRadius(12)
+                                .shadow(color: Color.blue.opacity(0.3), radius: 8, x: 0, y: 4)
                             }
-                            .foregroundColor(.white)
-                            .frame(maxWidth: .infinity)
-                            .padding(.vertical, 12)
-                            .background(Color.black)
-                            .cornerRadius(10)
+                            .buttonStyle(ScaleButtonStyle())
+                            
+                            if let messageManager = messageManager {
+                                Button(action: {
+                                    showMessageComposer = true
+                                }) {
+                                    HStack {
+                                        Image(systemName: "message.fill")
+                                            .font(.system(size: 14, weight: .semibold))
+                                        Text("Message")
+                                            .font(.system(size: 15, weight: .semibold))
+                                    }
+                                    .foregroundColor(.blue)
+                                    .frame(maxWidth: .infinity)
+                                    .padding(.vertical, 14)
+                                    .background(
+                                        RoundedRectangle(cornerRadius: 12)
+                                            .fill(.ultraThinMaterial)
+                                            .overlay(
+                                                RoundedRectangle(cornerRadius: 12)
+                                                    .stroke(Color.blue.opacity(0.3), lineWidth: 1.5)
+                                            )
+                                    )
+                                }
+                                .buttonStyle(ScaleButtonStyle())
+                            }
                         }
                         .padding(.horizontal, 16)
                     }
@@ -203,6 +255,17 @@ struct ProfileView: View {
             // In a real app, this would show followers list
             Text("Followers: \(user.followerCount)")
         }
+        .sheet(isPresented: $showMessageComposer) {
+            if let messageManager = messageManager {
+                let conversation = messageManager.getOrCreateConversation(with: user.id)
+                ConversationView(
+                    conversation: conversation,
+                    otherUser: user,
+                    messageManager: messageManager,
+                    userManager: userManager
+                )
+            }
+        }
     }
     
     // Helper functions for product image colors
@@ -232,6 +295,15 @@ struct ProfileView: View {
         case .food: return "cup.and.saucer"
         case .other: return "square.grid.2x2"
         }
+    }
+}
+
+// MARK: - Scale Button Style
+struct ScaleButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .scaleEffect(configuration.isPressed ? 0.95 : 1.0)
+            .animation(.spring(response: 0.3, dampingFraction: 0.6), value: configuration.isPressed)
     }
 }
 

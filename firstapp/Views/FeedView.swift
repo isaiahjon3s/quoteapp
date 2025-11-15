@@ -93,7 +93,20 @@ struct PostCard: View {
     @ObservedObject var feedManager: FeedDataManager
     @ObservedObject var cartManager: CartDataManager
     
+    @StateObject private var commentManager: CommentDataManager
     @State private var showProductDetail = false
+    @State private var showComments = false
+    
+    init(post: Post, productManager: ProductDataManager, userManager: UserDataManager, feedManager: FeedDataManager, cartManager: CartDataManager) {
+        self.post = post
+        self.productManager = productManager
+        self.userManager = userManager
+        self.feedManager = feedManager
+        self.cartManager = cartManager
+        
+        let commentMgr = CommentDataManager(userManager: userManager)
+        _commentManager = StateObject(wrappedValue: commentMgr)
+    }
     
     var product: Product? {
         productManager.getProduct(by: post.productId)
@@ -152,38 +165,69 @@ struct PostCard: View {
             .padding(.vertical, 12)
             .background(Color(.systemBackground))
             
-            // Product Image - Cleaner solid background
+            // Enhanced Product Image with gradient
             if let product = product {
                 ZStack {
-                    // Solid color background based on category
+                    // Beautiful gradient background based on category
                     Rectangle()
-                        .fill(categoryColor(for: product.category))
+                        .fill(
+                            LinearGradient(
+                                colors: [
+                                    categoryColor(for: product.category),
+                                    categoryColor(for: product.category).opacity(0.8),
+                                    categoryColor(for: product.category).opacity(0.9)
+                                ],
+                                startPoint: .topLeading,
+                                endPoint: .bottomTrailing
+                            )
+                        )
+                        .frame(height: 400)
+                    
+                    // Subtle overlay pattern
+                    Rectangle()
+                        .fill(
+                            RadialGradient(
+                                colors: [Color.white.opacity(0.1), Color.clear],
+                                center: .topLeading,
+                                startRadius: 50,
+                                endRadius: 400
+                            )
+                        )
                         .frame(height: 400)
                     
                     // Large SF Symbol for product
                     Image(systemName: categorySymbol(for: product.category))
                         .font(.system(size: 120, weight: .thin))
-                        .foregroundColor(.white.opacity(0.8))
+                        .foregroundColor(.white.opacity(0.9))
+                        .shadow(color: Color.black.opacity(0.1), radius: 10, x: 0, y: 5)
                 }
                 .onTapGesture {
                     showProductDetail = true
                 }
                 
-                // Actions Bar (Instagram-style)
+                // Actions Bar (Instagram-style with enhanced animations)
                 HStack(spacing: 16) {
                     Button(action: {
-                        feedManager.toggleLike(for: post.id)
+                        withAnimation(.spring(response: 0.3, dampingFraction: 0.6)) {
+                            feedManager.toggleLike(for: post.id)
+                        }
                     }) {
                         Image(systemName: post.isLiked ? "heart.fill" : "heart")
                             .font(.system(size: 24, weight: .regular))
                             .foregroundColor(post.isLiked ? .red : .primary)
+                            .symbolEffect(.bounce, value: post.isLiked)
+                            .scaleEffect(post.isLiked ? 1.1 : 1.0)
+                            .animation(.spring(response: 0.3, dampingFraction: 0.5), value: post.isLiked)
                     }
                     
-                    NavigationLink(destination: ProductDetailView(product: product, postId: post.id, productManager: productManager, userManager: userManager, cartManager: cartManager)) {
+                    Button(action: {
+                        showComments = true
+                    }) {
                         Image(systemName: "message")
                             .font(.system(size: 24, weight: .regular))
                             .foregroundColor(.primary)
                     }
+                    .hoverEffect(.lift)
                     
                     Button(action: {
                         showProductDetail = true
@@ -192,16 +236,20 @@ struct PostCard: View {
                             .font(.system(size: 24, weight: .regular))
                             .foregroundColor(.primary)
                     }
+                    .hoverEffect(.lift)
                     
                     Spacer()
                     
                     Button(action: {
-                        cartManager.addToCart(productId: product.id, isForGift: true)
+                        withAnimation(.spring(response: 0.3, dampingFraction: 0.6)) {
+                            cartManager.addToCart(productId: product.id, isForGift: true)
+                        }
                     }) {
                         Image(systemName: "gift")
                             .font(.system(size: 24, weight: .regular))
                             .foregroundColor(.primary)
                     }
+                    .hoverEffect(.lift)
                 }
                 .padding(.horizontal, 16)
                 .padding(.vertical, 12)
@@ -285,7 +333,14 @@ struct PostCard: View {
         .padding(.bottom, 8)
         .sheet(isPresented: $showProductDetail) {
             if let product = product {
-                ProductDetailView(product: product, postId: post.id, productManager: productManager, userManager: userManager, cartManager: cartManager)
+                NavigationView {
+                    ProductDetailView(product: product, postId: post.id, productManager: productManager, userManager: userManager, cartManager: cartManager)
+                }
+            }
+        }
+        .sheet(isPresented: $showComments) {
+            NavigationView {
+                CommentsView(postId: post.id, commentManager: commentManager, userManager: userManager)
             }
         }
     }
@@ -338,29 +393,60 @@ struct PostCard: View {
     }
 }
 
-// MARK: - Category Chip
+// MARK: - Enhanced Category Chip
 struct CategoryChip: View {
     let title: String
     let icon: String
     let isSelected: Bool
     let action: () -> Void
+    @State private var isPressed = false
     
     var body: some View {
-        Button(action: action) {
+        Button(action: {
+            withAnimation(.spring(response: 0.3, dampingFraction: 0.6)) {
+                action()
+            }
+        }) {
             HStack(spacing: 6) {
                 Image(systemName: icon)
                     .font(.system(size: 13, weight: .semibold))
+                    .symbolEffect(.bounce, value: isSelected)
                 Text(title)
                     .font(.system(size: 14, weight: .semibold))
             }
             .foregroundColor(isSelected ? .white : .primary)
-            .padding(.horizontal, 16)
-            .padding(.vertical, 8)
+            .padding(.horizontal, 18)
+            .padding(.vertical, 10)
             .background(
-                isSelected ? Color.black : Color(.systemGray6)
+                Group {
+                    if isSelected {
+                        LinearGradient(
+                            colors: [Color.black, Color.black.opacity(0.9)],
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing
+                        )
+                    } else {
+                        LinearGradient(
+                            colors: [Color(.systemGray6), Color(.systemGray5)],
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing
+                        )
+                    }
+                }
             )
-            .cornerRadius(8)
+            .cornerRadius(20)
+            .shadow(
+                color: isSelected ? Color.black.opacity(0.3) : Color.clear,
+                radius: isSelected ? 8 : 0,
+                x: 0,
+                y: isSelected ? 4 : 0
+            )
         }
+        .scaleEffect(isPressed ? 0.95 : 1.0)
+        .animation(.spring(response: 0.3, dampingFraction: 0.6), value: isPressed)
+        .onLongPressGesture(minimumDuration: 0, maximumDistance: .infinity, pressing: { pressing in
+            isPressed = pressing
+        }, perform: {})
     }
 }
 

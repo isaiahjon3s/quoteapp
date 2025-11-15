@@ -38,7 +38,7 @@ struct SearchView: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            // Search Bar
+            // Enhanced Search Bar with glassmorphism
             HStack(spacing: 12) {
                 HStack(spacing: 8) {
                     Image(systemName: "magnifyingglass")
@@ -49,18 +49,27 @@ struct SearchView: View {
                         .font(.system(size: 16))
                 }
                 .padding(.horizontal, 12)
-                .padding(.vertical, 10)
-                .background(Color(.systemGray6))
-                .cornerRadius(10)
+                .padding(.vertical, 12)
+                .background(
+                    RoundedRectangle(cornerRadius: 12)
+                        .fill(.ultraThinMaterial)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 12)
+                                .stroke(Color(.separator).opacity(0.2), lineWidth: 0.5)
+                        )
+                )
                 
                 if !searchText.isEmpty {
                     Button(action: {
-                        searchText = ""
+                        withAnimation(.spring(response: 0.3, dampingFraction: 0.7)) {
+                            searchText = ""
+                        }
                     }) {
                         Text("Cancel")
-                            .font(.system(size: 16))
+                            .font(.system(size: 16, weight: .medium))
                             .foregroundColor(.blue)
                     }
+                    .transition(.move(edge: .trailing).combined(with: .opacity))
                 }
             }
             .padding(.horizontal, 16)
@@ -186,35 +195,63 @@ struct TrendingProductCard: View {
     let product: Product
     @ObservedObject var cartManager: CartDataManager
     @State private var showDetail = false
+    @State private var isPressed = false
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             ZStack {
-                RoundedRectangle(cornerRadius: 12)
-                    .fill(categoryColor(for: product.category))
+                RoundedRectangle(cornerRadius: 16)
+                    .fill(
+                        LinearGradient(
+                            colors: [
+                                categoryColor(for: product.category),
+                                categoryColor(for: product.category).opacity(0.8)
+                            ],
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing
+                        )
+                    )
                     .frame(width: 160, height: 160)
+                    .shadow(color: categoryColor(for: product.category).opacity(0.3), radius: 8, x: 0, y: 4)
                 
                 Image(systemName: categorySymbol(for: product.category))
                     .font(.system(size: 60, weight: .thin))
-                    .foregroundColor(.white.opacity(0.8))
+                    .foregroundColor(.white.opacity(0.9))
             }
             
             VStack(alignment: .leading, spacing: 4) {
                 Text(product.name)
-                    .font(.system(size: 14, weight: .medium))
+                    .font(.system(size: 14, weight: .semibold))
                     .foregroundColor(.primary)
                     .lineLimit(2)
                 
-                Text("$\(product.formattedPrice)")
-                    .font(.system(size: 15, weight: .semibold))
-                    .foregroundColor(.primary)
+                HStack(spacing: 4) {
+                    Text("$\(product.formattedPrice)")
+                        .font(.system(size: 16, weight: .bold))
+                        .foregroundColor(.primary)
+                    
+                    if let discount = product.discountPercentage {
+                        Text("\(discount)%")
+                            .font(.system(size: 10, weight: .bold))
+                            .foregroundColor(.white)
+                            .padding(.horizontal, 4)
+                            .padding(.vertical, 2)
+                            .background(Color.red)
+                            .cornerRadius(4)
+                    }
+                }
             }
             .padding(.top, 8)
             .frame(width: 160, alignment: .leading)
         }
+        .scaleEffect(isPressed ? 0.95 : 1.0)
+        .animation(.spring(response: 0.3, dampingFraction: 0.6), value: isPressed)
         .onTapGesture {
             showDetail = true
         }
+        .onLongPressGesture(minimumDuration: 0, maximumDistance: .infinity, pressing: { pressing in
+            isPressed = pressing
+        }, perform: {})
     }
     
     func categoryColor(for category: ProductCategory) -> Color {
@@ -249,25 +286,54 @@ struct TrendingProductCard: View {
 // MARK: - Category Card
 struct CategoryCard: View {
     let category: ProductCategory
+    @State private var isPressed = false
     
     var body: some View {
         HStack(spacing: 12) {
-            Image(systemName: category.icon)
-                .font(.system(size: 22, weight: .medium))
-                .foregroundColor(.white)
-                .frame(width: 50, height: 50)
-                .background(categoryColor(for: category))
-                .cornerRadius(10)
+            ZStack {
+                RoundedRectangle(cornerRadius: 12)
+                    .fill(
+                        LinearGradient(
+                            colors: [
+                                categoryColor(for: category),
+                                categoryColor(for: category).opacity(0.8)
+                            ],
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing
+                        )
+                    )
+                    .frame(width: 50, height: 50)
+                    .shadow(color: categoryColor(for: category).opacity(0.3), radius: 4, x: 0, y: 2)
+                
+                Image(systemName: category.icon)
+                    .font(.system(size: 22, weight: .medium))
+                    .foregroundColor(.white)
+            }
             
             Text(category.rawValue)
                 .font(.system(size: 16, weight: .semibold))
                 .foregroundColor(.primary)
             
             Spacer()
+            
+            Image(systemName: "chevron.right")
+                .font(.system(size: 14, weight: .semibold))
+                .foregroundColor(.secondary)
         }
         .padding(12)
-        .background(Color(.systemGray6))
-        .cornerRadius(12)
+        .background(
+            RoundedRectangle(cornerRadius: 12)
+                .fill(.ultraThinMaterial)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 12)
+                        .stroke(Color(.separator).opacity(0.2), lineWidth: 0.5)
+                )
+        )
+        .scaleEffect(isPressed ? 0.97 : 1.0)
+        .animation(.spring(response: 0.3, dampingFraction: 0.6), value: isPressed)
+        .onLongPressGesture(minimumDuration: 0, maximumDistance: .infinity, pressing: { pressing in
+            isPressed = pressing
+        }, perform: {})
     }
     
     func categoryColor(for category: ProductCategory) -> Color {
@@ -291,6 +357,7 @@ struct ProductSearchCard: View {
     @ObservedObject var productManager: ProductDataManager
     @ObservedObject var userManager: UserDataManager
     @ObservedObject var cartManager: CartDataManager
+    @State private var isPressed = false
     
     var body: some View {
         NavigationLink(destination: ProductDetailView(
@@ -300,15 +367,26 @@ struct ProductSearchCard: View {
             cartManager: cartManager
         )) {
             HStack(spacing: 12) {
-                // Image
-                RoundedRectangle(cornerRadius: 12)
-                    .fill(categoryColor(for: product.category))
-                    .frame(width: 80, height: 80)
-                    .overlay(
-                        Image(systemName: categorySymbol(for: product.category))
-                            .font(.system(size: 32, weight: .thin))
-                            .foregroundColor(.white.opacity(0.8))
-                    )
+                // Enhanced Image with gradient
+                ZStack {
+                    RoundedRectangle(cornerRadius: 14)
+                        .fill(
+                            LinearGradient(
+                                colors: [
+                                    categoryColor(for: product.category),
+                                    categoryColor(for: product.category).opacity(0.8)
+                                ],
+                                startPoint: .topLeading,
+                                endPoint: .bottomTrailing
+                            )
+                        )
+                        .frame(width: 80, height: 80)
+                        .shadow(color: categoryColor(for: product.category).opacity(0.3), radius: 6, x: 0, y: 3)
+                    
+                    Image(systemName: categorySymbol(for: product.category))
+                        .font(.system(size: 32, weight: .thin))
+                        .foregroundColor(.white.opacity(0.9))
+                }
                 
                 // Info
                 VStack(alignment: .leading, spacing: 6) {
@@ -343,14 +421,21 @@ struct ProductSearchCard: View {
                     .foregroundColor(.secondary)
             }
             .padding(12)
-            .background(Color(.systemBackground))
-            .cornerRadius(12)
-            .overlay(
-                RoundedRectangle(cornerRadius: 12)
-                    .stroke(Color(.separator).opacity(0.3), lineWidth: 0.5)
+            .background(
+                RoundedRectangle(cornerRadius: 14)
+                    .fill(.ultraThinMaterial)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 14)
+                            .stroke(Color(.separator).opacity(0.2), lineWidth: 0.5)
+                    )
             )
         }
         .buttonStyle(PlainButtonStyle())
+        .scaleEffect(isPressed ? 0.97 : 1.0)
+        .animation(.spring(response: 0.3, dampingFraction: 0.6), value: isPressed)
+        .onLongPressGesture(minimumDuration: 0, maximumDistance: .infinity, pressing: { pressing in
+            isPressed = pressing
+        }, perform: {})
     }
     
     func categoryColor(for category: ProductCategory) -> Color {
@@ -386,6 +471,7 @@ struct ProductSearchCard: View {
 struct UserSearchCard: View {
     let user: User
     @ObservedObject var userManager: UserDataManager
+    @State private var isPressed = false
     
     var body: some View {
         NavigationLink(destination: ProfileView(
@@ -402,11 +488,12 @@ struct UserSearchCard: View {
                             endPoint: .bottomTrailing
                         )
                     )
-                    .frame(width: 50, height: 50)
+                    .frame(width: 54, height: 54)
+                    .shadow(color: Color.blue.opacity(0.3), radius: 6, x: 0, y: 3)
                     .overlay(
                         Image(systemName: "person.fill")
                             .foregroundColor(.white)
-                            .font(.system(size: 22, weight: .medium))
+                            .font(.system(size: 24, weight: .medium))
                     )
                 
                 VStack(alignment: .leading, spacing: 4) {
@@ -440,14 +527,21 @@ struct UserSearchCard: View {
                     .foregroundColor(.secondary)
             }
             .padding(12)
-            .background(Color(.systemBackground))
-            .cornerRadius(12)
-            .overlay(
-                RoundedRectangle(cornerRadius: 12)
-                    .stroke(Color(.separator).opacity(0.3), lineWidth: 0.5)
+            .background(
+                RoundedRectangle(cornerRadius: 14)
+                    .fill(.ultraThinMaterial)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 14)
+                            .stroke(Color(.separator).opacity(0.2), lineWidth: 0.5)
+                    )
             )
         }
         .buttonStyle(PlainButtonStyle())
+        .scaleEffect(isPressed ? 0.97 : 1.0)
+        .animation(.spring(response: 0.3, dampingFraction: 0.6), value: isPressed)
+        .onLongPressGesture(minimumDuration: 0, maximumDistance: .infinity, pressing: { pressing in
+            isPressed = pressing
+        }, perform: {})
     }
 }
 
