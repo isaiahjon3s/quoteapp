@@ -16,6 +16,8 @@ struct ProfileView: View {
     @StateObject private var feedManager: FeedDataManager
     @State private var showFollowers = false
     @State private var showMessageComposer = false
+    @State private var showSettings = false
+    @Environment(\.isDarkMode) private var isDarkMode
     
     var userPosts: [Post] {
         feedManager.getPostsForUser(user.id)
@@ -277,6 +279,19 @@ struct ProfileView: View {
                     messageManager: messageManager,
                     userManager: userManager
                 )
+            }
+        }
+        .sheet(isPresented: $showSettings) {
+            SettingsView(isDarkMode: isDarkMode)
+        }
+        .toolbar {
+            if isCurrentUser {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: { showSettings = true }) {
+                        Image(systemName: "gearshape.fill")
+                            .foregroundColor(.primary)
+                    }
+                }
             }
         }
     }
