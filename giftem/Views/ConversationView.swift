@@ -12,6 +12,7 @@ struct ConversationView: View {
     let otherUser: User
     @ObservedObject var messageManager: MessageDataManager
     @ObservedObject var userManager: UserDataManager
+    var productManager: ProductDataManager? = nil
     
     @State private var messageText = ""
     @State private var scrollProxy: ScrollViewProxy?
@@ -33,7 +34,8 @@ struct ConversationView: View {
                                 MessageBubble(
                                     message: message,
                                     isCurrentUser: message.senderId == userManager.currentUser?.id,
-                                    otherUser: otherUser
+                                    otherUser: otherUser,
+                                    productManager: productManager
                                 )
                                 .id(message.id)
                             }
@@ -204,6 +206,7 @@ struct MessageBubble: View {
     let message: Message
     let isCurrentUser: Bool
     let otherUser: User
+    var productManager: ProductDataManager? = nil
     
     var timeString: String {
         let formatter = DateFormatter()
@@ -234,6 +237,15 @@ struct MessageBubble: View {
             }
             
             VStack(alignment: isCurrentUser ? .trailing : .leading, spacing: 4) {
+                // Shared product card (if applicable)
+                if message.messageType == .product, let productId = message.sharedProductId {
+                    SharedProductCard(
+                        productId: productId,
+                        productManager: productManager,
+                        isCurrentUser: isCurrentUser
+                    )
+                }
+                
                 // Message bubble
                 Text(message.text)
                     .font(.system(size: 15))
@@ -279,6 +291,63 @@ struct MessageBubble: View {
             if isCurrentUser {
                 Spacer()
             }
+        }
+    }
+}
+
+// MARK: - Shared Product Card
+struct SharedProductCard: View {
+    let productId: String
+    var productManager: ProductDataManager?
+    let isCurrentUser: Bool
+    
+    var product: Product? {
+        productManager?.getProduct(by: productId)
+    }
+    
+    var body: some View {
+        if let product = product {
+            VStack(alignment: .leading, spacing: 0) {
+                // Product image
+                ZStack {
+                    if let firstImageURL = product.imageURLs.first {
+                        Image(firstImageURL)
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 200, height: 150)
+                            .clipped()
+                    } else {
+                        Rectangle()
+                            .fill(Color(.systemGray4))
+                            .frame(width: 200, height: 150)
+                        
+                        Image(systemName: "gift.fill")
+                            .font(.system(size: 40))
+                            .foregroundColor(.white.opacity(0.8))
+                    }
+                }
+                
+                // Product info
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(product.name)
+                        .font(.system(size: 14, weight: .semibold))
+                        .foregroundColor(.primary)
+                        .lineLimit(1)
+                    
+                    Text("$\(product.formattedPrice)")
+                        .font(.system(size: 13, weight: .medium))
+                        .foregroundColor(.blue)
+                }
+                .padding(10)
+                .frame(width: 200, alignment: .leading)
+                .background(Color(.systemBackground))
+            }
+            .clipShape(RoundedRectangle(cornerRadius: 12))
+            .overlay(
+                RoundedRectangle(cornerRadius: 12)
+                    .stroke(Color(.separator).opacity(0.3), lineWidth: 1)
+            )
+            .shadow(color: .black.opacity(0.1), radius: 4, x: 0, y: 2)
         }
     }
 }

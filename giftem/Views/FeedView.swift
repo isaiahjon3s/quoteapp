@@ -13,6 +13,7 @@ struct FeedView: View {
     
     @State private var feedManager: FeedDataManager?
     @State private var cartManager: CartDataManager?
+    @State private var messageManager: MessageDataManager?
     @State private var selectedCategory: ProductCategory?
     @State private var showAddProduct = false
     
@@ -105,7 +106,7 @@ struct FeedView: View {
                 Divider()
                 
                 // Posts Feed
-                if let feedManager = feedManager, let cartManager = cartManager {
+                if let feedManager = feedManager, let cartManager = cartManager, let messageManager = messageManager {
                     LazyVStack(spacing: 0) {
                         ForEach(filteredPosts) { post in
                             PostCard(
@@ -113,7 +114,8 @@ struct FeedView: View {
                                 productManager: productManager,
                                 userManager: userManager,
                                 feedManager: feedManager,
-                                cartManager: cartManager
+                                cartManager: cartManager,
+                                messageManager: messageManager
                             )
                         }
                     }
@@ -127,6 +129,9 @@ struct FeedView: View {
             }
             if cartManager == nil {
                 cartManager = CartDataManager(productManager: productManager)
+            }
+            if messageManager == nil {
+                messageManager = MessageDataManager(userManager: userManager)
             }
         }
         .sheet(isPresented: $showAddProduct) {
@@ -142,17 +147,20 @@ struct PostCard: View {
     @ObservedObject var userManager: UserDataManager
     @ObservedObject var feedManager: FeedDataManager
     @ObservedObject var cartManager: CartDataManager
+    @ObservedObject var messageManager: MessageDataManager
     
     @StateObject private var commentManager: CommentDataManager
     @State private var showProductDetail = false
     @State private var showComments = false
+    @State private var showShareSheet = false
     
-    init(post: Post, productManager: ProductDataManager, userManager: UserDataManager, feedManager: FeedDataManager, cartManager: CartDataManager) {
+    init(post: Post, productManager: ProductDataManager, userManager: UserDataManager, feedManager: FeedDataManager, cartManager: CartDataManager, messageManager: MessageDataManager) {
         self.post = post
         self.productManager = productManager
         self.userManager = userManager
         self.feedManager = feedManager
         self.cartManager = cartManager
+        self.messageManager = messageManager
         
         let commentMgr = CommentDataManager(userManager: userManager)
         _commentManager = StateObject(wrappedValue: commentMgr)
@@ -283,6 +291,15 @@ struct PostCard: View {
                     .hoverEffect(.lift)
                     
                     Button(action: {
+                        showShareSheet = true
+                    }) {
+                        Image(systemName: "paperplane")
+                            .font(.system(size: 24, weight: .regular))
+                            .foregroundColor(.primary)
+                    }
+                    .hoverEffect(.lift)
+                    
+                    Button(action: {
                         showProductDetail = true
                     }) {
                         Image(systemName: "cart")
@@ -395,6 +412,14 @@ struct PostCard: View {
             NavigationView {
                 CommentsView(postId: post.id, commentManager: commentManager, userManager: userManager)
             }
+        }
+        .sheet(isPresented: $showShareSheet) {
+            SharePostView(
+                post: post,
+                product: product,
+                messageManager: messageManager,
+                userManager: userManager
+            )
         }
     }
     

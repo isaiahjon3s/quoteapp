@@ -231,5 +231,46 @@ class MessageDataManager: ObservableObject {
         conversations.removeAll { $0.id == conversationId }
         messages.removeValue(forKey: conversationId)
     }
+    
+    // MARK: - Share Post
+    
+    func sendSharedPost(to conversationId: String, postId: String, productId: String, text: String) {
+        guard let currentUser = userManager.currentUser else { return }
+        
+        let newMessage = Message(
+            conversationId: conversationId,
+            senderId: currentUser.id,
+            text: text,
+            createdAt: Date(),
+            isRead: false,
+            messageType: .product,
+            sharedPostId: postId,
+            sharedProductId: productId
+        )
+        
+        // Add message
+        if messages[conversationId] != nil {
+            messages[conversationId]?.append(newMessage)
+        } else {
+            messages[conversationId] = [newMessage]
+        }
+        
+        // Update conversation
+        if let index = conversations.firstIndex(where: { $0.id == conversationId }) {
+            let conversation = conversations[index]
+            let updatedConversation = Conversation(
+                id: conversation.id,
+                participantIds: conversation.participantIds,
+                lastMessage: newMessage,
+                lastMessageAt: newMessage.createdAt,
+                unreadCount: 0
+            )
+            conversations[index] = updatedConversation
+            
+            // Move to top
+            conversations.remove(at: index)
+            conversations.insert(updatedConversation, at: 0)
+        }
+    }
 }
 

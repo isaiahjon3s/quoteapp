@@ -16,6 +16,8 @@ struct Message: Identifiable, Codable, Hashable {
     let createdAt: Date
     let isRead: Bool
     let messageType: MessageType
+    let sharedPostId: String?
+    let sharedProductId: String?
     
     enum MessageType: String, Codable {
         case text
@@ -30,7 +32,9 @@ struct Message: Identifiable, Codable, Hashable {
         text: String,
         createdAt: Date = Date(),
         isRead: Bool = false,
-        messageType: MessageType = .text
+        messageType: MessageType = .text,
+        sharedPostId: String? = nil,
+        sharedProductId: String? = nil
     ) {
         self.id = id
         self.conversationId = conversationId
@@ -39,6 +43,8 @@ struct Message: Identifiable, Codable, Hashable {
         self.createdAt = createdAt
         self.isRead = isRead
         self.messageType = messageType
+        self.sharedPostId = sharedPostId
+        self.sharedProductId = sharedProductId
     }
 }
 
