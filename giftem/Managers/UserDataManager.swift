@@ -63,14 +63,14 @@ class UserDataManager: ObservableObject {
                 isVerified: false
             ),
             User(
-                username: "david_sports",
-                displayName: "David Kim",
+                username: "mamapeters75",
+                displayName: "Fran Peters",
                 profileImageURL: nil,
-                bio: "Fitness & outdoor gear reviews 💪",
-                followerCount: 9870,
-                followingCount: 567,
+                bio: "I really love my dogs and my son!",
+                followerCount: 140,
+                followingCount: 234,
                 postCount: 267,
-                isVerified: true
+                isVerified: false
             ),
             User(
                 username: "lisa_beauty",
