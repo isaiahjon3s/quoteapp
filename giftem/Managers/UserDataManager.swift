@@ -34,7 +34,7 @@ class UserDataManager: ObservableObject {
             ),
             User(
                 username: "sarah_style",
-                displayName: "Sarah Chen",
+                displayName: "Sarah Peterson",
                 profileImageURL: nil,
                 bio: "Fashion lover | Sharing my finds ✨",
                 followerCount: 8760,

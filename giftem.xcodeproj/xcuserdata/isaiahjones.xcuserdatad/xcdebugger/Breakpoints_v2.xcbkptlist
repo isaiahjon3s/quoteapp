@@ -18,6 +18,36 @@
             endingLineNumber = "490"
             landmarkName = "body"
             landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "FC427FE6-1F51-4393-A1C5-135C6E2C80B4 - 233a0c04a92c42be"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.shadow(color: SwiftUI.Color, radius: CoreGraphics.CGFloat, x: CoreGraphics.CGFloat, y: CoreGraphics.CGFloat) -&gt; some&gt;&gt;.0 in giftem.CategoryChip.body.getter : some"
+                  moduleName = "giftem.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/isaiahjones/Desktop/giftem/giftem/Views/FeedView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "490"
+                  endingLineNumber = "490">
+               </Location>
+               <Location
+                  uuid = "FC427FE6-1F51-4393-A1C5-135C6E2C80B4 - 101d5f63f2389f9c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.symbolEffect&lt;&#x3c4;_0_0, &#x3c4;_0_1 where &#x3c4;_1_0: Symbols.DiscreteSymbolEffect, &#x3c4;_1_0: Symbols.SymbolEffect, &#x3c4;_1_1: Swift.Equatable&gt;(_: &#x3c4;_1_0, options: Symbols.SymbolEffectOptions, value: &#x3c4;_1_1) -&gt; some&gt;&gt;.0, SwiftUI.Text)&gt; in closure #2 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.shadow(color: SwiftUI.Color, radius: CoreGraphics.CGFloat, x: CoreGraphics.CGFloat, y: CoreGraphics.CGFloat) -&gt; some&gt;&gt;.0 in giftem.CategoryChip.body.getter : some"
+                  moduleName = "giftem.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/isaiahjones/Desktop/giftem/giftem/Views/FeedView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "490"
+                  endingLineNumber = "490">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
