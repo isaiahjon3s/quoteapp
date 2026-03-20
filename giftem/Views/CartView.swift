@@ -9,17 +9,9 @@ import SwiftUI
 
 struct CartView: View {
     @EnvironmentObject var productManager: ProductDataManager
-    @State private var cartManager: CartDataManager?
+    @EnvironmentObject var cartManager: CartDataManager
+    @EnvironmentObject var userManager: UserDataManager
     @State private var selectedTab: CartTab = .cart
-    
-    var currentCartManager: CartDataManager {
-        if let cartManager = cartManager {
-            return cartManager
-        }
-        let manager = CartDataManager(productManager: productManager)
-        cartManager = manager
-        return manager
-    }
     
     var body: some View {
         VStack(spacing: 0) {
@@ -45,28 +37,23 @@ struct CartView: View {
         }
         .background(Color(.systemBackground))
         .navigationTitle("My Shopping")
-        .onAppear {
-            if cartManager == nil {
-                cartManager = CartDataManager(productManager: productManager)
-            }
-        }
     }
     
     // MARK: - Cart Content
     private var cartContent: some View {
         Group {
-            if currentCartManager.cartItems.isEmpty {
+            if cartManager.cartItems.isEmpty {
                 EmptyCartView()
             } else {
                 ScrollView {
                     VStack(spacing: 12) {
                         // Cart Items
-                        ForEach(currentCartManager.cartItems) { item in
+                        ForEach(cartManager.cartItems) { item in
                             if let product = productManager.getProduct(by: item.productId) {
                                 CartItemRow(
                                     item: item,
                                     product: product,
-                                    cartManager: currentCartManager
+                                    cartManager: cartManager
                                 )
                             }
                         }
@@ -78,26 +65,21 @@ struct CartView: View {
                                     .font(.system(size: 18, weight: .semibold))
                                     .foregroundColor(.primary)
                                 Spacer()
-                                Text("$\(String(format: "%.2f", currentCartManager.totalPrice))")
+                                Text("$\(String(format: "%.2f", cartManager.totalPrice))")
                                     .font(.system(size: 24, weight: .bold))
                                     .foregroundColor(.primary)
                             }
                             
-                            Button(action: {
-                                // In real app, would navigate to checkout
-                            }) {
-                                HStack {
-                                    Image(systemName: "creditcard.fill")
-                                        .font(.system(size: 16, weight: .semibold))
-                                    Text("Checkout")
-                                        .font(.system(size: 17, weight: .semibold))
-                                }
-                                .foregroundColor(.white)
-                                .frame(maxWidth: .infinity)
-                                .padding(.vertical, 16)
-                                .background(Color.black)
-                                .cornerRadius(12)
+                            // Primary action — .glassProminent
+                            Button {
+                                // navigate to checkout
+                            } label: {
+                                Label("Checkout", systemImage: "creditcard.fill")
+                                    .font(.system(size: 17, weight: .semibold))
+                                    .frame(maxWidth: .infinity)
+                                    .padding(.vertical, 4)
                             }
+                            .buttonStyle(.glassProminent)
                         }
                         .padding(16)
                         .background(Color(.systemGray6))
@@ -114,18 +96,18 @@ struct CartView: View {
     // MARK: - Wishlist Content
     private var wishlistContent: some View {
         Group {
-            if currentCartManager.wishlistItems.isEmpty {
+            if cartManager.wishlistItems.isEmpty {
                 EmptyWishlistView()
             } else {
                 ScrollView {
                     LazyVStack(spacing: 12) {
-                        ForEach(currentCartManager.wishlistItems) { wishlistItem in
+                        ForEach(cartManager.wishlistItems) { wishlistItem in
                             if let product = productManager.getProduct(by: wishlistItem.productId) {
                                 WishlistItemRow(
                                     product: product,
                                     productManager: productManager,
-                                    userManager: UserDataManager(),
-                                    cartManager: currentCartManager
+                                    userManager: userManager,
+                                    cartManager: cartManager
                                 )
                             }
                         }
@@ -152,14 +134,22 @@ struct CartItemRow: View {
     var body: some View {
         HStack(spacing: 12) {
             // Image
-            RoundedRectangle(cornerRadius: 12)
-                .fill(categoryColor(for: product.category))
-                .frame(width: 80, height: 80)
-                .overlay(
-                    Image(systemName: categorySymbol(for: product.category))
+            ZStack {
+                RoundedRectangle(cornerRadius: 12)
+                    .fill(product.category.color)
+                    .frame(width: 80, height: 80)
+                if let firstImageURL = product.imageURLs.first {
+                    Image(firstImageURL)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 80, height: 80)
+                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                } else {
+                    Image(systemName: product.category.symbol)
                         .font(.system(size: 32, weight: .thin))
                         .foregroundColor(.white.opacity(0.8))
-                )
+                }
+            }
             
             // Info
             VStack(alignment: .leading, spacing: 8) {
@@ -229,34 +219,6 @@ struct CartItemRow: View {
         )
         .padding(.horizontal, 16)
     }
-    
-    func categoryColor(for category: ProductCategory) -> Color {
-        switch category {
-        case .electronics: return Color(red: 0.2, green: 0.4, blue: 0.8)
-        case .fashion: return Color(red: 0.9, green: 0.4, blue: 0.5)
-        case .home: return Color(red: 0.4, green: 0.7, blue: 0.5)
-        case .beauty: return Color(red: 0.9, green: 0.6, blue: 0.7)
-        case .sports: return Color(red: 0.3, green: 0.7, blue: 0.9)
-        case .books: return Color(red: 0.6, green: 0.4, blue: 0.3)
-        case .toys: return Color(red: 0.9, green: 0.7, blue: 0.3)
-        case .food: return Color(red: 0.8, green: 0.5, blue: 0.3)
-        case .other: return Color(red: 0.5, green: 0.5, blue: 0.5)
-        }
-    }
-    
-    func categorySymbol(for category: ProductCategory) -> String {
-        switch category {
-        case .electronics: return "airpodspro"
-        case .fashion: return "tshirt"
-        case .home: return "lamp.floor"
-        case .beauty: return "sparkles"
-        case .sports: return "figure.run"
-        case .books: return "book"
-        case .toys: return "gamecontroller"
-        case .food: return "cup.and.saucer"
-        case .other: return "square.grid.2x2"
-        }
-    }
 }
 
 // MARK: - Wishlist Item Row
@@ -274,15 +236,22 @@ struct WishlistItemRow: View {
             cartManager: cartManager
         )) {
             HStack(spacing: 12) {
-                // Image
-                RoundedRectangle(cornerRadius: 12)
-                    .fill(categoryColor(for: product.category))
-                    .frame(width: 80, height: 80)
-                    .overlay(
-                        Image(systemName: categorySymbol(for: product.category))
+                ZStack {
+                    RoundedRectangle(cornerRadius: 12)
+                        .fill(product.category.color)
+                        .frame(width: 80, height: 80)
+                    if let firstImageURL = product.imageURLs.first {
+                        Image(firstImageURL)
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 80, height: 80)
+                            .clipShape(RoundedRectangle(cornerRadius: 12))
+                    } else {
+                        Image(systemName: product.category.symbol)
                             .font(.system(size: 32, weight: .thin))
                             .foregroundColor(.white.opacity(0.8))
-                    )
+                    }
+                }
                 
                 // Info
                 VStack(alignment: .leading, spacing: 6) {
@@ -333,34 +302,6 @@ struct WishlistItemRow: View {
         }
         .buttonStyle(PlainButtonStyle())
     }
-    
-    func categoryColor(for category: ProductCategory) -> Color {
-        switch category {
-        case .electronics: return Color(red: 0.2, green: 0.4, blue: 0.8)
-        case .fashion: return Color(red: 0.9, green: 0.4, blue: 0.5)
-        case .home: return Color(red: 0.4, green: 0.7, blue: 0.5)
-        case .beauty: return Color(red: 0.9, green: 0.6, blue: 0.7)
-        case .sports: return Color(red: 0.3, green: 0.7, blue: 0.9)
-        case .books: return Color(red: 0.6, green: 0.4, blue: 0.3)
-        case .toys: return Color(red: 0.9, green: 0.7, blue: 0.3)
-        case .food: return Color(red: 0.8, green: 0.5, blue: 0.3)
-        case .other: return Color(red: 0.5, green: 0.5, blue: 0.5)
-        }
-    }
-    
-    func categorySymbol(for category: ProductCategory) -> String {
-        switch category {
-        case .electronics: return "airpodspro"
-        case .fashion: return "tshirt"
-        case .home: return "lamp.floor"
-        case .beauty: return "sparkles"
-        case .sports: return "figure.run"
-        case .books: return "book"
-        case .toys: return "gamecontroller"
-        case .food: return "cup.and.saucer"
-        case .other: return "square.grid.2x2"
-        }
-    }
 }
 
 // MARK: - Empty Cart View
@@ -404,8 +345,13 @@ struct EmptyWishlistView: View {
 }
 
 #Preview {
+    let prodMgr = ProductDataManager()
+    let userMgr = UserDataManager()
     NavigationView {
         CartView()
+            .environmentObject(prodMgr)
+            .environmentObject(CartDataManager(productManager: prodMgr))
+            .environmentObject(userMgr)
     }
 }
 

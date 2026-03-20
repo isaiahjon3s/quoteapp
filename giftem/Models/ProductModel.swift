@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 // MARK: - Product Model
 struct Product: Identifiable, Codable, Hashable {
@@ -85,6 +86,36 @@ enum ProductCategory: String, Codable, CaseIterable {
         case .books: return "book.fill"
         case .toys: return "gamecontroller.fill"
         case .food: return "fork.knife"
+        case .other: return "square.grid.2x2"
+        }
+    }
+    
+    // Consistent color used across all views
+    var color: Color {
+        switch self {
+        case .electronics: return Color(red: 0.2, green: 0.4, blue: 0.8)
+        case .fashion: return Color(red: 0.9, green: 0.4, blue: 0.5)
+        case .home: return Color(red: 0.4, green: 0.7, blue: 0.5)
+        case .beauty: return Color(red: 0.9, green: 0.6, blue: 0.7)
+        case .sports: return Color(red: 0.3, green: 0.7, blue: 0.9)
+        case .books: return Color(red: 0.6, green: 0.4, blue: 0.3)
+        case .toys: return Color(red: 0.9, green: 0.7, blue: 0.3)
+        case .food: return Color(red: 0.8, green: 0.5, blue: 0.3)
+        case .other: return Color(red: 0.5, green: 0.5, blue: 0.5)
+        }
+    }
+    
+    // Consistent SF Symbol used across all views
+    var symbol: String {
+        switch self {
+        case .electronics: return "airpodspro"
+        case .fashion: return "tshirt"
+        case .home: return "lamp.floor"
+        case .beauty: return "sparkles"
+        case .sports: return "figure.run"
+        case .books: return "book"
+        case .toys: return "gamecontroller"
+        case .food: return "cup.and.saucer"
         case .other: return "square.grid.2x2"
         }
     }

@@ -10,19 +10,10 @@ import SwiftUI
 struct SearchView: View {
     @EnvironmentObject var productManager: ProductDataManager
     @EnvironmentObject var userManager: UserDataManager
-    
-    @State private var cartManager: CartDataManager?
+    @EnvironmentObject var cartManager: CartDataManager
+
     @State private var searchText = ""
     @State private var searchCategory: SearchCategory = .products
-    
-    var currentCartManager: CartDataManager {
-        if let cartManager = cartManager {
-            return cartManager
-        }
-        let manager = CartDataManager(productManager: productManager)
-        cartManager = manager
-        return manager
-    }
     
     var filteredProducts: [Product] {
         productManager.searchProducts(query: searchText)
@@ -104,7 +95,7 @@ struct SearchView: View {
                             ScrollView(.horizontal, showsIndicators: false) {
                                 HStack(spacing: 12) {
                                     ForEach(productManager.products.prefix(5)) { product in
-                                        TrendingProductCard(product: product, cartManager: currentCartManager)
+                                        TrendingProductCard(product: product, cartManager: cartManager)
                                     }
                                 }
                                 .padding(.horizontal, 16)
@@ -146,7 +137,7 @@ struct SearchView: View {
                                         product: product,
                                         productManager: productManager,
                                         userManager: userManager,
-                                        cartManager: currentCartManager
+                                        cartManager: cartManager
                                     )
                                 }
                             }
@@ -176,11 +167,6 @@ struct SearchView: View {
         }
         .background(Color(.systemBackground))
         .navigationTitle("Search")
-        .onAppear {
-            if cartManager == nil {
-                cartManager = CartDataManager(productManager: productManager)
-            }
-        }
     }
 }
 
@@ -194,6 +180,8 @@ enum SearchCategory: String, CaseIterable {
 struct TrendingProductCard: View {
     let product: Product
     @ObservedObject var cartManager: CartDataManager
+    @EnvironmentObject var productManager: ProductDataManager
+    @EnvironmentObject var userManager: UserDataManager
     @State private var showDetail = false
     @State private var isPressed = false
     
@@ -204,19 +192,27 @@ struct TrendingProductCard: View {
                     .fill(
                         LinearGradient(
                             colors: [
-                                categoryColor(for: product.category),
-                                categoryColor(for: product.category).opacity(0.8)
+                                product.category.color,
+                                product.category.color.opacity(0.8)
                             ],
                             startPoint: .topLeading,
                             endPoint: .bottomTrailing
                         )
                     )
                     .frame(width: 160, height: 160)
-                    .shadow(color: categoryColor(for: product.category).opacity(0.3), radius: 8, x: 0, y: 4)
+                    .shadow(color: product.category.color.opacity(0.3), radius: 8, x: 0, y: 4)
                 
-                Image(systemName: categorySymbol(for: product.category))
-                    .font(.system(size: 60, weight: .thin))
-                    .foregroundColor(.white.opacity(0.9))
+                if let firstImageURL = product.imageURLs.first {
+                    Image(firstImageURL)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 160, height: 160)
+                        .clipShape(RoundedRectangle(cornerRadius: 16))
+                } else {
+                    Image(systemName: product.category.symbol)
+                        .font(.system(size: 60, weight: .thin))
+                        .foregroundColor(.white.opacity(0.9))
+                }
             }
             
             VStack(alignment: .leading, spacing: 4) {
@@ -252,33 +248,15 @@ struct TrendingProductCard: View {
         .onLongPressGesture(minimumDuration: 0, maximumDistance: .infinity, pressing: { pressing in
             isPressed = pressing
         }, perform: {})
-    }
-    
-    func categoryColor(for category: ProductCategory) -> Color {
-        switch category {
-        case .electronics: return Color(red: 0.2, green: 0.4, blue: 0.8)
-        case .fashion: return Color(red: 0.9, green: 0.4, blue: 0.5)
-        case .home: return Color(red: 0.4, green: 0.7, blue: 0.5)
-        case .beauty: return Color(red: 0.9, green: 0.6, blue: 0.7)
-        case .sports: return Color(red: 0.3, green: 0.7, blue: 0.9)
-        case .books: return Color(red: 0.6, green: 0.4, blue: 0.3)
-        case .toys: return Color(red: 0.9, green: 0.7, blue: 0.3)
-        case .food: return Color(red: 0.8, green: 0.5, blue: 0.3)
-        case .other: return Color(red: 0.5, green: 0.5, blue: 0.5)
-        }
-    }
-    
-    func categorySymbol(for category: ProductCategory) -> String {
-        switch category {
-        case .electronics: return "airpodspro"
-        case .fashion: return "tshirt"
-        case .home: return "lamp.floor"
-        case .beauty: return "sparkles"
-        case .sports: return "figure.run"
-        case .books: return "book"
-        case .toys: return "gamecontroller"
-        case .food: return "cup.and.saucer"
-        case .other: return "square.grid.2x2"
+        .sheet(isPresented: $showDetail) {
+            NavigationView {
+                ProductDetailView(
+                    product: product,
+                    productManager: productManager,
+                    userManager: userManager,
+                    cartManager: cartManager
+                )
+            }
         }
     }
 }
@@ -294,16 +272,13 @@ struct CategoryCard: View {
                 RoundedRectangle(cornerRadius: 12)
                     .fill(
                         LinearGradient(
-                            colors: [
-                                categoryColor(for: category),
-                                categoryColor(for: category).opacity(0.8)
-                            ],
+                            colors: [category.color, category.color.opacity(0.8)],
                             startPoint: .topLeading,
                             endPoint: .bottomTrailing
                         )
                     )
                     .frame(width: 50, height: 50)
-                    .shadow(color: categoryColor(for: category).opacity(0.3), radius: 4, x: 0, y: 2)
+                    .shadow(color: category.color.opacity(0.3), radius: 4, x: 0, y: 2)
                 
                 Image(systemName: category.icon)
                     .font(.system(size: 22, weight: .medium))
@@ -335,20 +310,6 @@ struct CategoryCard: View {
             isPressed = pressing
         }, perform: {})
     }
-    
-    func categoryColor(for category: ProductCategory) -> Color {
-        switch category {
-        case .electronics: return Color(red: 0.2, green: 0.4, blue: 0.8)
-        case .fashion: return Color(red: 0.9, green: 0.4, blue: 0.5)
-        case .home: return Color(red: 0.4, green: 0.7, blue: 0.5)
-        case .beauty: return Color(red: 0.9, green: 0.6, blue: 0.7)
-        case .sports: return Color(red: 0.3, green: 0.7, blue: 0.9)
-        case .books: return Color(red: 0.6, green: 0.4, blue: 0.3)
-        case .toys: return Color(red: 0.9, green: 0.7, blue: 0.3)
-        case .food: return Color(red: 0.8, green: 0.5, blue: 0.3)
-        case .other: return Color(red: 0.5, green: 0.5, blue: 0.5)
-        }
-    }
 }
 
 // MARK: - Product Search Card
@@ -367,28 +328,31 @@ struct ProductSearchCard: View {
             cartManager: cartManager
         )) {
             HStack(spacing: 12) {
-                // Enhanced Image with gradient
                 ZStack {
                     RoundedRectangle(cornerRadius: 14)
                         .fill(
                             LinearGradient(
-                                colors: [
-                                    categoryColor(for: product.category),
-                                    categoryColor(for: product.category).opacity(0.8)
-                                ],
+                                colors: [product.category.color, product.category.color.opacity(0.8)],
                                 startPoint: .topLeading,
                                 endPoint: .bottomTrailing
                             )
                         )
                         .frame(width: 80, height: 80)
-                        .shadow(color: categoryColor(for: product.category).opacity(0.3), radius: 6, x: 0, y: 3)
+                        .shadow(color: product.category.color.opacity(0.3), radius: 6, x: 0, y: 3)
                     
-                    Image(systemName: categorySymbol(for: product.category))
-                        .font(.system(size: 32, weight: .thin))
-                        .foregroundColor(.white.opacity(0.9))
+                    if let firstImageURL = product.imageURLs.first {
+                        Image(firstImageURL)
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 80, height: 80)
+                            .clipShape(RoundedRectangle(cornerRadius: 14))
+                    } else {
+                        Image(systemName: product.category.symbol)
+                            .font(.system(size: 32, weight: .thin))
+                            .foregroundColor(.white.opacity(0.9))
+                    }
                 }
                 
-                // Info
                 VStack(alignment: .leading, spacing: 6) {
                     Text(product.name)
                         .font(.system(size: 15, weight: .semibold))
@@ -437,48 +401,28 @@ struct ProductSearchCard: View {
             isPressed = pressing
         }, perform: {})
     }
-    
-    func categoryColor(for category: ProductCategory) -> Color {
-        switch category {
-        case .electronics: return Color(red: 0.2, green: 0.4, blue: 0.8)
-        case .fashion: return Color(red: 0.9, green: 0.4, blue: 0.5)
-        case .home: return Color(red: 0.4, green: 0.7, blue: 0.5)
-        case .beauty: return Color(red: 0.9, green: 0.6, blue: 0.7)
-        case .sports: return Color(red: 0.3, green: 0.7, blue: 0.9)
-        case .books: return Color(red: 0.6, green: 0.4, blue: 0.3)
-        case .toys: return Color(red: 0.9, green: 0.7, blue: 0.3)
-        case .food: return Color(red: 0.8, green: 0.5, blue: 0.3)
-        case .other: return Color(red: 0.5, green: 0.5, blue: 0.5)
-        }
-    }
-    
-    func categorySymbol(for category: ProductCategory) -> String {
-        switch category {
-        case .electronics: return "airpodspro"
-        case .fashion: return "tshirt"
-        case .home: return "lamp.floor"
-        case .beauty: return "sparkles"
-        case .sports: return "figure.run"
-        case .books: return "book"
-        case .toys: return "gamecontroller"
-        case .food: return "cup.and.saucer"
-        case .other: return "square.grid.2x2"
-        }
-    }
 }
 
 // MARK: - User Search Card
 struct UserSearchCard: View {
     let user: User
     @ObservedObject var userManager: UserDataManager
+    @EnvironmentObject var productManager: ProductDataManager
+    @EnvironmentObject var feedManager: FeedDataManager
+    @EnvironmentObject var cartManager: CartDataManager
+    @EnvironmentObject var messageManager: MessageDataManager
     @State private var isPressed = false
     
     var body: some View {
         NavigationLink(destination: ProfileView(
             user: user,
             userManager: userManager,
-            productManager: ProductDataManager()
-        )) {
+            productManager: productManager,
+            messageManager: messageManager
+        )
+        .environmentObject(feedManager)
+        .environmentObject(cartManager)
+        ) {
             HStack(spacing: 12) {
                 Circle()
                     .fill(
@@ -569,8 +513,15 @@ struct EmptyStateView: View {
 }
 
 #Preview {
+    let userMgr = UserDataManager()
+    let prodMgr = ProductDataManager()
     NavigationView {
         SearchView()
+            .environmentObject(userMgr)
+            .environmentObject(prodMgr)
+            .environmentObject(CartDataManager(productManager: prodMgr))
+            .environmentObject(MessageDataManager(userManager: userMgr))
+            .environmentObject(FeedDataManager(productManager: prodMgr, userManager: userMgr))
     }
 }
 

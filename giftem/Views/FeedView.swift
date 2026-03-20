@@ -10,15 +10,14 @@ import SwiftUI
 struct FeedView: View {
     @EnvironmentObject var productManager: ProductDataManager
     @EnvironmentObject var userManager: UserDataManager
-    
-    @State private var feedManager: FeedDataManager?
-    @State private var cartManager: CartDataManager?
-    @State private var messageManager: MessageDataManager?
+    @EnvironmentObject var feedManager: FeedDataManager
+    @EnvironmentObject var cartManager: CartDataManager
+    @EnvironmentObject var messageManager: MessageDataManager
+
     @State private var selectedCategory: ProductCategory?
     @State private var showAddProduct = false
     
     var filteredPosts: [Post] {
-        guard let feedManager = feedManager else { return [] }
         guard let category = selectedCategory else { return feedManager.posts }
         return feedManager.posts.filter { post in
             guard let product = productManager.getProduct(by: post.productId) else { return false }
@@ -40,34 +39,35 @@ struct FeedView: View {
                     
                     Spacer()
                     
-                    // Buttons on the right
-                    HStack(spacing: 16) {
-                        // Plus button (Add Product)
-                        Button(action: { showAddProduct = true }) {
-                            Image(systemName: "plus.circle.fill")
-                                .font(.system(size: 24))
-                                .foregroundColor(Color(red: 0x7F/255.0, green: 0x3F/255.0, blue: 0x98/255.0))
-                        }
-                        
-                        // Notification button
-                        Button(action: {
-                            // TODO: Add notification action
-                            print("Notifications tapped")
-                        }) {
-                            ZStack(alignment: .topTrailing) {
-                                Image(systemName: "bell.fill")
-                                    .font(.system(size: 22))
-                                    .foregroundColor(Color(red: 0x7F/255.0, green: 0x3F/255.0, blue: 0x98/255.0))
-                                
-                                // Red badge for unread notifications
-                                Circle()
-                                    .fill(Color.red)
-                                    .frame(width: 10, height: 10)
-                                    .offset(x: 4, y: -4)
+                    // Header action buttons — glass on floating controls
+                    GlassEffectContainer(spacing: 8) {
+                        HStack(spacing: 8) {
+                            // Plus button (Add Product) — .glass, interactive
+                            Button(action: { showAddProduct = true }) {
+                                Image(systemName: "plus")
+                                    .font(.system(size: 16, weight: .semibold))
+                                    .padding(8)
                             }
+                            .glassEffect(.regular.interactive(), in: .circle)
+                            .buttonStyle(.plain)
+                            
+                            // Notification button — .glass, interactive
+                            Button(action: {}) {
+                                ZStack(alignment: .topTrailing) {
+                                    Image(systemName: "bell")
+                                        .font(.system(size: 16, weight: .medium))
+                                        .padding(8)
+                                    Circle()
+                                        .fill(Color.red)
+                                        .frame(width: 8, height: 8)
+                                        .offset(x: 2, y: 2)
+                                }
+                            }
+                            .glassEffect(.regular.interactive(), in: .circle)
+                            .buttonStyle(.plain)
                         }
                     }
-                    .padding(.trailing, 16)
+                    .padding(.trailing, 12)
                 }
                 .padding(.vertical, 12)
                 .background(Color(.systemBackground))
@@ -106,34 +106,21 @@ struct FeedView: View {
                 Divider()
                 
                 // Posts Feed
-                if let feedManager = feedManager, let cartManager = cartManager, let messageManager = messageManager {
-                    LazyVStack(spacing: 0) {
-                        ForEach(filteredPosts) { post in
-                            PostCard(
-                                post: post,
-                                productManager: productManager,
-                                userManager: userManager,
-                                feedManager: feedManager,
-                                cartManager: cartManager,
-                                messageManager: messageManager
-                            )
-                        }
+                LazyVStack(spacing: 0) {
+                    ForEach(filteredPosts) { post in
+                        PostCard(
+                            post: post,
+                            productManager: productManager,
+                            userManager: userManager,
+                            feedManager: feedManager,
+                            cartManager: cartManager,
+                            messageManager: messageManager
+                        )
                     }
                 }
             }
         }
         .background(Color(.systemBackground))
-        .onAppear {
-            if feedManager == nil {
-                feedManager = FeedDataManager(productManager: productManager, userManager: userManager)
-            }
-            if cartManager == nil {
-                cartManager = CartDataManager(productManager: productManager)
-            }
-            if messageManager == nil {
-                messageManager = MessageDataManager(userManager: userManager)
-            }
-        }
         .sheet(isPresented: $showAddProduct) {
             AddProductView(productManager: productManager)
         }
@@ -178,21 +165,13 @@ struct PostCard: View {
         VStack(alignment: .leading, spacing: 0) {
             // User Header
             HStack(spacing: 12) {
-                // Profile Image - solid gradient circle
-                Circle()
-                    .fill(
-                        LinearGradient(
-                            colors: [Color(red: 0.26, green: 0.46, blue: 0.78), Color(red: 0.49, green: 0.36, blue: 0.89)],
-                            startPoint: .topLeading,
-                            endPoint: .bottomTrailing
-                        )
-                    )
-                    .frame(width: 40, height: 40)
-                    .overlay(
-                        Image(systemName: "person.fill")
-                            .foregroundColor(.white)
-                            .font(.system(size: 18, weight: .medium))
-                    )
+                if let user = user {
+                    UserAvatarView(user: user, size: 40)
+                } else {
+                    Circle()
+                        .fill(Color(.systemGray4))
+                        .frame(width: 40, height: 40)
+                }
                 
                 VStack(alignment: .leading, spacing: 2) {
                     HStack(spacing: 4) {
@@ -244,9 +223,8 @@ struct PostCard: View {
                                 .fill(
                                     LinearGradient(
                                         colors: [
-                                            categoryColor(for: product.category),
-                                            categoryColor(for: product.category).opacity(0.8),
-                                            categoryColor(for: product.category).opacity(0.9)
+                                            product.category.color,
+                                            product.category.color.opacity(0.8)
                                         ],
                                         startPoint: .topLeading,
                                         endPoint: .bottomTrailing
@@ -254,8 +232,7 @@ struct PostCard: View {
                                 )
                                 .frame(height: 400)
                             
-                            // SF Symbol for product (fallback)
-                            Image(systemName: categorySymbol(for: product.category))
+                            Image(systemName: product.category.symbol)
                                 .font(.system(size: 120, weight: .thin))
                                 .foregroundColor(.white.opacity(0.9))
                                 .shadow(color: Color.black.opacity(0.1), radius: 10, x: 0, y: 5)
@@ -423,52 +400,6 @@ struct PostCard: View {
         }
     }
     
-    // Helper functions for product image colors
-    func categoryColor(for category: ProductCategory) -> Color {
-        switch category {
-        case .electronics:
-            return Color(red: 0.2, green: 0.4, blue: 0.8)
-        case .fashion:
-            return Color(red: 0.9, green: 0.4, blue: 0.5)
-        case .home:
-            return Color(red: 0.4, green: 0.7, blue: 0.5)
-        case .beauty:
-            return Color(red: 0.9, green: 0.6, blue: 0.7)
-        case .sports:
-            return Color(red: 0.3, green: 0.7, blue: 0.9)
-        case .books:
-            return Color(red: 0.6, green: 0.4, blue: 0.3)
-        case .toys:
-            return Color(red: 0.9, green: 0.7, blue: 0.3)
-        case .food:
-            return Color(red: 0.8, green: 0.5, blue: 0.3)
-        case .other:
-            return Color(red: 0.5, green: 0.5, blue: 0.5)
-        }
-    }
-    
-    func categorySymbol(for category: ProductCategory) -> String {
-        switch category {
-        case .electronics:
-            return "airpodspro"
-        case .fashion:
-            return "tshirt"
-        case .home:
-            return "lamp.floor"
-        case .beauty:
-            return "sparkles"
-        case .sports:
-            return "figure.run"
-        case .books:
-            return "book"
-        case .toys:
-            return "gamecontroller"
-        case .food:
-            return "cup.and.saucer"
-        case .other:
-            return "square.grid.2x2"
-        }
-    }
 }
 
 // MARK: - Enhanced Category Chip
@@ -529,9 +460,14 @@ struct CategoryChip: View {
 }
 
 #Preview {
+    let userMgr = UserDataManager()
+    let prodMgr = ProductDataManager()
     NavigationView {
         FeedView()
-            .environmentObject(ProductDataManager())
-            .environmentObject(UserDataManager())
+            .environmentObject(userMgr)
+            .environmentObject(prodMgr)
+            .environmentObject(FeedDataManager(productManager: prodMgr, userManager: userMgr))
+            .environmentObject(CartDataManager(productManager: prodMgr))
+            .environmentObject(MessageDataManager(userManager: userMgr))
     }
 }

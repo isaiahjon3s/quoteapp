@@ -56,7 +56,7 @@ struct CommentsView: View {
             VStack(spacing: 0) {
                 Divider()
                 HStack(spacing: 12) {
-                    if let currentUser = userManager.currentUser {
+                    if userManager.currentUser != nil {
                         Circle()
                             .fill(
                                 LinearGradient(

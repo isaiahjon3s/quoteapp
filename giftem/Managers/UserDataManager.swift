@@ -25,7 +25,7 @@ class UserDataManager: ObservableObject {
             User(
                 username: "alex_wonder",
                 displayName: "Alex Wonder",
-                profileImageURL: nil,
+                profileImageURL: "avatar_alexwonder",
                 bio: "Tech enthusiast & gadget collector 🚀",
                 followerCount: 12450,
                 followingCount: 892,
@@ -35,7 +35,7 @@ class UserDataManager: ObservableObject {
             User(
                 username: "sarah_style",
                 displayName: "Sarah Peterson",
-                profileImageURL: nil,
+                profileImageURL: "avatar_sarahpeterson",
                 bio: "Fashion lover | Sharing my finds ✨",
                 followerCount: 8760,
                 followingCount: 645,
@@ -45,7 +45,7 @@ class UserDataManager: ObservableObject {
             User(
                 username: "mike_gadgets",
                 displayName: "Mike Rodriguez",
-                profileImageURL: nil,
+                profileImageURL: "avatar_mikerodriguez",
                 bio: "Reviewing the latest tech 📱",
                 followerCount: 5420,
                 followingCount: 234,
@@ -55,7 +55,7 @@ class UserDataManager: ObservableObject {
             User(
                 username: "emma_home",
                 displayName: "Emma Wilson",
-                profileImageURL: nil,
+                profileImageURL: "avatar_emmawilson",
                 bio: "Home decor enthusiast 🏠",
                 followerCount: 3210,
                 followingCount: 456,
@@ -65,7 +65,7 @@ class UserDataManager: ObservableObject {
             User(
                 username: "mamapeters75",
                 displayName: "Fran Peters",
-                profileImageURL: nil,
+                profileImageURL: "avatar_franpeters",
                 bio: "I really love my dogs and my son!",
                 followerCount: 140,
                 followingCount: 234,
@@ -75,7 +75,7 @@ class UserDataManager: ObservableObject {
             User(
                 username: "lisa_beauty",
                 displayName: "Lisa Thompson",
-                profileImageURL: nil,
+                profileImageURL: "avatar_lisathompson",
                 bio: "Beauty products & skincare routine 💄",
                 followerCount: 15230,
                 followingCount: 789,

@@ -49,9 +49,11 @@ struct MessagesView: View {
                     showNewMessage = true
                 }) {
                     Image(systemName: "square.and.pencil")
-                        .font(.system(size: 20, weight: .medium))
-                        .foregroundColor(.blue)
+                        .font(.system(size: 18, weight: .medium))
+                        .padding(8)
                 }
+                .glassEffect(.regular.interactive(), in: .circle)
+                .buttonStyle(.plain)
             }
             .padding(.horizontal, 16)
             .padding(.vertical, 12)
@@ -77,14 +79,13 @@ struct MessagesView: View {
                     Button(action: {
                         showNewMessage = true
                     }) {
-                        Text("New Message")
+                        Label("New Message", systemImage: "square.and.pencil")
                             .font(.system(size: 16, weight: .semibold))
-                            .foregroundColor(.white)
-                            .padding(.horizontal, 24)
-                            .padding(.vertical, 12)
-                            .background(Color.blue)
-                            .cornerRadius(20)
+                            .padding(.horizontal, 8)
+                            .padding(.vertical, 4)
                     }
+                    .buttonStyle(.glassProminent)
+                    .tint(.blue)
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .padding()
@@ -143,24 +144,16 @@ struct ConversationRow: View {
         }) {
             HStack(spacing: 12) {
                 // Profile Image
-                Circle()
-                    .fill(
-                        LinearGradient(
-                            colors: [Color(red: 0.26, green: 0.46, blue: 0.78), Color(red: 0.49, green: 0.36, blue: 0.89)],
-                            startPoint: .topLeading,
-                            endPoint: .bottomTrailing
-                        )
-                    )
-                    .frame(width: 56, height: 56)
-                    .overlay(
-                        Image(systemName: "person.fill")
-                            .foregroundColor(.white)
-                            .font(.system(size: 24, weight: .medium))
-                    )
-                    .overlay(
+                Group {
+                    if let otherUser = otherUser {
+                        UserAvatarView(user: otherUser, size: 56)
+                    } else {
                         Circle()
-                            .stroke(Color(.systemBackground), lineWidth: 2)
-                    )
+                            .fill(Color(.systemGray4))
+                            .frame(width: 56, height: 56)
+                    }
+                }
+                .overlay(Circle().stroke(Color(.systemBackground), lineWidth: 2))
                 
                 VStack(alignment: .leading, spacing: 4) {
                     HStack(spacing: 6) {
@@ -224,12 +217,14 @@ struct ConversationRow: View {
         }
         .sheet(isPresented: $showConversation) {
             if let otherUser = otherUser {
-                ConversationView(
-                    conversation: conversation,
-                    otherUser: otherUser,
-                    messageManager: messageManager,
-                    userManager: userManager
-                )
+                NavigationView {
+                    ConversationView(
+                        conversation: conversation,
+                        otherUser: otherUser,
+                        messageManager: messageManager,
+                        userManager: userManager
+                    )
+                }
             }
         }
     }
@@ -282,25 +277,11 @@ struct NewMessageView: View {
                     LazyVStack(spacing: 0) {
                         ForEach(filteredUsers) { user in
                             Button(action: {
-                                let conversation = messageManager.getOrCreateConversation(with: user.id)
+                                _ = messageManager.getOrCreateConversation(with: user.id)
                                 dismiss()
-                                // Navigation will be handled by the parent view
                             }) {
                                 HStack(spacing: 12) {
-                                    Circle()
-                                        .fill(
-                                            LinearGradient(
-                                                colors: [Color(red: 0.26, green: 0.46, blue: 0.78), Color(red: 0.49, green: 0.36, blue: 0.89)],
-                                                startPoint: .topLeading,
-                                                endPoint: .bottomTrailing
-                                            )
-                                        )
-                                        .frame(width: 50, height: 50)
-                                        .overlay(
-                                            Image(systemName: "person.fill")
-                                                .foregroundColor(.white)
-                                                .font(.system(size: 22, weight: .medium))
-                                        )
+                                    UserAvatarView(user: user, size: 50)
                                     
                                     VStack(alignment: .leading, spacing: 4) {
                                         HStack(spacing: 4) {

@@ -24,154 +24,136 @@ struct ConversationView: View {
     }
     
     var body: some View {
-        NavigationView {
-            VStack(spacing: 0) {
-                // Messages List
-                ScrollViewReader { proxy in
-                    ScrollView {
-                        LazyVStack(spacing: 12) {
-                            ForEach(messages) { message in
-                                MessageBubble(
-                                    message: message,
-                                    isCurrentUser: message.senderId == userManager.currentUser?.id,
-                                    otherUser: otherUser,
-                                    productManager: productManager
-                                )
-                                .id(message.id)
-                            }
+        VStack(spacing: 0) {
+            // Messages List
+            ScrollViewReader { proxy in
+                ScrollView {
+                    LazyVStack(spacing: 12) {
+                        ForEach(messages) { message in
+                            MessageBubble(
+                                message: message,
+                                isCurrentUser: message.senderId == userManager.currentUser?.id,
+                                otherUser: otherUser,
+                                productManager: productManager
+                            )
+                            .id(message.id)
                         }
-                        .padding(.horizontal, 16)
-                        .padding(.vertical, 12)
                     }
-                    .onAppear {
-                        scrollProxy = proxy
-                        scrollToBottom(proxy: proxy)
-                    }
-                    .onChange(of: messages.count) { _ in
-                        scrollToBottom(proxy: proxy)
-                    }
+                    .padding(.horizontal, 16)
+                    .padding(.vertical, 12)
                 }
-                .background(Color(.systemGray6).opacity(0.3))
+                .onAppear {
+                    scrollProxy = proxy
+                    scrollToBottom(proxy: proxy)
+                }
+                .onChange(of: messages.count) {
+                    scrollToBottom(proxy: proxy)
+                }
+            }
+            .background(Color(.systemGray6).opacity(0.3))
+            
+            // Message Input
+            VStack(spacing: 0) {
+                Divider()
                 
-                // Message Input
-                VStack(spacing: 0) {
-                    Divider()
+                HStack(spacing: 12) {
+                    Button(action: {}) {
+                        Image(systemName: "camera.fill")
+                            .font(.system(size: 22))
+                            .foregroundColor(.blue)
+                    }
                     
-                    HStack(spacing: 12) {
-                        // Camera button
-                        Button(action: {
-                            // In a real app, this would open camera/photo picker
-                        }) {
-                            Image(systemName: "camera.fill")
-                                .font(.system(size: 22))
-                                .foregroundColor(.blue)
-                        }
-                        
-                        // Text Field
-                        HStack(spacing: 8) {
-                            TextField("Message...", text: $messageText, axis: .vertical)
-                                .font(.system(size: 16))
-                                .lineLimit(1...5)
-                                .focused($isTextFieldFocused)
-                        }
-                        .padding(.horizontal, 12)
-                        .padding(.vertical, 8)
-                        .background(Color(.systemGray6))
-                        .cornerRadius(20)
-                        
-                        // Send Button
-                        Button(action: sendMessage) {
-                            Image(systemName: messageText.isEmpty ? "heart" : "arrow.up.circle.fill")
-                                .font(.system(size: 28))
-                                .foregroundColor(messageText.isEmpty ? .secondary : .blue)
-                                .symbolEffect(.bounce, value: !messageText.isEmpty)
-                        }
-                        .disabled(messageText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty && !messageText.isEmpty)
+                    HStack(spacing: 8) {
+                        TextField("Message...", text: $messageText, axis: .vertical)
+                            .font(.system(size: 16))
+                            .lineLimit(1...5)
+                            .focused($isTextFieldFocused)
                     }
                     .padding(.horizontal, 12)
                     .padding(.vertical, 8)
-                    .background(Color(.systemBackground))
-                }
-            }
-            .navigationTitle(otherUser.displayName)
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button(action: {
-                        dismiss()
-                    }) {
-                        HStack(spacing: 4) {
-                            Image(systemName: "chevron.left")
-                                .font(.system(size: 16, weight: .semibold))
-                            Text("Back")
-                        }
-                        .foregroundColor(.blue)
+                    .background(Color(.systemGray6))
+                    .cornerRadius(20)
+                    
+                    Button(action: sendMessage) {
+                        Image(systemName: messageText.isEmpty ? "heart" : "arrow.up.circle.fill")
+                            .font(.system(size: 28))
+                            .foregroundColor(messageText.isEmpty ? .secondary : .blue)
+                            .symbolEffect(.bounce, value: !messageText.isEmpty)
                     }
+                    .disabled(messageText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty && !messageText.isEmpty)
                 }
-                
-                ToolbarItem(placement: .principal) {
-                    HStack(spacing: 8) {
-                        Circle()
-                            .fill(
-                                LinearGradient(
-                                    colors: [Color(red: 0.26, green: 0.46, blue: 0.78), Color(red: 0.49, green: 0.36, blue: 0.89)],
-                                    startPoint: .topLeading,
-                                    endPoint: .bottomTrailing
-                                )
-                            )
-                            .frame(width: 32, height: 32)
-                            .overlay(
-                                Image(systemName: "person.fill")
-                                    .foregroundColor(.white)
-                                    .font(.system(size: 14, weight: .medium))
-                            )
-                        
-                        VStack(spacing: 0) {
-                            HStack(spacing: 4) {
-                                Text(otherUser.displayName)
-                                    .font(.system(size: 14, weight: .semibold))
-                                
-                                if otherUser.isVerified {
-                                    Image(systemName: "checkmark.seal.fill")
-                                        .foregroundColor(.blue)
-                                        .font(.system(size: 10))
-                                }
-                            }
-                        }
-                    }
-                }
-                
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Menu {
-                        Button(action: {
-                            // View profile
-                        }) {
-                            Label("View Profile", systemImage: "person")
-                        }
-                        
-                        Button(action: {
-                            // Mute conversation
-                        }) {
-                            Label("Mute", systemImage: "bell.slash")
-                        }
-                        
-                        Button(role: .destructive, action: {
-                            messageManager.deleteConversation(conversation.id)
-                            dismiss()
-                        }) {
-                            Label("Delete Conversation", systemImage: "trash")
-                        }
-                    } label: {
-                        Image(systemName: "ellipsis.circle")
-                            .font(.system(size: 18))
-                    }
-                }
-            }
-            .onAppear {
-                messageManager.markConversationAsRead(conversation.id)
+                .padding(.horizontal, 12)
+                .padding(.vertical, 8)
+                .background(Color(.systemBackground))
             }
         }
-        .navigationBarBackButtonHidden(true)
+        .navigationTitle(otherUser.displayName)
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button(action: { dismiss() }) {
+                    HStack(spacing: 4) {
+                        Image(systemName: "chevron.left")
+                            .font(.system(size: 16, weight: .semibold))
+                        Text("Back")
+                    }
+                    .foregroundColor(.blue)
+                }
+            }
+            
+            ToolbarItem(placement: .principal) {
+                HStack(spacing: 8) {
+                    Circle()
+                        .fill(
+                            LinearGradient(
+                                colors: [Color(red: 0.26, green: 0.46, blue: 0.78), Color(red: 0.49, green: 0.36, blue: 0.89)],
+                                startPoint: .topLeading,
+                                endPoint: .bottomTrailing
+                            )
+                        )
+                        .frame(width: 32, height: 32)
+                        .overlay(
+                            Image(systemName: "person.fill")
+                                .foregroundColor(.white)
+                                .font(.system(size: 14, weight: .medium))
+                        )
+                    
+                    HStack(spacing: 4) {
+                        Text(otherUser.displayName)
+                            .font(.system(size: 14, weight: .semibold))
+                        
+                        if otherUser.isVerified {
+                            Image(systemName: "checkmark.seal.fill")
+                                .foregroundColor(.blue)
+                                .font(.system(size: 10))
+                        }
+                    }
+                }
+            }
+            
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Menu {
+                    Button(action: {}) {
+                        Label("View Profile", systemImage: "person")
+                    }
+                    Button(action: {}) {
+                        Label("Mute", systemImage: "bell.slash")
+                    }
+                    Button(role: .destructive, action: {
+                        messageManager.deleteConversation(conversation.id)
+                        dismiss()
+                    }) {
+                        Label("Delete Conversation", systemImage: "trash")
+                    }
+                } label: {
+                    Image(systemName: "ellipsis.circle")
+                        .font(.system(size: 18))
+                }
+            }
+        }
+        .onAppear {
+            messageManager.markConversationAsRead(conversation.id)
+        }
     }
     
     private func sendMessage() {

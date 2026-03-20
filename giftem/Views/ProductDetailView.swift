@@ -15,7 +15,7 @@ struct ProductDetailView: View {
     @ObservedObject var cartManager: CartDataManager
     
     @StateObject private var commentManager: CommentDataManager
-    @StateObject private var feedManager: FeedDataManager
+    @EnvironmentObject var feedManager: FeedDataManager
     @State private var showComments = false
     @State private var selectedImageIndex = 0
     @State private var quantity = 1
@@ -28,7 +28,6 @@ struct ProductDetailView: View {
         if let postId = postId {
             return feedManager.getPost(by: postId)
         }
-        // Try to find a post for this product
         return feedManager.posts.first { $0.productId == product.id }
     }
     
@@ -41,9 +40,6 @@ struct ProductDetailView: View {
         
         let commentManager = CommentDataManager(userManager: userManager)
         _commentManager = StateObject(wrappedValue: commentManager)
-        
-        let feedManager = FeedDataManager(productManager: productManager, userManager: userManager)
-        _feedManager = StateObject(wrappedValue: feedManager)
     }
     
     var body: some View {
@@ -62,21 +58,16 @@ struct ProductDetailView: View {
                                         .frame(width: geometry.size.width, height: 400)
                                         .clipped()
                                 } else {
-                                    // Fallback gradient background
                                     Rectangle()
                                         .fill(
                                             LinearGradient(
-                                                colors: [
-                                                    categoryColor(for: product.category),
-                                                    categoryColor(for: product.category).opacity(0.8),
-                                                    categoryColor(for: product.category).opacity(0.9)
-                                                ],
+                                                colors: [product.category.color, product.category.color.opacity(0.8)],
                                                 startPoint: .topLeading,
                                                 endPoint: .bottomTrailing
                                             )
                                         )
                                     
-                                    Image(systemName: categorySymbol(for: product.category))
+                                    Image(systemName: product.category.symbol)
                                         .font(.system(size: 120, weight: .thin))
                                         .foregroundColor(.white.opacity(0.9))
                                         .shadow(color: Color.black.opacity(0.1), radius: 10, x: 0, y: 5)
@@ -258,61 +249,69 @@ struct ProductDetailView: View {
                                             .font(.caption)
                                             .padding(.horizontal, 10)
                                             .padding(.vertical, 6)
-                                            .background(
-                                                Capsule()
-                                                    .fill(.regularMaterial)
-                                            )
+                                            .glassEffect(.regular, in: .capsule)
                                     }
                                 }
                             }
                         }
                         
-                        // Action Buttons
-                        VStack(spacing: 12) {
-                            LiquidGlassButton(
-                                "Add to Cart",
-                                icon: "cart.fill",
-                                style: .primary,
-                                size: .large
-                            ) {
-                                cartManager.addToCart(productId: product.id, quantity: quantity)
-                            }
-                            
-                            HStack(spacing: 12) {
-                                LiquidGlassButton(
-                                    "Buy Now",
-                                    icon: "creditcard.fill",
-                                    style: .accent,
-                                    size: .large
-                                ) {
-                                    // In real app, would navigate to checkout
+                        // Action Buttons — Apple Liquid Glass
+                        GlassEffectContainer(spacing: 10) {
+                            VStack(spacing: 10) {
+                                // Primary: Add to Cart
+                                Button {
+                                    cartManager.addToCart(productId: product.id, quantity: quantity)
+                                } label: {
+                                    Label("Add to Cart", systemImage: "cart.fill")
+                                        .font(.system(size: 17, weight: .semibold))
+                                        .frame(maxWidth: .infinity)
+                                        .padding(.vertical, 4)
+                                }
+                                .buttonStyle(.glassProminent)
+                                .tint(.purple)
+                                
+                                HStack(spacing: 10) {
+                                    // Primary: Buy Now
+                                    Button {
+                                        // navigate to checkout
+                                    } label: {
+                                        Label("Buy Now", systemImage: "creditcard.fill")
+                                            .font(.system(size: 16, weight: .semibold))
+                                            .frame(maxWidth: .infinity)
+                                            .padding(.vertical, 4)
+                                    }
+                                    .buttonStyle(.glassProminent)
+                                    .tint(.blue)
+                                    
+                                    // Secondary: Gift
+                                    Button {
+                                        cartManager.addToCart(productId: product.id, quantity: quantity, isForGift: true)
+                                    } label: {
+                                        Label("Gift", systemImage: "gift.fill")
+                                            .font(.system(size: 16, weight: .semibold))
+                                            .frame(maxWidth: .infinity)
+                                            .padding(.vertical, 4)
+                                    }
+                                    .buttonStyle(.glass)
                                 }
                                 
-                                LiquidGlassButton(
-                                    "Gift",
-                                    icon: "gift.fill",
-                                    style: .secondary,
-                                    size: .large
-                                ) {
-                                    cartManager.addToCart(productId: product.id, quantity: quantity, isForGift: true)
+                                // Wishlist toggle
+                                Button {
+                                    if cartManager.isInWishlist(productId: product.id) {
+                                        cartManager.removeFromWishlist(productId: product.id)
+                                    } else {
+                                        cartManager.addToWishlist(productId: product.id)
+                                    }
+                                } label: {
+                                    Label(
+                                        cartManager.isInWishlist(productId: product.id) ? "Remove from Wishlist" : "Add to Wishlist",
+                                        systemImage: cartManager.isInWishlist(productId: product.id) ? "heart.fill" : "heart"
+                                    )
+                                    .frame(maxWidth: .infinity)
+                                    .padding(.vertical, 2)
                                 }
-                            }
-                            
-                            Button(action: {
-                                if cartManager.isInWishlist(productId: product.id) {
-                                    cartManager.removeFromWishlist(productId: product.id)
-                                } else {
-                                    cartManager.addToWishlist(productId: product.id)
-                                }
-                            }) {
-                                HStack {
-                                    Image(systemName: cartManager.isInWishlist(productId: product.id) ? "heart.fill" : "heart")
-                                        .foregroundColor(cartManager.isInWishlist(productId: product.id) ? .red : .secondary)
-                                    Text(cartManager.isInWishlist(productId: product.id) ? "Remove from Wishlist" : "Add to Wishlist")
-                                        .foregroundColor(.secondary)
-                                }
-                                .frame(maxWidth: .infinity)
-                                .padding()
+                                .buttonStyle(.glass)
+                                .tint(cartManager.isInWishlist(productId: product.id) ? .red : nil)
                             }
                         }
                         .padding(.top, 8)
@@ -343,52 +342,6 @@ struct ProductDetailView: View {
         }
     }
     
-    // Helper functions for product image colors
-    func categoryColor(for category: ProductCategory) -> Color {
-        switch category {
-        case .electronics:
-            return Color(red: 0.2, green: 0.4, blue: 0.8)
-        case .fashion:
-            return Color(red: 0.9, green: 0.4, blue: 0.5)
-        case .home:
-            return Color(red: 0.4, green: 0.7, blue: 0.5)
-        case .beauty:
-            return Color(red: 0.9, green: 0.6, blue: 0.7)
-        case .sports:
-            return Color(red: 0.3, green: 0.7, blue: 0.9)
-        case .books:
-            return Color(red: 0.6, green: 0.4, blue: 0.3)
-        case .toys:
-            return Color(red: 0.9, green: 0.7, blue: 0.3)
-        case .food:
-            return Color(red: 0.8, green: 0.5, blue: 0.3)
-        case .other:
-            return Color(red: 0.5, green: 0.5, blue: 0.5)
-        }
-    }
-    
-    func categorySymbol(for category: ProductCategory) -> String {
-        switch category {
-        case .electronics:
-            return "airpodspro"
-        case .fashion:
-            return "tshirt"
-        case .home:
-            return "lamp.floor"
-        case .beauty:
-            return "sparkles"
-        case .sports:
-            return "figure.run"
-        case .books:
-            return "book"
-        case .toys:
-            return "gamecontroller"
-        case .food:
-            return "cup.and.saucer"
-        case .other:
-            return "square.grid.2x2"
-        }
-    }
 }
 
 // MARK: - Flow Layout for Tags
@@ -446,6 +399,8 @@ struct FlowLayout: Layout {
 }
 
 #Preview {
+    let userMgr = UserDataManager()
+    let prodMgr = ProductDataManager()
     NavigationView {
         ProductDetailView(
             product: Product(
@@ -456,10 +411,11 @@ struct FlowLayout: Layout {
                 category: .electronics,
                 sellerId: "seller1"
             ),
-            productManager: ProductDataManager(),
-            userManager: UserDataManager(),
-            cartManager: CartDataManager(productManager: ProductDataManager())
+            productManager: prodMgr,
+            userManager: userMgr,
+            cartManager: CartDataManager(productManager: prodMgr)
         )
+        .environmentObject(FeedDataManager(productManager: prodMgr, userManager: userMgr))
     }
 }
 

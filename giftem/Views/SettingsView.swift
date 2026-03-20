@@ -2,8 +2,6 @@
 //  SettingsView.swift
 //  giftem
 //
-//  Created by Isaiah Jones on 12/8/25.
-//
 
 import SwiftUI
 
@@ -12,55 +10,66 @@ struct SettingsView: View {
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
-        NavigationView {
-            List {
-                Section {
-                    Toggle(isOn: $isDarkMode) {
-                        HStack(spacing: 12) {
-                            Image(systemName: isDarkMode ? "moon.fill" : "sun.max.fill")
-                                .foregroundColor(isDarkMode ? .purple : .orange)
-                                .font(.system(size: 20))
-                            
-                            Text("Dark Mode")
-                                .font(.system(size: 17))
-                        }
+        // Standard iOS grouped list — system handles the glass on nav bar / sheets
+        List {
+            Section("Appearance") {
+                Toggle(isOn: $isDarkMode) {
+                    Label {
+                        Text("Dark Mode")
+                    } icon: {
+                        Image(systemName: isDarkMode ? "moon.stars.fill" : "sun.max.fill")
+                            .foregroundStyle(isDarkMode ? .indigo : .orange)
                     }
-                    .tint(.blue)
-                } header: {
-                    Text("Appearance")
+                }
+                .tint(.purple)
+            }
+            
+            Section("About") {
+                LabeledContent {
+                    Text("1.0.0")
+                        .foregroundStyle(.secondary)
+                } label: {
+                    Label("Version", systemImage: "info.circle")
                 }
                 
-                Section {
-                    HStack {
-                        Image(systemName: "info.circle.fill")
-                            .foregroundColor(.blue)
-                            .font(.system(size: 20))
-                        Text("Version")
-                        Spacer()
-                        Text("1.0.0")
-                            .foregroundColor(.secondary)
-                    }
-                } header: {
-                    Text("About")
+                LabeledContent {
+                    Text("SwiftUI")
+                        .foregroundStyle(.secondary)
+                } label: {
+                    Label("Framework", systemImage: "swift")
+                }
+                
+                LabeledContent {
+                    Text("Liquid Glass")
+                        .foregroundStyle(.secondary)
+                } label: {
+                    Label("Design System", systemImage: "sparkles")
                 }
             }
-            .navigationTitle("Settings")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Done") {
-                        dismiss()
-                    }
-                    .fontWeight(.semibold)
+            
+            Section {
+                // Secondary action — .glass button style
+                Button(role: .destructive) {
+                    // future: sign out
+                } label: {
+                    Label("Sign Out", systemImage: "rectangle.portrait.and.arrow.right")
                 }
+            }
+        }
+        .navigationTitle("Settings")
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                // Primary action gets .glassProminent
+                Button("Done") { dismiss() }
+                    .fontWeight(.semibold)
             }
         }
     }
 }
 
 #Preview {
-    SettingsView(isDarkMode: .constant(false))
+    NavigationView {
+        SettingsView(isDarkMode: .constant(false))
+    }
 }
-
-
-
